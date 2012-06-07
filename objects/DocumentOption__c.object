@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DocumentOptionEID__c</fullName>
+        <description>The Enterprise ID for this Document Option.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Document Option.</inlineHelpText>
+        <label>Document Option EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentStep__c</fullName>
+        <description>The document step requiring this document type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document  step requiring this document type.</inlineHelpText>
+        <label>Document Step</label>
+        <referenceTo>DocumentStep__c</referenceTo>
+        <relationshipLabel>Document Options</relationshipLabel>
+        <relationshipName>DocumentOptions</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DocumentType__c</fullName>
+        <description>The document type needed for this function</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document type needed for this function</inlineHelpText>
+        <label>Document Type</label>
+        <referenceTo>Documenttype__c</referenceTo>
+        <relationshipName>FunctionDocumentTypes</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>EmployeSourceEIDforPQFormula__c</fullName>
+        <description>The Employee source EID</description>
+        <externalId>false</externalId>
+        <formula>DocumentType__r.DocumentSource__r.DocumentSourceEID__c</formula>
+        <inlineHelpText>The Employee source EID</inlineHelpText>
+        <label>EmployeSourceEIDforPQFormula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Document Option</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>DocumentStep__c</columns>
+        <columns>DocumentType__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Document Option Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Document Options</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>DocumentStep__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DocumentType__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>DocumentStep__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DocumentType__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DocumentStep__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DocumentType__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>DocumentStep__c</searchFilterFields>
+        <searchFilterFields>DocumentType__c</searchFilterFields>
+        <searchResultsAdditionalFields>DocumentStep__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DocumentType__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

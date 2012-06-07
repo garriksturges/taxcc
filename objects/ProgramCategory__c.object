@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <fields>
+        <fullName>GeographicBit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This program category is qualified using geographic data.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This program category is qualified using geographic data.</inlineHelpText>
+        <label>Geographic</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>IE2ProgramID__c</fullName>
+        <externalId>false</externalId>
+        <label>IE2ProgramID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryCode__c</fullName>
+        <description>The program category code</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program category code</inlineHelpText>
+        <label>Category Code</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryDescriptionText__c</fullName>
+        <description>The description of the program category</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The description of the program category</inlineHelpText>
+        <label>Category  Description</label>
+        <length>1000</length>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryEID__c</fullName>
+        <description>The Enterprise ID for this Program Category.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Program Category.</inlineHelpText>
+        <label>Program Category EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <description>The program associated with this category</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program associated with this category</inlineHelpText>
+        <label>Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Program Categories</relationshipLabel>
+        <relationshipName>ProgramCategories</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>RankOrder__c</fullName>
+        <description>The order of precedence that this category has within its program. Lower number indicates higher precedence. This will determine which category will be chosen to be used for certification if an employee qualifies under multiple categories.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The order of precedence that this category has within its program. Lower number indicates higher precedence. This will determine which category will be chosen to be used for certification if an employee qualifies under multiple categories.</inlineHelpText>
+        <label>RankOrder</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ShortName__c</fullName>
+        <description>The short name for this program category, for succinct reporting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The short name for this program category, for succinct reporting.</inlineHelpText>
+        <label>Short Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Program Category</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>ProgramCategoryEID__c</columns>
+        <columns>Program__c</columns>
+        <columns>RankOrder__c</columns>
+        <columns>NAME</columns>
+        <columns>ProgramCategoryCode__c</columns>
+        <columns>ProgramCategoryDescriptionText__c</columns>
+        <columns>IE2ProgramID__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Program Category Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Program Categories</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ProgramCategoryCode__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ProgramCategoryDescriptionText__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Program__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ProgramCategoryCode__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ProgramCategoryDescriptionText__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Program__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProgramCategoryCode__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProgramCategoryDescriptionText__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Program__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ProgramCategoryCode__c</searchFilterFields>
+        <searchFilterFields>ProgramCategoryDescriptionText__c</searchFilterFields>
+        <searchFilterFields>Program__c</searchFilterFields>
+        <searchResultsAdditionalFields>ProgramCategoryCode__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ProgramCategoryDescriptionText__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Program__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>newWagePage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>newWagePage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>EmploymentPeriod__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The employment period associated with this wage</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employment period associated with this wage</inlineHelpText>
+        <label>Employment Period</label>
+        <referenceTo>Employment__c</referenceTo>
+        <relationshipLabel>Wages</relationshipLabel>
+        <relationshipName>Wages</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EndDate__c</fullName>
+        <description>Indicates when the wages for this employment period ended</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates when the wages for this employment period ended</inlineHelpText>
+        <label>End Date</label>
+        <required>true</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FullNameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Trim(Left(EmploymentPeriod__r.Employee__r.FullNameFormula__c,31))&amp;&apos;_&apos;&amp; Trim(Left(EmploymentPeriod__r.Entity__r.Name, 30)) &amp; &apos;_&apos; &amp; TEXT(MONTH(StartDate__c)) + &quot;/&quot; + TEXT(DAY(StartDate__c)) + &quot;/&quot; + RIGHT(TEXT(YEAR(StartDate__c)),2) &amp;&apos;_&apos;&amp;
+TEXT(MONTH(EndDate__c)) + &quot;/&quot; +TEXT(DAY(EndDate__c)) + &quot;/&quot; + RIGHT(TEXT(YEAR(EndDate__c)),2)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HoursSummary__c</fullName>
+        <externalId>false</externalId>
+        <label>Hours Summary</label>
+        <summarizedField>Hour__c.HourAmount__c</summarizedField>
+        <summaryForeignKey>Hour__c.Wage__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>IE2WageID__c</fullName>
+        <description>The id from tblEmployeeW2Wages</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The id from tblEmployeeW2Wages</inlineHelpText>
+        <label>IE2WageID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>Indicates when the wages for this employment period started</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates when the wages for this employment period started</inlineHelpText>
+        <label>Start Date</label>
+        <required>true</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WageAmount__c</fullName>
+        <description>Indicates the wages earned between the start and end dates</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the wages earned between the start and end dates</inlineHelpText>
+        <label>Wage Amount</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>WageEID__c</fullName>
+        <description>The Enterprise ID for this Wage record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Wage record.</inlineHelpText>
+        <label>Wage EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <label>Wage</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Wage Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Wages</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>StartDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EndDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>WageAmount__c</customTabListAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Hire_date_not_greater_than_start_date</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(EmploymentPeriod__r.StartDate__c &gt; StartDate__c)</errorConditionFormula>
+        <errorMessage>Employment Hire date can not be greater than start date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Start_date_Validation</fullName>
+        <active>true</active>
+        <description>Employment Period Start date should be less than the End date.</description>
+        <errorConditionFormula>AND( EndDate__c &lt; StartDate__c)</errorConditionFormula>
+        <errorMessage>Employment Period Start date should be less than the End date.</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,23 @@
+<apex:page standardController="ProgramPeriod__c" >
+  <apex:form >
+    <apex:pageBlock title="Program Period" mode="edit">
+      
+<apex:pageMessages />
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="Save"/>
+        <apex:commandButton action="{!cancel}" value="Cancel"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="" columns="1">
+        <apex:inputField value="{! ProgramPeriod__c.Program__c}" required="true"/>
+        <apex:inputField value="{! ProgramPeriod__c.Area__c}" required="true"/>
+        <apex:inputField value="{! ProgramPeriod__c.Agency__c}" required="true"/>
+        <apex:inputField value="{! ProgramPeriod__c.StartDate__c}" required="true"/>
+        <apex:inputField value="{! ProgramPeriod__c.EndDate__c}" required="false"/>
+        <apex:inputField value="{! ProgramPeriod__c.ProgramPeriodEID__c}" required="false"/>
+        <apex:inputField value="{! ProgramPeriod__c.IE2ProgramID__c}" required="false"/>
+        <apex:inputField value="{! ProgramPeriod__c.IE2ProgramExpansionID__c}" required="false"/>                          
+        
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

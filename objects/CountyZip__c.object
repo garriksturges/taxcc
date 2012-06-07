@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A list of zip codes in each county.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>CountyZipEID__c</fullName>
+        <description>The Enterprise ID for this record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this record.</inlineHelpText>
+        <label>County Zip EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The county where this zip code is found.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The county where this zip code is found.</inlineHelpText>
+        <label>County</label>
+        <referenceTo>County__c</referenceTo>
+        <relationshipLabel>County Zip Codes</relationshipLabel>
+        <relationshipName>CountyZipCodes</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ZipCode__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>A zip code inside this county.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>A zip code inside this county.</inlineHelpText>
+        <label>Zip Code</label>
+        <length>5</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <label>County Zip Code</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>County__c</columns>
+        <columns>ZipCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>CountyZipName</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>County Zip Codes</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

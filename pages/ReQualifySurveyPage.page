@@ -1,0 +1,30 @@
+<apex:page showHeader="false" sidebar="false" controller="ReQualifySurveyController" standardStylesheets="true">
+  <apex:pageBlock >    
+    <apex:form >
+        
+        <table align="center" style="width:90%; height:100%;">
+            <tr><td align="center" style="font-size:14px; font-weight:bold; padding-top:15px; border-bottom-style:ridge; border-width:2px;">Current Qualifications</td></tr>
+            <tr><td>
+                <apex:outputPanel id="ContactDetail">
+                    <apex:repeat value="{! qualifications }" var="qual">
+                        <p>{!qual.ProgramCategoryPeriod__r.ProgramCategory__r.Name}</p>
+                    </apex:repeat>
+                        <p></p>
+                </apex:outputPanel>
+           
+               <apex:actionStatus id="loadstatus">
+                   <apex:facet name="start">
+                      <apex:outputPanel ><div align="center">Requalifying... <img src="{!$Resource.LoadingGif}" alt="" /></div></apex:outputPanel>
+                   </apex:facet>
+                   <br />
+                   <apex:facet name="stop">
+                      <apex:commandButton action="{!requalifyClicked}" rerender="ContactDetail" value="Requalify Survey" status="loadstatus">
+                        <apex:param name="id" value="{!employeeSurveyId}"/>
+                      </apex:commandButton>
+                   </apex:facet>
+               </apex:actionStatus>
+               
+           </td></tr></table>
+    </apex:form>
+  </apex:pageBlock>
+</apex:page>

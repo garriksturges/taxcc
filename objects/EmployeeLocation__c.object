@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A work table showing all locations someone has worked, based on their wages and hours, or screening location, or latest known location.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <fields>
+        <fullName>CumulativeHourAmount__c</fullName>
+        <description>The total amount of hours that this employee worked at this location over the period specified.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The total amount of hours that this employee worked at this location over the period specified.</inlineHelpText>
+        <label>Cumulative Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>8</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EmployeeLocationEID__c</fullName>
+        <description>This is how to connect to the Enterprise database.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is how to connect to the Enterprise database.</inlineHelpText>
+        <label>Employee Location EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The employment period during which this employee worked at this location.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employment period during which this employee worked at this location.</inlineHelpText>
+        <label>Employment Period</label>
+        <referenceTo>Employment__c</referenceTo>
+        <relationshipName>wktEmployeeLocations</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EndDate__c</fullName>
+        <description>The date this employee stopped working at this location, or the latest date we know of based on wage data in our system.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date this employee stopped working at this location, or the latest date we know of based on wage data in our system.</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The location where this employee worked during this time period.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location where this employee worked during this time period.</inlineHelpText>
+        <label>Location</label>
+        <referenceTo>Location__c</referenceTo>
+        <relationshipName>wktEmployeeLocations</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>The date this employee started working at this location.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date this employee started working at this location.</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <label>Employee Location</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Employment__c</columns>
+        <columns>Location__c</columns>
+        <columns>StartDate__c</columns>
+        <columns>EndDate__c</columns>
+        <columns>CumulativeHourAmount__c</columns>
+        <columns>EmployeeLocationEID__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Employee Location Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Employee Locations</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Employment__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Location__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StartDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EndDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CumulativeHourAmount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EmployeeLocationEID__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

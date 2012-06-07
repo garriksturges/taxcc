@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The state of readiness that a program category qualification is in.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>ExternalName__c</fullName>
+        <description>The client-friendly term for this state of readiness.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The client-friendly term for this state of readiness.</inlineHelpText>
+        <label>External Name</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QualificationReadinessEID__c</fullName>
+        <description>The Enterprise ID for this qualification readiness.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this qualification readiness.</inlineHelpText>
+        <label>Qualification Readiness EID</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RankOrder__c</fullName>
+        <description>The order of importance of this qualification state of readiness.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The order of importance of this qualification state of readiness.</inlineHelpText>
+        <label>Rank Order</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Document Readiness</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ExternalName__c</columns>
+        <columns>RankOrder__c</columns>
+        <columns>QualificationReadinessEID__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Document Readiness Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Document Readinesses</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>RankOrder__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ExternalName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>QualificationReadinessEID__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>RankOrder__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ExternalName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>QualificationReadinessEID__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RankOrder__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ExternalName__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>QualificationReadinessEID__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>RankOrder__c</searchFilterFields>
+        <searchFilterFields>ExternalName__c</searchFilterFields>
+        <searchFilterFields>QualificationReadinessEID__c</searchFilterFields>
+        <searchResultsAdditionalFields>RankOrder__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ExternalName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>QualificationReadinessEID__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

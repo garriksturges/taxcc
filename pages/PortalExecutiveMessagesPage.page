@@ -1,0 +1,155 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tax Credit Compliance Manager: Messages</title>
+</head>
+<body style="background-image: url({!URLFOR($Resource.PortalResources, 'gradientbackground.jpg')}); background-repeat: repeat-x; background-color: rgb(136, 148, 160)">
+    <table style="width: 900px; font-family: Verdana, Geneva, Tahoma, sans-serif;" align="center">
+        <!--Begin navigation top-->
+        <tr>
+            <td>
+                <table style="width: 900px" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_left_top.png')}" width="5" height="5" />
+                        </td>
+                        <td bgcolor="black" width="890">
+                        </td>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_right_top.png')}" width="5" height="5" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <table style="width: 100%" bgcolor="black" cellpadding="4">
+                                <tr>
+                                    <td style="width: 60%">
+                                        <img src="{!$Resource.PortalLogo}" />
+                                    </td>
+                                    <td>
+                                        <table style="float: right; background-color: Black;">
+                                            <tr>
+                                                <td>
+                                                    <table style="float: right; font-size: x-small; font-variant: small-caps; font-weight: bold; color: #FFFFFF; vertical-align: top;">
+                                                        <tr>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/secur/logout.jsp" style="color:#FFFFFF;">Logout</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td>
+                                                    <table style="font-size: small; font-weight: bold; font-variant: small-caps; color: #FFFFFF">
+                                                        <tr>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/apex/PortalExecutiveHomePage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Home</a>
+                                                            </td>
+                                                            <td>
+                                                                |
+                                                            </td>
+                                                            <td bgcolor="darkgray">
+                                                                <a href="{!$Site.Prefix}/apex/PortalExecutiveMessagesPage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Messages</a>
+                                                            </td>
+                                                            <td>
+                                                                |
+                                                            </td>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/apex/PortalExecutiveScreeningPage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Screening</a>
+                                                            </td>
+                                                            <td>
+                                                                |
+                                                            </td>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/apex/PortalExecutiveReportsPage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Reports</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'head_bottom_left.png')}" width="5" height="5" />
+                        </td>
+                        <td bgcolor="black" width="100%">
+                        </td>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'head_bottom_right.png')}" width="5" height="5" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!--Begin Messages Content-->
+        <tr>
+            <td>
+                <div style="float: left; text-align: left; font-size: small; font-weight: bold; font-variant: small-caps; color: #000000; margin-top:5px; margin-bottom:5px;">
+                    {!$User.Title}&nbsp;{!$User.FirstName}&nbsp;{!$User.LastName}
+                </div>
+                <table style="width: 900px; border-collapse: collapse;" cellpadding="0" cellspacing="0" border="0">
+                    <!--Top for Messages-->
+                    <tr>
+                        <td style="width: 5px; vertical-align: top;">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_left_top.png')}" width="5" height="5" />
+                        </td>
+                        <td style="background-color: Black;" width="890">
+                        </td>
+                        <td style="width: 5px; vertical-align: top;">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_right_top.png')}" width="5" height="5" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <table cellpadding="4" style="background-color: #000000; width: 100%; font-size: small; font-weight: bold; font-variant: small-caps; color: #FFFFFF;">
+                                <tr>
+                                    <td>
+                                        Messages
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!--Content of Messages-->
+                    <tr>
+                        <td colspan="3">
+                            <table style="background-color: #FFFFFF; width: 100%; font-size: x-small; color: #000000; height: 200px;" cellpadding="4">
+                                <tr>
+                                    <td style="width: 21px; vertical-align: top;">
+                                        <img src="{!URLFOR($Resource.PortalResources, 'message_title.png')}"/>
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        Messages
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!--Bottom of Messages-->
+                    <tr>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_left_bottom.png')}" width="5" height="5" />
+                        </td>
+                        <td width="100%" style="background-color: White">
+                        </td>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_right_bottom.png')}" width="5" height="5" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+ 
+    </table>
+</body>
+</html>
+</apex:page>

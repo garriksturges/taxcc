@@ -1,0 +1,25 @@
+<apex:page standardController="EmployeeSurvey__c" >
+  <apex:form >
+    <apex:pageBlock title="Employee Survey" mode="edit">
+      
+<apex:pageMessages />
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="Save"/>
+        <apex:commandButton action="{!cancel}" value="Cancel"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="" columns="1">
+        
+        <apex:inputField value="{!EmployeeSurvey__c.EmploymentPeriod__c}" required="true" />
+        <apex:inputField value="{!EmployeeSurvey__c.EntityLocation__c}"  required="true"/>
+        <apex:inputField value="{!EmployeeSurvey__c.SurveyDate__c}"  required="true"/>
+        <apex:inputField value="{!EmployeeSurvey__c.SurveySource__c}"  required="true" />
+        <apex:inputField value="{!EmployeeSurvey__c.LastUpdatedDate__c}" />
+        <apex:inputField value="{!EmployeeSurvey__c.ReportedHireDate__c}" />
+       
+
+        <apex:inputField value="{!EmployeeSurvey__c.EmployeeSurveyEID__c}" />
+        
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

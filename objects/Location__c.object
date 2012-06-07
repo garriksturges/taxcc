@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AccountEID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account__r.AccountEID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountHierarchyMember__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account Hierarchy Member</label>
+        <referenceTo>AccountHierarchyMember__c</referenceTo>
+        <relationshipLabel>Locations</relationshipLabel>
+        <relationshipName>Locations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The account to which this location belongs.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The account to which this location belongs.</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Locations</relationshipLabel>
+        <relationshipName>Locations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CityName__c</fullName>
+        <description>The location&apos;s city.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location&apos;s city.</inlineHelpText>
+        <label>City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ClientLocationID__c</fullName>
+        <description>Identifier, usually numeric, used by the client to specify this location.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Identifier, usually numeric, used by the client to specify this location.</inlineHelpText>
+        <label>Client Location ID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ClosedRecentlyBitFormula__c</fullName>
+        <description>Whether the store was closed within the past ninety days.</description>
+        <externalId>false</externalId>
+        <formula>if(  EndDate__c &gt;= TODAY() - 91, 1, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Whether the store was closed within the past ninety days.</inlineHelpText>
+        <label>Closed Recently Bit Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The location county</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location county</inlineHelpText>
+        <label>County</label>
+        <referenceTo>County__c</referenceTo>
+        <relationshipLabel>Locations</relationshipLabel>
+        <relationshipName>Locations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EndDate__c</fullName>
+        <description>The date that this location shut its doors and went out of business.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date that this location shut its doors and went out of business.</inlineHelpText>
+        <label>Location Closing Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FaxCode__c</fullName>
+        <description>The location fax number.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location fax number.</inlineHelpText>
+        <label>Fax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>FictitiousBusinessName__c</fullName>
+        <description>The fictitious business name that this location is doing business as.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The fictitious business name that this location is doing business as.</inlineHelpText>
+        <label>DBA</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IE1LocationId__c</fullName>
+        <description>The branch id from IE 1</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The branch id from IE 1</inlineHelpText>
+        <label>IE1LocationID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IE2LocationId__c</fullName>
+        <description>The branch id from IE 2</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The branch id from IE 2</inlineHelpText>
+        <label>IE2LocationID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LatitudeCode__c</fullName>
+        <description>The latitude of a location&apos;s address.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The latitude of a location&apos;s address.</inlineHelpText>
+        <label>Latitude</label>
+        <precision>15</precision>
+        <required>false</required>
+        <scale>12</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LocationEID__c</fullName>
+        <description>The Enterprise ID for this Location.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Location.</inlineHelpText>
+        <label>Location EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LocationNameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Blankvalue(FictitiousBusinessName__c , Blankvalue ( Account__r.ShortName__c ,  Account__r.Name ))
++ &apos; &apos; +
+if(
+    isblank(ClientLocationID__c ), 
+    if(not(isblank(FictitiousBusinessName__c )), &apos;: &apos;, &apos;&apos;) + Name, 
+    if(not(isblank(FictitiousBusinessName__c )), &apos; &apos;, &apos;&apos;) + &apos;Store #&apos; + ClientLocationID__c 
+)
++ &apos; on &apos; + UPPER(StreetAddressText__c  + &apos;, &apos; +  CityName__c  + &apos;, &apos; + State__r.StateAbbr__c  + &apos; &apos; +  LEFT(ZipCode__c,5) )</formula>
+        <label>Location Name Formula</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LongitudeCode__c</fullName>
+        <description>The longitude of a location&apos;s address.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The longitude of a location&apos;s address.</inlineHelpText>
+        <label>Longitude</label>
+        <precision>15</precision>
+        <required>false</required>
+        <scale>12</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OpenedRecentlyBitFormula__c</fullName>
+        <description>Whether the store was opened within the past ninety days.</description>
+        <externalId>false</externalId>
+        <formula>if(  StartDate__c &gt;= TODAY() - 91, 1, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Whether the store was opened within the past ninety days.</inlineHelpText>
+        <label>Opened Recently Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PhoneCode__c</fullName>
+        <description>The location phone number.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location phone number.</inlineHelpText>
+        <label>Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>SF1LocationId__c</fullName>
+        <description>The location id from the old SF</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location id from the old SF</inlineHelpText>
+        <label>SF1LocationID</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>The opening date of this location, when it first started hiring employees.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The opening date of this location, when it first started hiring employees.</inlineHelpText>
+        <label>Location Opening Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The location state</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location state</inlineHelpText>
+        <label>State</label>
+        <referenceTo>State__c</referenceTo>
+        <relationshipLabel>Locations</relationshipLabel>
+        <relationshipName>Locations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StreetAddressText__c</fullName>
+        <description>The location street address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location street address</inlineHelpText>
+        <label>Street Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ZipCode__c</fullName>
+        <description>The location zip</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location zip</inlineHelpText>
+        <label>Zip Code</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Location</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>FictitiousBusinessName__c</columns>
+        <columns>ClientLocationID__c</columns>
+        <columns>CityName__c</columns>
+        <columns>StreetAddressText__c</columns>
+        <columns>ZipCode__c</columns>
+        <columns>IE2LocationId__c</columns>
+        <columns>PhoneCode__c</columns>
+        <columns>FaxCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <columns>NAME</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Laura_Locations</fullName>
+        <columns>NAME</columns>
+        <columns>ClientLocationID__c</columns>
+        <columns>CityName__c</columns>
+        <columns>ZipCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>Laura&apos;s Locations</label>
+    </listViews>
+    <nameField>
+        <label>Location Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Locations</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AccountHierarchyMember__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FictitiousBusinessName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LocationEID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ClientLocationID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StreetAddressText__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CityName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>State__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ZipCode__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>FictitiousBusinessName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LocationEID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ClientLocationID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StreetAddressText__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CityName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>State__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ZipCode__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AccountHierarchyMember__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>FictitiousBusinessName__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LocationEID__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ClientLocationID__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>StreetAddressText__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CityName__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>State__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ZipCode__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PhoneCode__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>FictitiousBusinessName__c</searchFilterFields>
+        <searchFilterFields>ClientLocationID__c</searchFilterFields>
+        <searchFilterFields>StreetAddressText__c</searchFilterFields>
+        <searchFilterFields>CityName__c</searchFilterFields>
+        <searchFilterFields>State__c</searchFilterFields>
+        <searchFilterFields>ZipCode__c</searchFilterFields>
+        <searchFilterFields>AccountEID__c</searchFilterFields>
+        <searchFilterFields>AccountHierarchyMember__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AccountHierarchyMember__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FictitiousBusinessName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LocationEID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ClientLocationID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StreetAddressText__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CityName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>State__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ZipCode__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <sharingReasons>
+        <fullName>neededBy__c</fullName>
+        <label>neededBy</label>
+    </sharingReasons>
+</CustomObject>

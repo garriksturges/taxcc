@@ -1,0 +1,13 @@
+<apex:page controller="LegacyCallerController" >
+  
+  <apex:pageBlock title="The value the caller entered is:">
+  
+  <h1>{!callerInput}</h1>
+  
+  </apex:pageblock>
+
+  
+  <apex:pageBlock title="You can copy and paste the string below into SFV1">
+      <h1>{!legacySearchString}</h1>
+  </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The document score and status for all levels of the document management process.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DocumentStatusEID__c</fullName>
+        <description>The Enterprise ID for this document status.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this document status.</inlineHelpText>
+        <label>Document Status EID</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ExternalStatusName__c</fullName>
+        <description>The external, client-friendly term for this document status.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The external, client-friendly term for this document status.</inlineHelpText>
+        <label>External Status</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InternalStatusName__c</fullName>
+        <description>The internal term for this document status.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The internal term for this document status.</inlineHelpText>
+        <label>Internal Status</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LaserficheID__c</fullName>
+        <description>The number assigned to this score in Laserfiche.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The number assigned to this score in Laserfiche.</inlineHelpText>
+        <label>Laserfiche ID</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>RankOrder__c</fullName>
+        <description>The rank of importance of this document score.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The rank of importance of this document score.</inlineHelpText>
+        <label>Rank Order</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Document Status</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>DocumentStatusEID__c</columns>
+        <columns>RankOrder__c</columns>
+        <columns>InternalStatusName__c</columns>
+        <columns>ExternalStatusName__c</columns>
+        <columns>LaserficheID__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Document Status Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Document Statuses</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DocumentCharacteristic__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The document characteristic used by this record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document characteristic used by this record.</inlineHelpText>
+        <label>Document Characteristic</label>
+        <referenceTo>DocumentCharacteristic__c</referenceTo>
+        <relationshipLabel>Qualification Characteristics</relationshipLabel>
+        <relationshipName>QualificationCharacteristics</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GoodBit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Denotes if the qualification characteristic is good.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes if the qualification characteristic is good.</inlineHelpText>
+        <label>Good</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>QualificationCharacteristicEID__c</fullName>
+        <description>The Enterprise ID of this record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID of this record.</inlineHelpText>
+        <label>Qualification Characteristic EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>QualificationDocumentOption__c</fullName>
+        <description>The qualification option used by this record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The qualification option used by this record.</inlineHelpText>
+        <label>Qualification Document Option</label>
+        <referenceTo>QualificationDocumentOption__c</referenceTo>
+        <relationshipLabel>Qualification Characteristics</relationshipLabel>
+        <relationshipName>QualificationCharacteristics</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Qualification Characteristic</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Qualification Characteristic Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Qualification Characteristics</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>History of email notifications sent regularly from the portal to portal users.</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AccountFormula__c</fullName>
+        <description>The account that this recipient is in.</description>
+        <externalId>false</externalId>
+        <formula>PortalNotificationSchedule__r.Contact__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The account that this recipient is in.</inlineHelpText>
+        <label>Account Formula</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ContentBitGenerated__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>States whether there is data in the report portion of the email notification.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>States whether there is data in the report portion of the email notification.</inlineHelpText>
+        <label>Content Generated</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DataEndDate__c</fullName>
+        <description>The end date and time of the data in the report part of the email notification content.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The starting date and time of the data in the report part of the email notification content.</inlineHelpText>
+        <label>Data End Date</label>
+        <required>true</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DataStartDate__c</fullName>
+        <description>The starting date and time of the data in the report part of the email notification content.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The starting date and time of the data in the report part of the email notification content.</inlineHelpText>
+        <label>Data Start Date</label>
+        <required>true</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>EmployeeCountGenerated__c</fullName>
+        <description>The number of unique employees covered in this report across all programs and locations, not just the ones showing in the email notification content.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of unique employees covered in this report across all programs and locations, not just the ones showing in the email notification content.</inlineHelpText>
+        <label>Employee Count Generated</label>
+        <precision>8</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LocationCountGenerated__c</fullName>
+        <description>The number of locations covered in this report, not just the ones showing in the email notification content.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of locations covered in this report, not just the ones showing in the email notification content.</inlineHelpText>
+        <label>Location Count Generated</label>
+        <precision>6</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PortalNotificationSchedule__c</fullName>
+        <description>The schedule under which this portal notification email was sent.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The schedule under which this portal notification email was sent.</inlineHelpText>
+        <label>Portal Notification Schedule</label>
+        <referenceTo>PortalNotificationSchedule__c</referenceTo>
+        <relationshipLabel>Portal Notifications</relationshipLabel>
+        <relationshipName>PortalNotifications</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SentDate__c</fullName>
+        <description>The date and time the email notification was sent.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date and time the email notification was sent.</inlineHelpText>
+        <label>Sent Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <label>Portal Notification</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Portal Notification Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Portal Notifications</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

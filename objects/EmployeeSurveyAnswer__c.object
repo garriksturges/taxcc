@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Survey answers as chosen by survey taker.  Includes a field for user input text in case it is  allowed.</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>EmployeeSurveyAnswerAmount__c</fullName>
+        <description>Survey answer in numeric form.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey answer in numeric form.</inlineHelpText>
+        <label>Numeric Answer</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EmployeeSurveyAnswerBit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>True/false answers.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>True/false answers.</inlineHelpText>
+        <label>True/False Answer</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EmployeeSurveyAnswerDate__c</fullName>
+        <description>Survey answer in date form.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey answer in date form.</inlineHelpText>
+        <label>Date Answer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EmployeeSurveyAnswerEID__c</fullName>
+        <description>The Enterprise ID of this Employee Survey Answer.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID of this Employee Survey Answer.</inlineHelpText>
+        <label>Employee Survey Answer EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>EmployeeSurveyAnswerText__c</fullName>
+        <description>Survey answer in text form.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Survey answer in text form.</inlineHelpText>
+        <label>Text Answer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>EmployeeSurvey__c</fullName>
+        <externalId>false</externalId>
+        <label>Employee Survey</label>
+        <referenceTo>EmployeeSurvey__c</referenceTo>
+        <relationshipLabel>Employee Survey Answers</relationshipLabel>
+        <relationshipName>EmployeeSurveyAnswers</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SurveyQuestion__c</fullName>
+        <externalId>false</externalId>
+        <label>Survey Question</label>
+        <referenceTo>SurveyQuestion__c</referenceTo>
+        <relationshipName>Survey_Answers</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Employee Survey Answer</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>EmployeeSurvey__c</columns>
+        <columns>SurveyQuestion__c</columns>
+        <columns>EmployeeSurveyAnswerText__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Employee Survey Answer Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Employee Survey Answers</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>SurveyQuestion__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EmployeeSurvey__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EmployeeSurveyAnswerText__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EmployeeSurveyAnswerDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EmployeeSurveyAnswerAmount__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>SurveyQuestion__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EmployeeSurvey__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EmployeeSurveyAnswerText__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EmployeeSurveyAnswerDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EmployeeSurveyAnswerAmount__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SurveyQuestion__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EmployeeSurvey__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EmployeeSurveyAnswerText__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EmployeeSurveyAnswerDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EmployeeSurveyAnswerAmount__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>SurveyQuestion__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EmployeeSurvey__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EmployeeSurveyAnswerText__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EmployeeSurveyAnswerDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EmployeeSurveyAnswerAmount__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

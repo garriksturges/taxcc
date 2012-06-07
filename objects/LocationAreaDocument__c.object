@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>LocationAreaDocumentEID__c</fullName>
+        <description>The Enterprise ID fort this Location Area Document record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID fort this Location Area Document record.</inlineHelpText>
+        <label>Location Area Document EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>LocationArea__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The location area described by the document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location area described by the document</inlineHelpText>
+        <label>Location Area</label>
+        <referenceTo>LocationArea__c</referenceTo>
+        <relationshipLabel>Location Area Documents</relationshipLabel>
+        <relationshipName>LocationAreaDocuments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RepositoryDocument__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The document that defines the location area</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document that defines the location area</inlineHelpText>
+        <label>Document</label>
+        <referenceTo>RepositoryDocument__c</referenceTo>
+        <relationshipLabel>Location Area Documents</relationshipLabel>
+        <relationshipName>LocationAreaDocuments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <label>Location Area Document</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Location Area Document Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Location Area Documents</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>LocationArea__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RepositoryDocument__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>LocationArea__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RepositoryDocument__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LocationArea__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RepositoryDocument__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>LocationArea__c</searchFilterFields>
+        <searchFilterFields>RepositoryDocument__c</searchFilterFields>
+        <searchResultsAdditionalFields>LocationArea__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RepositoryDocument__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

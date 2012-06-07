@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DocumentStatusDate__c</fullName>
+        <description>The date the qualification document step reached this status.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the qualification document step reached this status.</inlineHelpText>
+        <label>Document Status Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DocumentStatusEIDFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>DocumentStatus__r.DocumentStatusEID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>DocumentStatusEIDFormula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentStatusRankOrderFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>DocumentStatus__r.RankOrder__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Document Status Rank Order Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentStatusRankSummar__c</fullName>
+        <externalId>false</externalId>
+        <label>Document Status Rank Summary</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentStatusStepOrder__c</fullName>
+        <description>Brings the Document Status Rank Order</description>
+        <externalId>false</externalId>
+        <formula>DocumentStep__r.StepOrder__c</formula>
+        <inlineHelpText>Brings the Document Status Rank Order</inlineHelpText>
+        <label>Document Status Step Order Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentStatus__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The status of this document step.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The status of this document step.</inlineHelpText>
+        <label>Document Status</label>
+        <referenceTo>DocumentStatus__c</referenceTo>
+        <relationshipLabel>Qualification Document Steps</relationshipLabel>
+        <relationshipName>QualificationDocumentSteps</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DocumentStep__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The document step used by this record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document step used by this record.</inlineHelpText>
+        <label>Document Step</label>
+        <referenceTo>DocumentStep__c</referenceTo>
+        <relationshipLabel>Qualification Document Steps</relationshipLabel>
+        <relationshipName>QualificationRoleSteps</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>QDOEmployeeSource__c</fullName>
+        <description>Used to Populate the Employee Source Eid Formula from the Qualification Document Option.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to Populate the Employee Source Eid Formula from the Qualification Document Option.</inlineHelpText>
+        <label>QDO Employee Source</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QDRDocumentStatusFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(  ISBLANK(QualificationDocumentRequirement__r.DocumentStatus__c ) ,1,2)</formula>
+        <label>QDRDocumentStatusFormula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QPSCertificationEIDFormula__c</fullName>
+        <description>Qualification process stage EID from Document Step</description>
+        <externalId>false</externalId>
+        <formula>DocumentStep__r.QualificationProcessStage__r.QualificationProcessStageEID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>QPS EID Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QPSIncertificationProcessEID__c</fullName>
+        <externalId>false</externalId>
+        <formula>If (DocumentStep__r.QualificationProcessStage__r.InCertificationProcessBit__c,1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>QPS Incertification Process EID Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QPSRankOrderFormula__c</fullName>
+        <description>This formula is used to retrieve the Rank Order of the Qualification Document Step.</description>
+        <externalId>false</externalId>
+        <formula>DocumentStep__r.QualificationProcessStage__r.RankOrder__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This formula is used to retrieve the Rank Order of the Qualification Document Step.</inlineHelpText>
+        <label>QPS Rank Order Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QualificationDocumentRequirement__c</fullName>
+        <description>The document requirement associated with this document step for this employee</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document requirement associated with this document step for this employee</inlineHelpText>
+        <label>Qualification Document Requirement</label>
+        <referenceTo>QualificationDocumentRequirement__c</referenceTo>
+        <relationshipLabel>Qualification Document Steps</relationshipLabel>
+        <relationshipName>QualificationFunctions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>QualificationDocumentStepEID__c</fullName>
+        <description>The Enterprise ID for this Qualification Document Step record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Qualification Document Step record.</inlineHelpText>
+        <label>Qualification Document Step EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <label>Qualification Document Step</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>DocumentStep__c</columns>
+        <columns>QualificationDocumentRequirement__c</columns>
+        <columns>DocumentStatusDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Qualification Document Step Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Qualification Document Steps</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>QualificationDocumentRequirement__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DocumentStatusDate__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>QualificationDocumentRequirement__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DocumentStatusDate__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>QualificationDocumentRequirement__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DocumentStatusDate__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>DocumentStatusDate__c</searchFilterFields>
+        <searchFilterFields>QualificationDocumentRequirement__c</searchFilterFields>
+        <searchResultsAdditionalFields>QualificationDocumentRequirement__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DocumentStatusDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

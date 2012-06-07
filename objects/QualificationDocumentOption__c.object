@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DocumentOption__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The document option used by this record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document option used by this record.</inlineHelpText>
+        <label>Document Option</label>
+        <referenceTo>DocumentOption__c</referenceTo>
+        <relationshipName>QualificationOption</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DocumentStatusGenerated__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The score for this document based on an evaluation of the characteristics needed for this document to satisfy this document step.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The score for this document based on an evaluation of the characteristics needed for this document to satisfy this document step.</inlineHelpText>
+        <label>Document Status</label>
+        <referenceTo>DocumentStatus__c</referenceTo>
+        <relationshipLabel>Qualification Document Options</relationshipLabel>
+        <relationshipName>QualificationDocumentOptions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DocumentStatusRankOrderGenerted__c</fullName>
+        <externalId>false</externalId>
+        <formula>DocumentStatusGenerated__r.RankOrder__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Document Status Rank Order Generated</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EmployeeSourceEidFormula__c</fullName>
+        <description>This gets the Document Source EID Formula.</description>
+        <externalId>false</externalId>
+        <formula>DocumentOption__r.DocumentType__r.DocumentSource__r.DocumentSourceEID__c</formula>
+        <label>Employee Source Eid Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>QualificationDocumentOptionEID__c</fullName>
+        <description>The Enterprise ID for this record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this record.</inlineHelpText>
+        <label>Qualification Document Option EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>QualificationDocumentStep__c</fullName>
+        <description>The qualification document step fulfilled by this document option.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The qualification document step fulfilled by this document option.</inlineHelpText>
+        <label>Qualification Document Step</label>
+        <referenceTo>QualificationDocumentStep__c</referenceTo>
+        <relationshipLabel>Qualification Document Options</relationshipLabel>
+        <relationshipName>QualificationOptions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>RepositoryDocument__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The repository document that fulfills this function for this employee</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The repository document that fulfills this function for this employee</inlineHelpText>
+        <label>Repository Document</label>
+        <referenceTo>RepositoryDocument__c</referenceTo>
+        <relationshipLabel>Qualification Document Options</relationshipLabel>
+        <relationshipName>QualificationDocumentOptions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <label>Qualification Document Option</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Qualification Document Option Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Qualification Document Options</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>QualificationDocumentStep__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RepositoryDocument__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>QualificationDocumentStep__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RepositoryDocument__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>QualificationDocumentStep__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RepositoryDocument__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>QualificationDocumentStep__c</searchFilterFields>
+        <searchFilterFields>RepositoryDocument__c</searchFilterFields>
+        <searchResultsAdditionalFields>QualificationDocumentStep__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RepositoryDocument__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

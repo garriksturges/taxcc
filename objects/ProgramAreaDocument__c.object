@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Document__c</fullName>
+        <description>The document associated with the program area</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document associated with the program area</inlineHelpText>
+        <label>Document</label>
+        <referenceTo>RepositoryDocument__c</referenceTo>
+        <relationshipName>ProgramAreaDocuments</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ProgramArea__c</fullName>
+        <description>The program period described by the document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program period described by the document</inlineHelpText>
+        <label>Program Period</label>
+        <referenceTo>ProgramPeriod__c</referenceTo>
+        <relationshipName>ProgramAreaDocuments</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ProgramPeriodDocumenEID__c</fullName>
+        <description>The Enterprise ID for this Program Period Document.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Program Period Document.</inlineHelpText>
+        <label>Program Period Document EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <label>Program Period Document</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Program Period Document Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Program Period Documents</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ProgramArea__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Document__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ProgramArea__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Document__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProgramArea__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Document__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ProgramArea__c</searchFilterFields>
+        <searchFilterFields>Document__c</searchFilterFields>
+        <searchResultsAdditionalFields>ProgramArea__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Document__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

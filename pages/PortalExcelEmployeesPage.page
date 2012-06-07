@@ -1,0 +1,7 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" contentType="text#employeeStats.csv" controller="PortalLocationEmployeeStatsController" >
+Start Date, {!startDateFilter}, End Date, {!endDateFilter}
+Last Name, First Name, Employee Id, Last 4 SSN, Screening Status, Qualified, Transfer Status, Document Stage, Documents Needed, Documents Needing Replacement, Documents Received
+<apex:repeat value="{!employeeList}" var="e" >
+{!e.lastName}, {!e.firstName}, {!e.clientEmployeeId}, {!e.ssn}, {!e.screen}, {!e.qualified}, {!e.transferStatus}, {!e.documentation}, {!e.dNeeded}, {!e.dReplace}, {!e.dReceived}
+</apex:repeat>
+</apex:page>

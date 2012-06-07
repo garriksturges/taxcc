@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AccountHierarchyLevel__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account Hierarchy Level</label>
+        <referenceTo>AccountHierarchyLevel__c</referenceTo>
+        <relationshipLabel>Account Hierarchy Members</relationshipLabel>
+        <relationshipName>AccountHierarchyMembers</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AccountHierarchyMemberEID__c</fullName>
+        <description>The Enterprise ID for the Account Hierarchy Member.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for the Account Hierarchy Member.</inlineHelpText>
+        <label>Account Hierarchy Member EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>AccountHierarchyMemberLabelName__c</fullName>
+        <externalId>false</externalId>
+        <label>Member Label</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountHierarchyMemberName__c</fullName>
+        <externalId>false</externalId>
+        <label>Member Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Account Hierarchy Members</relationshipLabel>
+        <relationshipName>AccountHierarchyMembers</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ClientHierarchyID__c</fullName>
+        <description>The client&apos;s identification number or code for this hierarchy level member.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The client&apos;s identification number or code for this hierarchy level member.</inlineHelpText>
+        <label>Client Hierarchy ID</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ParentAccountHierarchyMember__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Parent Account Hierarchy Member</label>
+        <referenceTo>AccountHierarchyMember__c</referenceTo>
+        <relationshipLabel>Account Hierarchy Members</relationshipLabel>
+        <relationshipName>AccountHierarchyMembers</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <label>Account Hierarchy Member</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account__c</columns>
+        <columns>AccountHierarchyLevel__c</columns>
+        <columns>AccountHierarchyMemberName__c</columns>
+        <columns>AccountHierarchyMemberLabelName__c</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Account Hierarchy Member ID</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Account Hierarchy Members</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AccountHierarchyMemberName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AccountHierarchyMemberLabelName__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AccountHierarchyLevel__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ParentAccountHierarchyMember__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AccountHierarchyMemberName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AccountHierarchyMemberLabelName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ClientHierarchyID__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AccountHierarchyLevel__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ParentAccountHierarchyMember__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AccountHierarchyMemberName__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AccountHierarchyMemberLabelName__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ClientHierarchyID__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Account__c</searchFilterFields>
+        <searchFilterFields>AccountHierarchyMemberName__c</searchFilterFields>
+        <searchFilterFields>AccountHierarchyMemberLabelName__c</searchFilterFields>
+        <searchFilterFields>AccountHierarchyLevel__c</searchFilterFields>
+        <searchFilterFields>AccountHierarchyMemberEID__c</searchFilterFields>
+        <searchFilterFields>ClientHierarchyID__c</searchFilterFields>
+        <searchFilterFields>ParentAccountHierarchyMember__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AccountHierarchyLevel__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ParentAccountHierarchyMember__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AccountHierarchyMemberName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AccountHierarchyMemberLabelName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ClientHierarchyID__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

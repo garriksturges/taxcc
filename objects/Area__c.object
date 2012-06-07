@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The geographic areas defined by each program.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AcreageAmount__c</fullName>
+        <description>The number of acres included in this expansion zone.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of acres included in this expansion zone.</inlineHelpText>
+        <label>Acreage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AreaAddressRangeSummary__c</fullName>
+        <description>Number of address ranges in this area, if defined by address range.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of address ranges in this area, if defined by address range.</inlineHelpText>
+        <label>Number of Address Ranges</label>
+        <summaryForeignKey>AreaAddressRange__c.Area__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>AreaComponentCountFormula__c</fullName>
+        <description>The number of items in this area&apos;s definitions. For example, if this area is defined by state and the number shown is 51, then there are 51 states in this area.</description>
+        <externalId>false</externalId>
+        <formula>AreaStateSummary__c +  
+AreaCountySummary__c  +  
+AreaCountrySummary__c  +  
+AreaZipCodeSummary__c  +  
+AreaAddressRangeSummary__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The number of items in this area&apos;s definitions. For example, if this area is defined by state and the number shown is 51, then there are 51 states in this area.</inlineHelpText>
+        <label>Area Component Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AreaCountrySummary__c</fullName>
+        <description>Number of countries in this area, if defined by country.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of countries in this area, if defined by country.</inlineHelpText>
+        <label>Number of Countries</label>
+        <summaryForeignKey>AreaCountry__c.Area__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>AreaCountySummary__c</fullName>
+        <description>Number of counties in this area, if defined by county.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of counties in this area, if defined by county.</inlineHelpText>
+        <label>Number of Counties</label>
+        <summaryForeignKey>AreaCounty__c.Area__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>AreaDefinitionMethod__c</fullName>
+        <description>The method by which we can determine whether an address is in this area.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The method by which we can determine whether an address is in this area.</inlineHelpText>
+        <label>Area Definition Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Country</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>State/Province</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>County Equivalent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>City</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Zip/Postal Code</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Explicit Address Range</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Geospatial Polygon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>AreaDescriptionText__c</fullName>
+        <description>The description of an area</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The description of an area</inlineHelpText>
+        <label>Area Description</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>AreaEID__c</fullName>
+        <description>The Enterprise ID for this area.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this area.</inlineHelpText>
+        <label>Area EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>AreaStateSummary__c</fullName>
+        <description>The number of states in this area, if defined by state.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of states in this area, if defined by state.</inlineHelpText>
+        <label>Number of States</label>
+        <summaryForeignKey>AreaState__c.Area__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>AreaZipCodeSummary__c</fullName>
+        <description>Number of zip codes in this area, if defined by zip code.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of zip codes in this area, if defined by zip code.</inlineHelpText>
+        <label>Number of Zip Codes</label>
+        <summaryForeignKey>AreaZipCode__c.Area__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>RemainingAcreageAmount__c</fullName>
+        <description>Used for expansion areas</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used for expansion areas</inlineHelpText>
+        <label>Remaining Acreage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Area</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>AreaEID__c</columns>
+        <columns>NAME</columns>
+        <columns>AreaDescriptionText__c</columns>
+        <columns>AcreageAmount__c</columns>
+        <columns>RemainingAcreageAmount__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Area Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Areas</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>AreaDescriptionText__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AreaEID__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>AreaDescriptionText__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AreaEID__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AreaDescriptionText__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AreaEID__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>AreaDescriptionText__c</searchFilterFields>
+        <searchFilterFields>AreaEID__c</searchFilterFields>
+        <searchResultsAdditionalFields>AreaDescriptionText__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AreaEID__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

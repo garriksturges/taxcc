@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The contact who is the recipient of the contract or legal agreement.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The contact who is the recipient of the contract or legal agreement.</inlineHelpText>
+        <label>Destination Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Entity Agreement Workflow Steps</relationshipLabel>
+        <relationshipName>ContractWorkflows</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContractStep__c</fullName>
+        <description>The step at which this contract or legal agreement sits.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The step at which this contract or legal agreement sits.</inlineHelpText>
+        <label>Step</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Created</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sent to Entity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Signed by Entity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sent to Office of Jurisdiction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>DeliveryMethod__c</fullName>
+        <description>The method by which the contract or legal agreement was delivered.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The method by which the contract or legal agreement was delivered.</inlineHelpText>
+        <label>Delivery Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Courier</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DHL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FedEx</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UPS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>USPS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>EffectiveDate__c</fullName>
+        <description>The date when this workflow step occurred.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date when this workflow step occurred.</inlineHelpText>
+        <label>Step Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EntityAgreementWorkflowEID__c</fullName>
+        <description>The Enterprise ID for this Entity Agreement Workflow Step.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Entity Agreement Workflow Step.</inlineHelpText>
+        <label>Entity Agreement Workflow EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>EntityAgreement__c</fullName>
+        <description>The ID of the contract or legal agreement record that this workflow step is for.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The ID of the contract or legal agreement record that this workflow step is for.</inlineHelpText>
+        <label>Entity Agreement</label>
+        <referenceTo>EntityAgreement__c</referenceTo>
+        <relationshipLabel>Entity Agreement Workflow Steps</relationshipLabel>
+        <relationshipName>ContractWorkflows</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>TrackingCode__c</fullName>
+        <description>If applicable, the tracking number used by the delivery service.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, the tracking number used by the delivery service.</inlineHelpText>
+        <label>Tracking Number</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Entity Agreement Workflow Step</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Entity Agreement Workflow Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Entity Agreement Workflow Steps</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>EntityAgreement__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EffectiveDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>TrackingCode__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>EntityAgreement__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EffectiveDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Contact__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>TrackingCode__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

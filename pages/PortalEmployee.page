@@ -1,0 +1,272 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" controller="Portal_Employee" >
+    <c:PortalCSS ></c:PortalCSS>
+    <style text="text/css">
+        
+        #empTable{
+        	background-color:white;
+        	width: 100%;
+        	margin-left:auto;
+        	margin-right:auto;
+        	border-top: 1px solid black;
+        	font-size: 85%;
+					padding-left: 45px;
+					padding-right: 45px;
+					padding-top: 50px;
+        }
+        .docTable{
+        	width:100%;
+        }
+				.uLine{
+					text-decoration: underline;
+				}
+       #locationTable{
+            width: 100%;
+        }
+       #locationTable tr td,th{
+            margin-right:auto;
+          margin-left:auto;
+       }
+       #locationList{
+        height:510px;
+       }
+       
+        #footerTabs p{
+                    -webkit-margin-before: 0;
+                    -webkit-margin-after: 0;
+                    -webkit-border-horizontal-spacing: 0;
+                    -webkit-border-vertical-spacing: 0;
+                    margin-right: 0;
+                    margin-left: 0;
+                    border-left: solid 0px;
+                    border-right: solid 0px;
+                    text-align: center;
+                    font-family:Verdana, Geneva, Tahoma, sans-serif;
+                }
+        #lPointer{
+            cursor:pointer;
+            background: url("{!URLFOR($Resource.PortalPrev)}") 0 0.99px no-repeat;
+            background-size: 23%;
+            float:left;
+            padding-left: 22px;   
+         }
+        #lPointer:hover{
+            
+            color:white;
+            background: url("{!URLFOR($Resource.PortalPrev)}") 0 -12.01px no-repeat;
+            background-color:lightGrey;        
+        }
+        
+        #lPointerTD:hover{
+            
+         } 
+        #rPointer{
+            cursor:pointer;
+            background: url("{!URLFOR($Resource.PortalNext)}") 0 0 no-repeat;
+            background-position: 34px 0px;
+            background-size: 27%;
+            padding-right: 22px;
+            float:right;
+        }
+        #rPointer:hover{
+            background-position: 34px -13px;
+            color:white;
+            background-color:lightgrey;
+        }
+        #rPointerTD{
+        
+        }
+        #rPointerTD:hover{
+         background:lightgrey;
+        }
+    </style>
+<body style="background-image: url({!URLFOR($Resource.PortalResources, 'gradientbackground.jpg')}); background-repeat: repeat-x; background-color: rgb(136, 148, 160)">
+    <apex:form >
+    <table style="width: 900px; font-family: Verdana, Geneva, Tahoma, sans-serif;" align="center">
+
+    <!--Begin navigation top-->
+        <tr>
+            <td>
+                <table style="width: 100%;" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_left_top.png')}" width="5" height="5" />
+                        </td>
+                        <td bgcolor="black" width="890">
+                        </td>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_right_top.png')}" width="5" height="5" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <table style="width: 100%" bgcolor="black" cellpadding="4">
+                                <tr>
+                                    <td style="width: 60%">
+                                        <img src="{!$Resource.PortalLogo}" />
+                                    </td>
+                                    <td>
+                                        <table style="float: right; background-color: Black;">
+                                            <tr>
+                                                <td>
+                                                    <table style="float: right; font-size: x-small; font-variant: small-caps; font-weight: bold; color: #FFFFFF; vertical-align: top;">
+                                                        <tr>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/secur/logout.jsp" style="color:#FFFFFF;">Logout</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td>
+                                                    <table style="font-size: small; font-weight: bold; font-variant: small-caps; color: #FFFFFF">
+                                                        <tr>
+                                                            <td bgcolor="darkgray">
+                                                                <a href="{!$Site.Prefix}/apex/PortalExecutiveHomePage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Home</a>
+                                                            </td>
+                                                            <td>
+                                                                |
+                                                            </td>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/apex/PortalExecutiveMessagesPage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Messages</a>
+                                                            </td>
+                                                            <td>
+                                                                |
+                                                            </td>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/apex/PortalExecutiveScreeningPage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Screening</a>
+                                                            </td>
+                                                            <td>
+                                                                |
+                                                            </td>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/apex/PortalExecutiveReportsPage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Reports</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'head_bottom_left.png')}" width="5" height="5" />
+                        </td>
+                        <td bgcolor="black" width="100%">
+                        </td>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'head_bottom_right.png')}" width="5" height="5" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    <!--Begin Dashboard Content-->
+    <tr>
+            <td>
+                <div style="float: left; text-align: left; font-size: small; font-weight: bold; font-variant: small-caps; color: #000000; margin-top:5px; margin-bottom:5px;">
+                    {!$User.Title}&nbsp;{!$User.FirstName}&nbsp;{!$User.LastName}
+                </div>
+                <table style="width: 900px; border-collapse: collapse;" cellpadding="0" cellspacing="0" border="0">
+                <!--Top for dashboard-->
+                    <tr>
+            <td style="width: 5px; vertical-align: top;">
+                <img src="{!URLFOR($Resource.PortalResources, 'block3_left_top.png')}" width="5" height="5" />
+            </td>
+            <td style="background-color: Black;" width="890">
+            </td>
+                        <td style="width: 5px; vertical-align: top;">
+                <img src="{!URLFOR($Resource.PortalResources, 'block3_right_top.png')}" width="5" height="5" />
+            </td>
+           </tr>
+           <tr>
+            <td colspan="3">
+                <table cellpadding="4" style="background-color: #000000; width: 100%; font-size: small; font-weight: bold; font-variant: small-caps; color: #FFFFFF;">
+                <tr>
+                    <td>
+                    Employee Information : {!employeeName}
+                    <div style="float:right;"><c:Portal_SearchBox /></div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+           </tr>
+                   <!--Content of Dashboard-->
+                    <tr>
+                        <td colspan="3">
+                        	<apex:repeat value="{!programList}" var="pl" id="pRepeat">
+	                        	<div class="programInfo">
+	                        		<table id="empTable">
+	                        			<tr>
+	                        				<td>Program:</td><td style="font-weight: bold;">{!pl.programName}</td><td></td>
+	                        			</tr>
+	                        			<tr>
+	                        				<td>Hire Location:</td><td>{!pl.hireLoc}</td><td></td>
+	                        			</tr>
+	                        			<tr>
+	                        				<td>Hire Date:</td><td>{!pl.wkt.HireDate__c.MONTH}/{!pl.wkt.HireDate__c.DAY}/{!pl.wkt.HireDate__c.YEAR}</td><td></td>
+	                        			</tr>
+	                        			<tr>
+	                        				<td>Survey Location:</td><td>{!pl.SurveyLoc}</td><td></td>
+	                        			</tr>
+	                        			<tr>
+	                        				<td>Survey Date:</td><td>{!pl.wkt.SurveyDate__c}</td><td></td>
+	                        			</tr>
+	                        			<tr>	
+	                        				<td class="uLine">Documents Needed</td><td class="uLine">Documents To Replace</td><td class="uLine">Documents Received</td>
+	                        			</tr>
+	                        			<tr>
+	                        				<td>
+		                        				<table class="docTable">
+		                        					<apex:repeat value="{!pl.neededDocs}" var="nd">
+		                        						<tr><td>-{!nd}</td></tr>
+		                        					</apex:repeat>
+		                        				</table>
+	                        				</td>
+	                        				<td>
+		                        				<table class="docTable">
+		                        					<apex:repeat value="{!pl.replaceDocs}" var="rp">
+		                        						<tr><td>-{!rp}</td></tr>
+		                        					</apex:repeat>
+		                        				</table>
+		                        			</td>
+	                        				<td>
+		                        				<table class="docTable">
+		                        					<apex:repeat value="{!pl.receivedDocs}" var="rd">
+		                        						<tr><td>-{!rd}</td></tr>
+		                        					</apex:repeat>
+		                        				</table>
+		                        			</td>
+	                        			</tr>
+	                        		</table>
+	                        	</div>
+													</apex:repeat>                                          
+                        </td>
+                    </tr>
+                    <!--Bottom of Dashboard-->
+                    <tr>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_left_bottom.png')}" width="5" height="5" />
+                        </td>
+                        <td width="100%" style="background-color: White">
+                        </td>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_right_bottom.png')}" width="5" height="5" />
+                        </td>
+                    </tr>           
+        </table>
+        </td>
+    </tr>
+  
+    </table>
+    </apex:form>   
+</body>
+
+</apex:page>

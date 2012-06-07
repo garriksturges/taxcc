@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The schedule for each portal notification digest to be sent out to a contact.</description>
+    <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <description>The contact whose portal notification schedule this is.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The contact whose portal notification schedule this is.</inlineHelpText>
+        <label>Contact</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Portal Notification Schedules</relationshipLabel>
+        <relationshipName>PortalNotificationSchedules</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DigestType__c</fullName>
+        <description>Specifies whether this is the next digest to be sent out is the first one, a continued one, the last one, or whether this digest frequency has ended for this contact. This informs the data period in the report.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies whether this is the next digest to be sent out is the first one, a continued one, the last one, or whether this digest frequency has ended for this contact. This informs the data period in the report.</inlineHelpText>
+        <label>Digest Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>First</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Continued</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Last</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Frequency__c</fullName>
+        <description>The frequency of this digest.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The frequency of this digest.</inlineHelpText>
+        <label>Frequency</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Semiannually</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Annually</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>NextDigestDate__c</fullName>
+        <description>The next scheduled date that this digest will be sent out.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The next scheduled date that this digest will be sent out.</inlineHelpText>
+        <label>Next Digest Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PreviousDigestDateSummary__c</fullName>
+        <description>The date and time of the latest digest to have gone out at this frequency.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date and time of the latest digest to have gone out at this frequency.</inlineHelpText>
+        <label>Previous Digest Date Summary</label>
+        <summarizedField>PortalNotification__c.SentDate__c</summarizedField>
+        <summaryForeignKey>PortalNotification__c.PortalNotificationSchedule__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <label>Portal Notification Schedule</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Portal Notification Schedule Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Portal Notification Schedules</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Frequency__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>NextDigestDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DigestType__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Frequency__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>NextDigestDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DigestType__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Frequency__c</searchFilterFields>
+        <searchFilterFields>NextDigestDate__c</searchFilterFields>
+        <searchFilterFields>DigestType__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

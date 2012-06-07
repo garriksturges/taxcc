@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AreaDocumentEID__c</fullName>
+        <description>The Enterprise ID for this Area Document.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Area Document.</inlineHelpText>
+        <label>Area Document EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Area__c</fullName>
+        <description>The area associated with the repository document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The area associated with the repository document</inlineHelpText>
+        <label>Area</label>
+        <referenceTo>Area__c</referenceTo>
+        <relationshipLabel>Area Documents</relationshipLabel>
+        <relationshipName>AreaDocuments</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>RepositoryDocument__c</fullName>
+        <description>The document associated with the area</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document associated with the area</inlineHelpText>
+        <label>Document</label>
+        <referenceTo>RepositoryDocument__c</referenceTo>
+        <relationshipLabel>Area Documents</relationshipLabel>
+        <relationshipName>AreaRepositoryDocuments</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Area Document</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Area Document Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Area Documents</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Area__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RepositoryDocument__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Area__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RepositoryDocument__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Area__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RepositoryDocument__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Area__c</searchFilterFields>
+        <searchFilterFields>RepositoryDocument__c</searchFilterFields>
+        <searchResultsAdditionalFields>Area__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RepositoryDocument__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

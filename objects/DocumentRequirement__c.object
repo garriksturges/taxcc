@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DocumentRequirementAgencyCountSummary__c</fullName>
+        <description>The number of agencies that have this document requirement. Zero signifies all agencies have the same requirement, meaning no agency is an exception.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of agencies that have this document requirement. Zero signifies all agencies have the same requirement, meaning no agency is an exception.</inlineHelpText>
+        <label>Agency Count Summary</label>
+        <summaryForeignKey>DocumentRequirementAgency__c.DocumentRequirement__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>DocumentRequirementEID__c</fullName>
+        <description>The Enterprise ID for this Document Requirement record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Document Requirement record.</inlineHelpText>
+        <label>Document Requirement EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramCategory__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The program category this documentation requirement fulfills</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program category this documentation requirement fulfills</inlineHelpText>
+        <label>Program Category</label>
+        <referenceTo>ProgramCategory__c</referenceTo>
+        <relationshipName>Requirements</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Document Requirements</relationshipLabel>
+        <relationshipName>DocumentRequirements</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SortOrder__c</fullName>
+        <description>The order in which a requirement should be listed in a report or cover sheet.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The order in which a requirement should be listed in a report or cover sheet.</inlineHelpText>
+        <label>Sort Order</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Document Requirement</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>DocumentRequirementEID__c</columns>
+        <columns>ProgramCategory__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Document Requirement Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Document Requirements</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Program__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ProgramCategory__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ProgramCategory__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProgramCategory__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ProgramCategory__c</searchFilterFields>
+        <searchResultsAdditionalFields>ProgramCategory__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>NullCheck</fullName>
+        <active>false</active>
+        <description>One parent foreign key fields must be null and one must be not null</description>
+        <errorConditionFormula>or( 
+and( 
+not( 
+isblank( Program__c ) 
+), 
+not( 
+isblank( ProgramCategory__c ) 
+) 
+), 
+and( 
+isblank( Program__c ), 
+isblank( ProgramCategory__c ) 
+) 
+)</errorConditionFormula>
+        <errorMessage>You must supply either a &quot;Program Category&quot; or a &quot;Program,&quot; but not both. You see, this requirement can only track the document requirements for the category or the certification documents for the program, but not both at the same time.</errorMessage>
+    </validationRules>
+</CustomObject>

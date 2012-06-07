@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Document requirements that are different by agency. If this table has no records for a particular document requirement, all agencies require the same document. If it does have records, only the agencies noted have the stated document requirement.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AgencyEidFormula__c</fullName>
+        <description>Agency EID</description>
+        <externalId>false</externalId>
+        <formula>Agency__r.AgencyEID__c</formula>
+        <inlineHelpText>Agency EID</inlineHelpText>
+        <label>Agency Eid Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Agency__c</fullName>
+        <description>The agency that has this document requirement.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The agency that has this document requirement.</inlineHelpText>
+        <label>Agency</label>
+        <referenceTo>Agency__c</referenceTo>
+        <relationshipLabel>Document Requirements by Agency</relationshipLabel>
+        <relationshipName>DocumentRequirementsAgency</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DocumentRequirementAgencyEID__c</fullName>
+        <description>The enterprise ID for this document requirement agency record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The enterprise ID for this document requirement agency record.</inlineHelpText>
+        <label>Document Requirement Agency EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentRequirement__c</fullName>
+        <description>The document requirement that this agency has.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document requirement that this agency has.</inlineHelpText>
+        <label>Document Requirement</label>
+        <referenceTo>DocumentRequirement__c</referenceTo>
+        <relationshipLabel>Document Requirements by Agency</relationshipLabel>
+        <relationshipName>DocumentRequirementsAgency</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Document Requirement by Agency</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Agency__c</columns>
+        <columns>DocumentRequirement__c</columns>
+        <columns>AgencyEidFormula__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Document Requirement Agency Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Document Requirements by Agency</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

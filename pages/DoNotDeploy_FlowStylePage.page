@@ -1,0 +1,320 @@
+<apex:page showHeader="false" standardStylesheets="false"  sidebar="false">
+<script src="/faces/a4j/g/3_3_3.Finalorg.ajax4jsf.javascript.AjaxScript" type="text/javascript"></script>
+<script src="/jslibrary/1323850589000/sfdc/JiffyStubs.js" type="text/javascript"></script>
+<script src="/static/111811/js/functions.js" type="text/javascript"></script>
+<script src="/jslibrary/1328222685000/sfdc/main.js" type="text/javascript"></script>
+<script src="/jslibrary/labels/1328222685000/en_US.js" type="text/javascript"></script>
+<script src="/static/111811/desktop/desktopAjax.js" type="text/javascript"></script>
+<script src="/static/111811/js/picklist.js" type="text/javascript"></script>
+<script src="/jslibrary/1323850589000/sfdc/InteractionInterview.js" type="text/javascript"></script>
+<link class="user" href="/sCSS/24.0/sprites/1328407904000/Theme3/default/gc/elements.css" rel="stylesheet" type="text/css" />
+<link class="user" href="/sCSS/24.0/sprites/1328407904000/Theme3/default/gc/common.css" rel="stylesheet" type="text/css" />
+<link class="user" href="/sCSS/24.0/sprites/1328407904000/Theme3/default/gc/zenTabsOnly.css" rel="stylesheet" type="text/css" />
+<link class="user" href="/sCSS/24.0/sprites/1328407904000/Theme3/gc/dStandard.css" rel="stylesheet" type="text/css" />
+<link class="user" href="/sCSS/24.0/sprites/1328407904000/Theme3/00DV000000011kY/00530000004qdg2/gc/dCustom0.css" rel="stylesheet" type="text/css" />
+<link class="user" href="/sCSS/24.0/sprites/1328407904000/Theme3/00DV000000011kY/00530000004qdg2/gc/dCustom1.css" rel="stylesheet" type="text/css" />
+<link class="user" href="/sCSS/24.0/sprites/1328407904000/Theme3/default/gc/extended.css" rel="stylesheet" type="text/css" />
+<!--<link class="user" href="/sCSS/24.0/sprites/1328407904000/Theme3/default/gc/setup.css" rel="stylesheet" type="text/css" />-->
+
+
+<style type="text/css">
+    body
+    {
+        font-size: 75%;
+    }
+    
+    td, th 
+    {
+        display: table-cell;
+        vertical-align: top;
+    }
+    .interviewFormHeaderCell {
+        vertical-align: top;
+        padding-right: 7px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        border-bottom: 1px solid #ECECEC;
+    }
+    
+    .interviewFormFooterCell {
+        border-top: 1px solid #ECECEC;
+        margin-top: 10px; padding-top : 5px;
+        padding-bottom: 5px;
+        padding-right: 14px;
+        padding-top: 5px;
+    }
+    
+    .bPageBlock .detailList .interviewDisplayTextRow td{
+        border-bottom: 0px !important;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    .bPageBlock .requiredInput {
+        position: relative;
+        height: 100%;
+    }
+    
+    .requiredBlock {
+        background-color: #C00;
+        position: absolute;
+        left: -4px;
+        width: 3px;
+        top: 1px;
+        bottom: 1px;
+    }
+    
+    .sparkForm {
+        margin: 5px;
+        padding-top: 5px;
+    }
+    
+    .interviewFormHelp {
+        float: left;
+        padding-right: 5px;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        font-size: 12px;
+    }
+    
+    .interviewFormQuestionHelp {
+            display: inline;
+            position: absolute;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        font-size: 12px;            
+    }
+    
+    .interviewFormQuestionWithHelp .interviewFormChoicesWithHelp {
+            display: inline;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        font-size: 12px;   
+        width: 400px;  
+        vertical-align: top;          
+    }
+    
+    .interviewFormChoicesWithHelp {
+        float: left;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        font-size: 12px;
+        width: 400px;  
+        vertical-align: top;      
+    }
+    
+    .interviewQuestionDisplayText {
+        padding-top: 15px;
+        padding-bottom: 0px;
+    }
+    
+    
+    .interviewFormPrompt {
+        float: left;
+        padding-left: 5px;
+        width: 100%;
+    }    
+    .interviewFormPrompt p {
+
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
+    .interviewTopRightButtons {
+        float: right;
+    }
+    
+    .interviewBottomRightButtons {
+        float: right;
+    }
+    
+    .interviewBottomLeftButtons {
+        float: left;
+    }
+    
+    .interviewHelpButton {
+        margin-left: 4px;
+        display: inline;
+    }
+    
+    .interviewTitle {
+        padding-top: 10px;
+        font-size: medium;
+    }
+    
+
+    .pbSubheader p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    
+    td.pbButton
+    {
+        width:200px;
+        display: none;
+    }
+    td.pbButtonb
+    {
+        width:200px;
+    }
+    
+    .userInputDivShown {
+        display: block;
+        padding-left: 30px;
+        white-space: nowrap;
+    }
+    
+    .userInputDivHidden {
+        display: none;
+    }
+    
+    .userInputField {
+        margin-left: 4px;
+    }
+    
+    .userInputPrompt {
+        display: inline;
+        white-space: nowrap;
+        padding-right: 10px;
+    }
+    
+    .choiceButtonLabel {
+    }
+    
+    .choiceButtonTable {
+    }
+    
+    .choiceButtonLabelCell {
+        width: 100%;
+    }
+    
+    /** put a little padding between choices-as-buttons **/ 
+    .choiceButtonRow > td {
+        padding-bottom: 6px;
+    }   
+
+    body, td{
+        font-family: Arial, Helvetica, sans-serif;
+        color: #222;
+    }     
+    body .bPageBlock .pbBody .labelCol {
+        font-size: 12px;
+        color: #00000;
+        width:40%;
+        vertical-align: top;
+    }
+    body .bPageBlock .pbBody .labelCol .last {
+        border-bottom: 0px none;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        width:40%;
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        font-size: 12px;
+        vertical-align: top;
+    }
+    
+    body .bPageBlock .pbBody .dataCol .col02 .last {
+        border-bottom: 0px none;    
+        padding: 0px 0px 0px 0px;
+        padding-left: 10px;
+        width: 60%;
+        vertical-align: top;
+    }
+    
+    body .bPageBlock .pbBody .data2Col {
+        border-bottom: 0px none;
+        padding: 0px 0px 0px 0px;   
+    }
+    
+    body .pbHeaderEmpty {
+        display: none;
+    }
+    
+    body .bPageBlock {
+        margin-top: 8px;
+    }
+    
+    /* right align the page block buttons for the interview */
+    
+    .apexp .bPageBlock .pbHeader td,
+    .apexp .bPageBlock.apexDefaultPageBlock .pbBottomButtons .pbButtonb {
+        padding: 5px 12px;
+        text-align: right;
+        vertical-align: top;
+    }
+    
+    /* margins for the Interview Title and the page block */
+    
+    .interviewTitle h1 {
+        margin-left: 10px;  
+    }
+    
+    .apexp .individualPalette .taskBlock .bPageBlock {
+        margin: 10px;
+    }
+    
+    .apexp .individualPalette .taskBlock .bPageBlock .pbBody .pbSubsection .detailList {
+        margin: 5px;
+        padding-top: 10px;  
+    }
+    
+    .apexp .individualPalette .taskBlock .bPageBlock .pbBody table {
+        width: 100%;
+    }   
+    
+    .apexp .bPageBlock .pbHeader .pbButton img,
+    .apexp .bPageBlock .pbBottomButtons .pbButtonb img {
+        padding-right: 5px;
+        font-size: 75%;
+        
+    }
+
+    .pbTitle
+    {
+        width: 600px;
+    }
+    
+    .btn
+    {
+        border: 1px solid #006;
+        background: #9cf;
+    }
+    input[type="button"], input[type="submit"], input[type="reset"], input[type="file"] ::-webkit-file-upload-button, button {
+        padding: 3px 3px;
+        border: 1px solid #000000;
+        background: #E0E0E0;
+        vertical-align: top;
+    }
+    
+    body .bPageBlock, body #bodyCell .bResource .secondaryPalette, body .secondaryPalette.bPageBlock, body .overlayDialog .secondaryPalette.bPageBlock, body .individualPalette .secondaryPalette.bPageBlock, body .bodyDiv .genericTable, body .genericPageBlockTable, body .bodyDiv .bSubBlock, body .bComponentBlock .bPageBlock, body .bMyDashboard .bPageBlock, body.rlHoverFrame .bPageBlock, body.subjectSelectionPopup div.choicesBox, body.lookupTab .secondaryPalette.bPageBlock, body.popupTab .secondaryPalette.bPageBlock, body.UserTagStatsPage .secondaryPalette.bPageBlock {
+        background-color: #FFFFF;
+        border-bottom: 1px solid #EAEAEA;
+        border-left: 1px solid #EAEAEA;
+        border-right: 1px solid #EAEAEA;
+        -moz-border-radius: 4px;
+        -webkit-border-radius: 4px;
+        border-radius: 4px;
+    }
+    
+    body .bPageBlock .pbBody .labelCol, body .bPageBlock .pbBody .dataCol, body .bPageBlock .pbBody .data2Col .last {
+
+        vertical-align: top;
+    }
+    
+    .bPageBlock .dataCol {
+        text-align: left;
+        vertical-align: top;
+    }
+
+</style>
+
+
+<body style="padding:3px;">     
+    
+    <div style="width:901px; margin-left:auto; margin-right:auto;">  
+
+        
+        <div style="width:850px; margin-left:40px; margin-right:40px;">
+            <flow:interview name="CallCenterScreenEmployee" buttonStyle="btn"></flow:interview>    
+        </div>          
+
+    </div>      
+</body>
+
+</apex:page>

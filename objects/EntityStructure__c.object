@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>newEntityStructurePage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>newEntityStructurePage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>CityName__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Official address for this entity, for tax filing purposes. The city.</inlineHelpText>
+        <label>City</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>County</label>
+        <referenceTo>County__c</referenceTo>
+        <relationshipLabel>Entity Structures</relationshipLabel>
+        <relationshipName>EntityStructures</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EntityName__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The entity whose structure is being defined.</inlineHelpText>
+        <label>Entity</label>
+        <referenceTo>Entity__c</referenceTo>
+        <relationshipLabel>Structure History</relationshipLabel>
+        <relationshipName>EntityStructures</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>EntityStructureEID__c</fullName>
+        <description>The Enterprise ID of this Entity Structure.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID of this Entity Structure.</inlineHelpText>
+        <label>Entity Structure EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>EntityType__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The structure of this business entity. Choose from the pull-down menu.</inlineHelpText>
+        <label>Business Entity Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>C Corporation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Partnership</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Limited Liability Company (LLC)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Limited Liability Limited Partnership (LLLP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Limited Liability Partnership (LLP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Limited Partnership (LP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professional Corporation (PC)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professional Limited Liability Company (PLLC)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S Corporation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sole Proprietorship</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>FederalEntityEndDate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the entity ceased to exist as this structure at the federal level.</inlineHelpText>
+        <label>Federal Entity Dissolution Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FederalEntityStartDate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date this entity officially became this structure at the federal level.</inlineHelpText>
+        <label>Federal Entity Inception Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FederalTaxId__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The federally issued tax or employer identification number for the entity.</inlineHelpText>
+        <label>Federal Tax ID</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FormattedFederalTaxIdFormula__c</fullName>
+        <description>Federal tax ID formatted with a hyphen.</description>
+        <externalId>false</externalId>
+        <formula>left( FederalTaxId__c ,2) &amp; &apos;-&apos; &amp; right( FederalTaxId__c ,7)</formula>
+        <inlineHelpText>Federal tax ID formatted with a hyphen.</inlineHelpText>
+        <label>Formatted Federal Tax Id</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StateEntityEndDate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the entity ceased to exist as this structure at the state level.</inlineHelpText>
+        <label>State Entity Dissolution Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>StateEntityStartDate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date this entity officially became this structure at the state level.</inlineHelpText>
+        <label>State Entity Inception Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>StateTaxId__c</fullName>
+        <externalId>true</externalId>
+        <inlineHelpText>The state-issued tax or employer identification number for the entity.</inlineHelpText>
+        <label>State Tax ID</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>State of Incorporation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>State of incorporation, which should be the same as the state that forms part of the official address for this entity for tax filing purposes.</inlineHelpText>
+        <label>State</label>
+        <referenceTo>State__c</referenceTo>
+        <relationshipLabel>Entity Structures</relationshipLabel>
+        <relationshipName>EntityStructures</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StreetAddressText__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Official address for this entity, for tax filing purposes. The street address; include second line if applicable.</inlineHelpText>
+        <label>Street Address</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ZipCode__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Official address for this entity, for tax filing purposes. The zip or postal code.</inlineHelpText>
+        <label>Zip Code</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Entity Structure</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>EntityName__c</columns>
+        <columns>FederalTaxId__c</columns>
+        <columns>StateTaxId__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Entity_Structures</fullName>
+        <columns>NAME</columns>
+        <columns>EntityName__c</columns>
+        <columns>EntityType__c</columns>
+        <columns>FederalTaxId__c</columns>
+        <columns>StateTaxId__c</columns>
+        <columns>StreetAddressText__c</columns>
+        <columns>CityName__c</columns>
+        <columns>State__c</columns>
+        <columns>ZipCode__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Entity Structures</label>
+    </listViews>
+    <nameField>
+        <label>Entity Structure Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Entity Structures</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>EntityName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EntityType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FederalTaxId__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StateTaxId__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StreetAddressText__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CityName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>State__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ZipCode__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>EntityName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EntityType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StreetAddressText__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CityName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>State__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ZipCode__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>FederalTaxId__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StateTaxId__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>EntityName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EntityType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StreetAddressText__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CityName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>State__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ZipCode__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>FederalTaxId__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StateTaxId__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Entity_structure_record_federalTID_BET</fullName>
+        <active>false</active>
+        <description>Must be required either a Business Entity Type or a Federal Tax ID to create Entity structure record.</description>
+        <errorConditionFormula>AND(
+LEN(FederalTaxId__c )=0,ISBLANK(TEXT(EntityType__c))
+)</errorConditionFormula>
+        <errorMessage>Must be required either a Business Entity Type or a Federal Tax ID to create Entity structure record.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Federal_Tax_ID_validate</fullName>
+        <active>false</active>
+        <description>Federal Tax ID should be in 9 digits of length and not allowed the hyphens or other characters.</description>
+        <errorConditionFormula>AND(
+LEN(FederalTaxId__c)&gt;0,
+LEN ( FederalTaxId__c) &lt;&gt; 9
+)</errorConditionFormula>
+        <errorMessage>Federal Tax ID should be in 9 digits of length and not allowed the hyphens or other characters.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Federal_Tax_Id_must_be_numeric</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(
+LEN(FederalTaxId__c)&gt;0,
+NOT (ISNUMBER( FederalTaxId__c)))</errorConditionFormula>
+        <errorMessage>Federal tax Id must be numeric</errorMessage>
+    </validationRules>
+</CustomObject>

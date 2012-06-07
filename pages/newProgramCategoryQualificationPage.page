@@ -1,0 +1,24 @@
+<apex:page standardController="ProgramCategoryQualification__c" >
+  <apex:form >
+    <apex:pageBlock title="Program Category Qualification" mode="edit">
+      
+<apex:pageMessages />
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="Save"/>
+        <apex:commandButton action="{!cancel}" value="Cancel"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="" columns="1">
+        <apex:inputField value="{! ProgramCategoryQualification__c.ProgramCategoryPeriod__c}" required="true"/>  
+        <apex:inputField value="{! ProgramCategoryQualification__c.ProgramQualification__c}" required="true"/>  
+        <apex:inputField value="{! ProgramCategoryQualification__c.Readiness__c}" required="false"/>  
+        <apex:inputField value="{! ProgramCategoryQualification__c.ReadinessDate__c}" required="false"/>  
+        <apex:inputField value="{! ProgramCategoryQualification__c.Survey__c}" required="false"/>  
+        <apex:inputField value="{! ProgramCategoryQualification__c.ProgramCategoryQualificationEID__c}" required="false"/>  
+        <apex:inputField value="{! ProgramCategoryQualification__c.ProcessStage__c}" required="false"/>
+        <apex:inputField value="{! ProgramCategoryQualification__c.ProcessStageDate__c}" required="false"/>
+        
+           
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

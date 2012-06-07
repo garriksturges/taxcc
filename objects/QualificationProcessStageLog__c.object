@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Inserts a record when a Process Stage on the Program Qualification or a Program Category Qualification changes.</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>ProcessStageDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Process Stage Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ProcessStage__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Process Stage</label>
+        <referenceTo>QualificationProcessStage__c</referenceTo>
+        <relationshipLabel>Qualification Process Stage Logs</relationshipLabel>
+        <relationshipName>QualificationProcessStageLogs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryQualification__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program Category Qualification</label>
+        <referenceTo>ProgramCategoryQualification__c</referenceTo>
+        <relationshipLabel>Qualification Process Stage Logs</relationshipLabel>
+        <relationshipName>QualificationProcessStageLogs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProgramQualification__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program Qualification</label>
+        <referenceTo>ProgramQualification__c</referenceTo>
+        <relationshipLabel>Qualification Process Stage Logs</relationshipLabel>
+        <relationshipName>QualificationProcessStageLogs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>QualificationProcessStageLogEID__c</fullName>
+        <externalId>true</externalId>
+        <label>Qualification Process Stage Log EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Readiness__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Readiness</label>
+        <referenceTo>QualificationReadiness__c</referenceTo>
+        <relationshipLabel>Qualification Process Stage Logs</relationshipLabel>
+        <relationshipName>QualificationProcessStageLogs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <label>Qualification Process Stage Log</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Qualification Process Stage Log Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Qualification Process Stage Logs</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>NullCheck</fullName>
+        <active>true</active>
+        <description>One parent foreign key fields must be null and one must be not null</description>
+        <errorConditionFormula>or(and(not(isblank( ProgramQualification__c )),not(isblank( ProgramCategoryQualification__c))),and(isblank( ProgramQualification__c ),isblank( ProgramCategoryQualification__c )
+)
+)</errorConditionFormula>
+        <errorMessage>You must supply either a &quot;Program Category Qualification&quot; or a &quot;Program Qualification,&quot; but not both. You see, we can only track one of these at a time.</errorMessage>
+    </validationRules>
+</CustomObject>

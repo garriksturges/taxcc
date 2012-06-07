@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>newEntityAgreementPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>newEntityAgreementPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Agency__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The agency or office of jurisdiction that the agreement is with.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The agency or office of jurisdiction that the agreement is with.</inlineHelpText>
+        <label>Agency</label>
+        <referenceTo>Agency__c</referenceTo>
+        <relationshipName>EntityAgencyAgreement</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AgreementType__c</fullName>
+        <description>The type of legal agreement.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of legal agreement.</inlineHelpText>
+        <label>Agreement Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Power of Attorney</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CityText__c</fullName>
+        <description>The city on the actual contract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The city on the actual contract</inlineHelpText>
+        <label>City</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ContractType__c</fullName>
+        <description>The type of contract or legal agreement.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of contract or legal agreement.</inlineHelpText>
+        <label>Contract Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Power of Attorney</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>EndDate__c</fullName>
+        <description>The expiration of the contract or legal agreement term.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The expiration of the contract or legal agreement term.</inlineHelpText>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EntityAgreementEID__c</fullName>
+        <description>The Enterprise ID for this Entity Agreement.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Entity Agreement.</inlineHelpText>
+        <label>Entity Agreement EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <description>The client entity with whom the Tax Credit Company is making this contract or legal agreement.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The client entity with whom the Tax Credit Company is making this contract or legal agreement.</inlineHelpText>
+        <label>Entity</label>
+        <referenceTo>Entity__c</referenceTo>
+        <relationshipName>EntityContracts</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>The effective date of the contract or legal agreement.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The effective date of the contract or legal agreement.</inlineHelpText>
+        <label>Effective Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The state on the actual contract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The state on the actual contract</inlineHelpText>
+        <label>State</label>
+        <referenceTo>State__c</referenceTo>
+        <relationshipName>EntityContracts</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StreetAddressText__c</fullName>
+        <description>The street address on the actual contract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The street address on the actual contract</inlineHelpText>
+        <label>Street Address</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ZipCode__c</fullName>
+        <description>The zip code on the actual contract</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The zip code on the actual contract</inlineHelpText>
+        <label>Zip Code</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Entity Agreement</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Entity__c</columns>
+        <columns>StreetAddressText__c</columns>
+        <columns>CityText__c</columns>
+        <columns>State__c</columns>
+        <columns>ZipCode__c</columns>
+        <columns>StartDate__c</columns>
+        <columns>EndDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Entity Agreement Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Entity Agreements</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Entity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AgreementType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StartDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EndDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StreetAddressText__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CityText__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>State__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ZipCode__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Entity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AgreementType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StartDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EndDate__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Entity__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AgreementType__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>StartDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EndDate__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>Entity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AgreementType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StartDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EndDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

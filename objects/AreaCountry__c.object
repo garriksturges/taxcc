@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Countries in areas defined by country.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AreaCountryEID__c</fullName>
+        <description>The Enterprise ID for this Area Country.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Area Country.</inlineHelpText>
+        <label>Area Country EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Area__c</fullName>
+        <description>The area containing this country.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The area containing this country.</inlineHelpText>
+        <label>Area</label>
+        <referenceTo>Area__c</referenceTo>
+        <relationshipLabel>Area Countries</relationshipLabel>
+        <relationshipName>AreaCountries</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <description>A country in this area, if it is defined by country.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A country in this area, if it is defined by country.</inlineHelpText>
+        <label>Country</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Area Countries</relationshipLabel>
+        <relationshipName>AreaCountries</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Area Country</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Area Country Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Area Countries</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

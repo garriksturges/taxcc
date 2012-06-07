@@ -1,0 +1,4 @@
+<apex:page standardstylesheets="false" showheader="false" sidebar="false" controller="PortalHomeController">
+    <apex:include rendered="{!IF(IsLocationProcessManager , true, false)}" pageName="PortalManagerHomePage"/>    
+    <apex:include rendered="{!IF(!IsLocationProcessManager , true, false)}" pageName="PortalExecutiveHomePage"/>    
+</apex:page>

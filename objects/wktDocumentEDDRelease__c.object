@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Work table to be used to auto-populate the EDD Release document from the survey, portal, or inside Salesforce.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>CongaSolutionURL__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;&amp;Id=&quot; + Id + 
+&quot;&amp;templateId=a1DV0000000FgiZ&quot; + 
+&quot;&amp;DS7=2&quot; + 
+&quot;&amp;QMode=1&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CongaSolutionURL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CongaWorkflowTrigger__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>CongaWorkflowTrigger</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DataEndDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Data End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DataStartDate__c</fullName>
+        <description>The start date of the period for which we need EDD records.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The start date of the period for which we need EDD records.</inlineHelpText>
+        <label>Data Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EmployeeSurvey__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The survey that the employee took to qualify for the program category that requires this document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The survey that the employee took to qualify for the program category that requires this document.</inlineHelpText>
+        <label>Employee Survey</label>
+        <referenceTo>EmployeeSurvey__c</referenceTo>
+        <relationshipName>wktDocumentEDDRelease</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Employment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The employment period that this form relates to.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employment period that this form relates to.</inlineHelpText>
+        <label>Employment Period</label>
+        <referenceTo>Employment__c</referenceTo>
+        <relationshipName>wktDocumentEDDRelease</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FirstLastNameFormula__c</fullName>
+        <description>Full name of the employee for the document.</description>
+        <externalId>false</externalId>
+        <formula>Employment__r.Employee__r.FirstLastNameFormula__c</formula>
+        <inlineHelpText>Full name of the employee for the document.</inlineHelpText>
+        <label>Full Name (first-last)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SSNCodeFormula__c</fullName>
+        <description>The SSN of the employee, formatted with hyphens.</description>
+        <externalId>false</externalId>
+        <formula>IF(CONTAINS( Employment__r.Employee__r.SSN__c, &apos;*&apos;) ,&apos;&apos;, (LEFT(Employment__r.Employee__r.SSN__c,3) +&quot;-&quot;+ MID(Employment__r.Employee__r.SSN__c, 4, 2) + &quot;-&quot; +  RIGHT(Employment__r.Employee__r.SSN__c, 4) ))</formula>
+        <inlineHelpText>The SSN of the employee, formatted with hyphens.</inlineHelpText>
+        <label>SSN</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>EDD Release</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>EDD Release Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>EDD Releases</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>GenerateEDDRelease</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Generate EDD Release</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://www.appextremes.com/apps/Conga/PointMerge.aspx?SessionId={!API.Session_ID}&amp;ServerUrl={!API.Partner_Server_URL_80}&amp;Id={!wktDocumentEDDRelease__c.Id}</url>
+    </webLinks>
+</CustomObject>

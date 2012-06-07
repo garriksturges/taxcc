@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>newEmployeeAddressPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>newEmployeeAddressPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A history of addresses for each employee.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>CityName__c</fullName>
+        <description>City name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>City name</inlineHelpText>
+        <label>City</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>County name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>County name</inlineHelpText>
+        <label>County</label>
+        <referenceTo>County__c</referenceTo>
+        <relationshipLabel>Employee Addresses</relationshipLabel>
+        <relationshipName>CountyEmployeeAddresses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EffectiveDate__c</fullName>
+        <description>The date this address became the employee&apos;s address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date this address became the employee&apos;s address</inlineHelpText>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>EmployeeAddressEID__c</fullName>
+        <description>The Enterprise ID for this Employee Address.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Employee Address.</inlineHelpText>
+        <label>Employee Address EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Employee__c</fullName>
+        <description>The employee associated with this address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employee associated with this address</inlineHelpText>
+        <label>Employee</label>
+        <referenceTo>Employee__c</referenceTo>
+        <relationshipLabel>Employee Addresses</relationshipLabel>
+        <relationshipName>EmployeeAddresses</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>FlowSession__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Flow Session</label>
+        <referenceTo>FlowSession__c</referenceTo>
+        <relationshipLabel>Employee Addresses</relationshipLabel>
+        <relationshipName>EmployeeAddresses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FullNameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Trim(Left(Employee__r.Name, 25)) &amp; &apos;_&apos; &amp; Trim(Left(StreetAddressText__c, 25)) &amp; &apos;_&apos; &amp; Trim(Left(	CityName__c, 24)) &amp; &apos;_&apos; &amp; Trim(Left(State__r.Name,3))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IE2EmployeeAddressId__c</fullName>
+        <description>Employee address ID from IE2</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Employee address ID from IE2</inlineHelpText>
+        <label>IE2 Employee Address ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Latitude__c</fullName>
+        <externalId>false</externalId>
+        <label>Latitude</label>
+        <precision>15</precision>
+        <required>false</required>
+        <scale>12</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Longitude__c</fullName>
+        <externalId>false</externalId>
+        <label>Longitude</label>
+        <precision>15</precision>
+        <required>false</required>
+        <scale>12</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>State name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>State name</inlineHelpText>
+        <label>State</label>
+        <referenceTo>State__c</referenceTo>
+        <relationshipLabel>Employee Addresses</relationshipLabel>
+        <relationshipName>StateEmployeeAddresses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StreetAddressText__c</fullName>
+        <description>The employee&apos;s full street address including suite, apartment, etc.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employee&apos;s full street address including suite, apartment, etc.</inlineHelpText>
+        <label>Street Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>ZipCode__c</fullName>
+        <description>Zip Code</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Zip Code</inlineHelpText>
+        <label>Zip Code</label>
+        <length>10</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Employee Address</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Employee__c</columns>
+        <columns>StreetAddressText__c</columns>
+        <columns>CityName__c</columns>
+        <columns>State__c</columns>
+        <columns>ZipCode__c</columns>
+        <columns>County__c</columns>
+        <columns>EffectiveDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Employee Address Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Employee Addresses</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Employee__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StreetAddressText__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CityName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>State__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ZipCode__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>County__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EffectiveDate__c</customTabListAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <webLinks>
+        <fullName>Map</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Map</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/geopointe__Map?id={!EmployeeAddress__c.Id}</url>
+    </webLinks>
+</CustomObject>

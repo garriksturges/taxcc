@@ -1,0 +1,21 @@
+<apex:page standardController="Employee__c" >
+  <apex:form >
+    <apex:pageBlock title="New Employee" mode="edit">
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="Save"/>
+        <apex:commandButton action="{!cancel}" value="Cancel"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="Employee Info" columns="1">
+        <apex:inputField value="{!Employee__c.Account__c}" required="true"/>
+        <apex:inputField value="{!Employee__c.FirstName__c}"  required="true"/>
+        <apex:inputField value="{!Employee__c.LastName__c}"  required="true"/>
+        <apex:inputField value="{!Employee__c.MiddleName__c}"/>
+        <apex:inputField value="{!Employee__c.BirthDate__c}" required="true"/>
+        <apex:inputField value="{!Employee__c.SSN__c}" required="true"/>
+        <apex:inputField value="{!Employee__c.ClientEmployeeID__c}"/>
+        <apex:inputField value="{!Employee__c.EmployeeEID__c}"/>
+        <apex:inputField value="{!Employee__c.IE2EmployeeId__c}"/>                        
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

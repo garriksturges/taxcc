@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DisqualificationEndDate__c</fullName>
+        <description>End date of the Program Category Disqualification</description>
+        <externalId>false</externalId>
+        <label>Disqualification End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DisqualificationReason__c</fullName>
+        <externalId>false</externalId>
+        <label>Disqualification Reason</label>
+        <referenceTo>DisqualificationReason__c</referenceTo>
+        <relationshipLabel>Program Category Disqualifications</relationshipLabel>
+        <relationshipName>ProgramCategoryDisqualifications</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DisqualificationStartDate__c</fullName>
+        <description>The date of Disqualification</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date of Disqualification</inlineHelpText>
+        <label>Disqualification Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>PCDCountFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>ProgramCategoryQualification__r.ProgramCategoryDisqualifications__c</formula>
+        <label>PCD Count Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryQualification__c</fullName>
+        <externalId>false</externalId>
+        <label>Program Category Qualification</label>
+        <referenceTo>ProgramCategoryQualification__c</referenceTo>
+        <relationshipLabel>Program Category Disqualifications</relationshipLabel>
+        <relationshipName>ProgramCategoryDisqualifications</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoyDisqualificationEID__c</fullName>
+        <externalId>true</externalId>
+        <label>Program Category Disqualification EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <label>Program Category Disqualification</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Program Category Disqualification Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Program Category Disqualifications</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>DisqualificationStartEnddate</fullName>
+        <active>true</active>
+        <errorConditionFormula>DisqualificationStartDate__c &gt;  DisqualificationEndDate__c</errorConditionFormula>
+        <errorMessage>End date should be greater than Start Date</errorMessage>
+    </validationRules>
+</CustomObject>

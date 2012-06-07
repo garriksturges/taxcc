@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>newProgramCategoryPeriodsPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>newProgramCategoryPeriodsPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Area__c</fullName>
+        <description>The area linked to this program category</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The area linked to this program category</inlineHelpText>
+        <label>Area</label>
+        <referenceTo>Area__c</referenceTo>
+        <relationshipName>ProgramCategoryAreas</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>EndDate__c</fullName>
+        <description>The date this program category and area combination ended</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date this program category and area combination ended</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FullNameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Trim(Left(ProgramCategory__r.Name, 34)) &amp; &apos;_&apos; &amp; Trim(Left(Area__r.Name, 33)) &amp; &apos;_&apos; &amp;TEXT(MONTH(StartDate__c)) + &quot;/&quot; + RIGHT(TEXT(YEAR(StartDate__c)),2)&amp; &apos;_&apos; &amp;TEXT(MONTH(EndDate__c)) + &quot;/&quot; + RIGHT(TEXT(YEAR(EndDate__c)),2)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IE2TeaID__c</fullName>
+        <externalId>false</externalId>
+        <label>IE2TeaID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryPeriodEID__c</fullName>
+        <description>The Enterprise ID for this Program Category Period.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Program Category Period.</inlineHelpText>
+        <label>Program Category Period EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramCategory__c</fullName>
+        <description>The program category linked to this area</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program category linked to this area</inlineHelpText>
+        <label>Program Category</label>
+        <referenceTo>ProgramCategory__c</referenceTo>
+        <relationshipName>ProgramCategoryAreas</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>The date this program category and area combination began</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date this program category and area combination began</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <label>Program Category Period</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ProgramCategory__c</columns>
+        <columns>Area__c</columns>
+        <columns>EndDate__c</columns>
+        <columns>StartDate__c</columns>
+        <columns>IE2TeaID__c</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Program Category Period Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Program Category Periods</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ProgramCategory__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Area__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StartDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EndDate__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ProgramCategory__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Area__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StartDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EndDate__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProgramCategory__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Area__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>StartDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EndDate__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ProgramCategory__c</searchFilterFields>
+        <searchFilterFields>Area__c</searchFilterFields>
+        <searchFilterFields>StartDate__c</searchFilterFields>
+        <searchFilterFields>EndDate__c</searchFilterFields>
+        <searchResultsAdditionalFields>ProgramCategory__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Area__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StartDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EndDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

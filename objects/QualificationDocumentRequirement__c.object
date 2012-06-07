@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DocumentRequirement__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The document requirement used by this record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document requirement used by this record.</inlineHelpText>
+        <label>Document Requirement</label>
+        <referenceTo>DocumentRequirement__c</referenceTo>
+        <relationshipName>QualificationRequirements</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DocumentSourceEidGenerated__c</fullName>
+        <externalId>false</externalId>
+        <label>DocumentSourceEidGenerated</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentStatusDate__c</fullName>
+        <description>This the date the requirement reaches this status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This the date the requirement reaches this status</inlineHelpText>
+        <label>Document Status Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>DocumentStatusEIDFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>DocumentStatus__r.DocumentStatusEID__c</formula>
+        <label>Document Status EID Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentStatusExternal__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The document status as shown to the client, based on documents that are sourced from the employee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document status as shown to the client, based on documents that are sourced from the employee.</inlineHelpText>
+        <label>Document Status External</label>
+        <referenceTo>DocumentStatus__c</referenceTo>
+        <relationshipLabel>Qualification Document Requirements (Document Status External)</relationshipLabel>
+        <relationshipName>QualificationDocumentRequirementExternal</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DocumentStatusRankSummary__c</fullName>
+        <externalId>false</externalId>
+        <label>Document Status Rank Summary</label>
+        <summarizedField>QualificationDocumentStep__c.DocumentStatusRankSummar__c</summarizedField>
+        <summaryForeignKey>QualificationDocumentStep__c.QualificationDocumentRequirement__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>DocumentStatus__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The status of this document requirement.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The status of this document requirement.</inlineHelpText>
+        <label>Document Status</label>
+        <referenceTo>DocumentStatus__c</referenceTo>
+        <relationshipLabel>Qualification Document Requirements</relationshipLabel>
+        <relationshipName>QualificationDocumentRequirements</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PCQReadinessEIDFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>ProgramCategoryQualification__r.Readiness__r.QualificationReadinessEID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>PCQReadinessEIDFormula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PQPCQIDFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK(ProgramQualification__c) ,  ProgramCategoryQualification__r.ProgramQualification__c , ProgramQualification__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>PQ-PCQ-ID Formula</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryIDFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>ProgramCategoryQualification__r.ProgramCategoryPeriod__r.ProgramCategory__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ProgramCategoryIDFormula</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryQualification__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The program category qualification associated with this requirement status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program category qualification associated with this requirement status</inlineHelpText>
+        <label>Program Category Qualification</label>
+        <referenceTo>ProgramCategoryQualification__c</referenceTo>
+        <relationshipName>QualificationRequirements</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProgramQualificationIdfromPCQFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>ProgramCategoryQualification__r.ProgramQualification__c</formula>
+        <label>ProgramQualificationIdfromPCQFormula</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramQualification__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Program Qualification</label>
+        <referenceTo>ProgramQualification__c</referenceTo>
+        <relationshipName>QualificationRequirements</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>QualificationDocumentRequirementEID__c</fullName>
+        <description>The Enterprise ID for this Qualification Document Requirement record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Qualification Document Requirement record.</inlineHelpText>
+        <label>Qualification Document Requirement EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <label>Qualification Document Requirement</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ProgramCategoryQualification__c</columns>
+        <columns>DocumentStatusDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Qualification Document Requirement Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Qualification Document Requirements</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ProgramCategoryQualification__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DocumentStatusDate__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ProgramCategoryQualification__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DocumentStatusDate__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProgramCategoryQualification__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DocumentStatusDate__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ProgramCategoryQualification__c</searchFilterFields>
+        <searchFilterFields>DocumentStatusDate__c</searchFilterFields>
+        <searchResultsAdditionalFields>ProgramCategoryQualification__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DocumentStatusDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>NullCheck</fullName>
+        <active>true</active>
+        <description>One parent foreign key fields must be null and one must be not null</description>
+        <errorConditionFormula>or(
+  and( 
+    not(
+      isblank( ProgramQualification__c )
+    ), 
+    not( 
+      isblank( ProgramCategoryQualification__c )
+    )
+  ), 
+  and( 
+    isblank( ProgramQualification__c ),  
+    isblank( ProgramCategoryQualification__c )
+  )
+)</errorConditionFormula>
+        <errorMessage>You must supply either a &quot;Program Category Qualification&quot; or a &quot;Program Qualification,&quot; but not both. You see, we can only track one of these at a time.</errorMessage>
+    </validationRules>
+</CustomObject>

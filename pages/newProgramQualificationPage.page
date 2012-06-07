@@ -1,0 +1,22 @@
+<apex:page standardController="ProgramQualification__c" >
+  <apex:form >
+    <apex:pageBlock title="Program Qualification" mode="edit">
+      
+<apex:pageMessages />
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="Save"/>
+        <apex:commandButton action="{!cancel}" value="Cancel"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="" columns="1">
+        <apex:inputField value="{! ProgramQualification__c.Employment__c}" required="true"/>
+        <apex:inputField value="{! ProgramQualification__c.ProgramPeriod__c}" required="true"/>
+        <apex:inputField value="{! ProgramQualification__c.EffectiveDate__c}" required="false"/>
+        <apex:inputField value="{! ProgramQualification__c.Survey__c}" required="false"/>
+        <apex:inputField value="{! ProgramQualification__c.ProgramQualificationEID__c}" required="false"/>
+        <apex:inputField value="{! ProgramQualification__c.ProcessStage__c}" required="false"/>
+        <apex:inputField value="{! ProgramQualification__c.ProcessStageDate__c}" required="false"/>
+       
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

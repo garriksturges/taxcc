@@ -1,0 +1,264 @@
+<apex:page showHeader="false" standardStylesheets="true"  sidebar="false">
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function()
+{
+   $("link[href*='common.css']").remove();
+   $("link[href*='extended.css']").remove();
+   
+});
+</script>
+
+
+<c:SurveyCSS />
+
+</head>
+
+<style text="text/css">
+
+        #dashboardFooters a{
+            color:#828282;
+            font-style: italic;
+        }
+        #dashboardFooters p{
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+            -webkit-border-horizontal-spacing: 0;
+            -webkit-border-vertical-spacing: 0;
+            margin-right: 0;
+            margin-left: 0;
+            border-left: solid 0px;
+            border-right: solid 0px;
+            float: left;
+            text-align: center;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #dashboardFooters{
+            margin-top: 10px;
+            color:grey;
+            float:left;
+            font-style: italic;
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+            width:100%;
+        }
+        
+	    td.pbButton{        
+	        display: none;
+	    }
+	    
+		span.errorMsg{
+			padding-left: 10px;
+		}
+	    
+	    div.pbBottomButtons{
+	    	padding-left: 410px;
+	    	padding-top: 15px;
+	  	}
+	    
+	    .flowContainer{
+	    	margin-bottom: 15px;
+	    }
+	    
+	    .col02{
+	    	padding-left: 30px;
+	    }
+	    
+	    table.detailList{
+	    	font-size: 12px;
+	    }
+	    
+	    td.labelCol{
+	    	font-size: 12px;
+	    	vertical-align: top;
+	    	width: 50%;
+	    }
+	    td.dataCol{
+	    	width: 50%;
+	    }
+	    
+	    .requiredMark{
+	    	font-weight: bold;
+	    	color: red;
+	    }
+
+    </style>
+ 
+<body onload="initialize(); " style="background-image: url({!URLFOR($Resource.PortalResources, 'gradientbackground.jpg')}); background-repeat: repeat-x; background-color: rgb(136, 148, 160)">
+	<table style="width: 900px; font-family: Verdana, Geneva, Tahoma, sans-serif;" align="center">
+        <!--Begin navigation top-->
+        <tr>
+            <td>
+                <table style="width: 900px;" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_left_top_blue.png')}" width="5" height="5" />
+                        </td>
+                        <td bgcolor="#2e4385" width="890">
+                        </td>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_right_top_blue.png')}" width="5" height="5" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <table style="width: 100%" bgcolor="#2e4385" cellpadding="4">
+                                <tr>
+                                    <td style="width: 60%">
+                                        <img src="{!$Resource.PortalLogoTrans}" />
+                                    </td>
+                                    <td>
+                                        <table style="float: right; background-color: #2e4385;">
+                                            <!--<tr>
+                                                <td>
+                                                    <table style="float: right; font-size: x-small; font-variant: small-caps; font-weight: bold; color: #FFFFFF; vertical-align: top;">
+                                                        <tr>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/secur/logout.jsp" style="color:#FFFFFF;">Logout</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>&nbsp;</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr> 
+                                            <tr>
+                                                <td>
+                                                    <table style="font-size: small; font-weight: bold; font-variant: small-caps; color: #FFFFFF">
+                                                        <tr>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/apex/PortalManagerHomePage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Home</a>
+                                                            </td>
+                                                            <td>
+                                                                |
+                                                            </td>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/apex/PortalManagerMessagesPage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Messages</a>
+                                                            </td>
+                                                            <td>
+                                                                |
+                                                            </td>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/apex/PortalManagerScreeningPage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Screening</a>
+                                                            </td>
+                                                            <td>
+                                                                |
+                                                            </td>
+                                                            <td>
+                                                                <a href="{!$Site.Prefix}/apex/PortalManagerReportsPage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Reports</a>
+                                                            </td>
+                                                            <td>
+                                                                |
+                                                            </td>
+                                                            <td bgcolor="darkgray">
+                                                                <a href="{!$Site.Prefix}/apex/CallCenterScreenEmployeePage?id={!$User.ContactId}" style="color:#FFFFFF; text-decoration: none;">Survey</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>-->
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'head_bottom_left_blue.png')}" width="5" height="5" />
+                        </td>
+                        <td bgcolor="#2e4385" width="100%">
+                        </td>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'head_bottom_right_blue.png')}" width="5" height="5" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <!--Begin Dashboard Content-->
+        <tr>
+            <td style="padding-top:22px;">
+                <div style="float: left; text-align: left; font-size: small; font-weight: bold; font-variant: small-caps; color: #000000; margin-top:5px; margin-bottom:5px; height:15px;">
+                    <!--{!$User.Title}&nbsp;{!$User.FirstName}&nbsp;{!$User.LastName}-->
+                </div>
+                <table style="width: 900px; border-collapse: collapse;" cellpadding="0" cellspacing="0" border="0">
+                    <!--Top for dashboard-->
+                    <tr>
+                        <td style="width: 5px; vertical-align: top;">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_left_top_blue.png')}" width="5" height="5" />
+                        </td>
+                        <td style="background-color: #2e4385;" width="890">
+                        </td>
+                        <td style="width: 5px; vertical-align: top;">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_right_top_blue.png')}" width="5" height="5" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <table cellpadding="4" style="background-color: #2e4385; width: 100%; font-size: small; font-weight: bold; font-variant: small-caps; color: #FFFFFF;">
+                                <tr>
+                                    <td>
+                                        <span style="font-size:16px;">Survey</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!--Content of Dashboard-->
+                    <tr>
+                        <td colspan="3">
+                            <table style="background-color: #FFFFFF; width: 100%; font-size: x-small; color: #000000;" cellpadding="4">
+                                <tr>
+                                    
+                                    <td style="vertical-align: top; padding-left:40px;">
+                                        <flow:interview name="CallCenterScreenEmployee" buttonStyle="btn"></flow:interview> 
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!--Bottom of Dashboard-->
+                    <tr>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_left_bottom.png')}" width="5" height="5" />
+                        </td>
+                        <td width="100%" style="background-color: White">
+                        </td>
+                        <td width="5">
+                            <img src="{!URLFOR($Resource.PortalResources, 'block3_right_bottom.png')}" width="5" height="5" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+	<!-- **** START OLD LAYOUT ****  
+	<body style="padding:0px;">   
+    
+    <div style="width:850px; margin-left:auto; margin-right:auto;">  
+
+        
+        <div style="width:830px; margin-left:10px; margin-right:10px;">
+            <flow:interview name="CallCenterScreenEmployee" buttonStyle="btn"></flow:interview>    
+        </div>          
+
+    </div>
+    
+   	**** END OLD LAYOUT**** -->       
+</body>
+
+
+
+</apex:page>

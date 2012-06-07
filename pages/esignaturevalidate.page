@@ -1,0 +1,17 @@
+<apex:page controller="esignatureevalidate_controller" action="{!updateIfValid}" sidebar="false" standardStylesheets="false" showHeader="false" contentType="text/xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<apex:outputPanel layout="none" rendered="{!validate}">
+<response>
+                <variables>
+                                <var expr="Yes" name="QueryResult"></var>
+                </variables>
+</response>
+</apex:outputPanel>
+<apex:outputPanel layout="none" rendered="{!NOT(validate)}">
+<response>
+                <variables>
+                                <var expr="No" name="QueryResult"></var>
+                </variables>
+</response>
+</apex:outputPanel>
+</apex:page>

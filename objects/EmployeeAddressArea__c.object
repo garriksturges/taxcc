@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The areas that an employee&apos;s address falls under (such as a TEA).</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Area__c</fullName>
+        <description>The area where an employee&apos;s address is to be put.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The area where an employee&apos;s address is to be put.</inlineHelpText>
+        <label>Area</label>
+        <referenceTo>Area__c</referenceTo>
+        <relationshipLabel>Employee Address Areas</relationshipLabel>
+        <relationshipName>EmployeeAddressAreas</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>CensusTractCode__c</fullName>
+        <description>The census tract that this address is in.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The census tract that this address is in.</inlineHelpText>
+        <label>Census Tract</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CensusYearCode__c</fullName>
+        <description>The year of the census where the census tract shown was defined.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The year of the census where the census tract shown was defined.</inlineHelpText>
+        <label>Census Year</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EmployeeAddressAreaEID__c</fullName>
+        <description>The Enterprise ID for this Employee Address Area.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Employee Address Area.</inlineHelpText>
+        <label>Employee Address Area EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>EmployeeAddress__c</fullName>
+        <description>The employee&apos;s address that is to be put in a geographic area.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employee&apos;s address that is to be put in a geographic area.</inlineHelpText>
+        <label>Employee Address</label>
+        <referenceTo>EmployeeAddress__c</referenceTo>
+        <relationshipLabel>Employee Address Areas</relationshipLabel>
+        <relationshipName>EmployeeAddressAreas</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>RepositoryDocument__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The document that substantiates that this address is in this residential area.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document that substantiates that this address is in this residential area.</inlineHelpText>
+        <label>Supporting Document</label>
+        <referenceTo>RepositoryDocument__c</referenceTo>
+        <relationshipLabel>Employee Address Areas</relationshipLabel>
+        <relationshipName>EmployeeAddressAreas</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <label>Employee Address Area</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Employee Address Area Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Employee Address Areas</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A way to group employees together under one survey project, for purposes of operations and reporting.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account__c</fullName>
+        <description>The account that this survey project is for.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The account that this survey project is for.</inlineHelpText>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Survey Projects</relationshipLabel>
+        <relationshipName>SurveyProjects</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DescriptionText__c</fullName>
+        <description>A description of what this survey project is and why.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A description of what this survey project is and why.</inlineHelpText>
+        <label>Description</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ScopeFirstFiscalYearEndDate__c</fullName>
+        <description>The first fiscal year end date in the scope of hire dates in this survey project.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The first fiscal year end date in the scope of hire dates in this survey project.</inlineHelpText>
+        <label>Scope First Fiscal Year End Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ScopeLastFiscalYearEndDate__c</fullName>
+        <description>The last fiscal year end date in the scope of hire dates in this survey project.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The last fiscal year end date in the scope of hire dates in this survey project.</inlineHelpText>
+        <label>Scope Last Fiscal Year End Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SendNotificationBit__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Specifies whether the employees in this survey project should be included in the ongoing email notification campaign directed to store managers and executives.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specifies whether the employees in this survey project should be included in the ongoing email notification campaign directed to store managers and executives.</inlineHelpText>
+        <label>Send Notifications</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>SurveyProjectEID__c</fullName>
+        <description>The Enterprise ID corresponding to this survey project.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Enterprise ID corresponding to this survey project.</inlineHelpText>
+        <label>Survey Project EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Survey Project</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Survey Project Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Survey Projects</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

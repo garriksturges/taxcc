@@ -1,0 +1,717 @@
+<apex:page showheader="true" tabstyle="Account" title="{!accountObjectName} - Account Hierarchy" sidebar="true" standardcontroller="AccountHierarchyMember__c" extensions="AccountHierarchyController">
+<apex:stylesheet value="{!URLFOR($Resource.AccountHierarchyStylesheet,'style.css')}" />
+<apex:includeScript value="{!$Resource.jQueryLibrary}"/>
+<apex:includeScript value="{!$Resource.JQueryTreeview}"/>
+<html>
+<head>
+<style>
+    .OrgTop_td_right{text-align:right;width:80px; font-weight:bold; color:#666;}
+    .OrgTop_left_text_align{text-align:left;padding-left:10px;width:160px;}
+    .OrgSpan_1{font-weight:bold; color:#666;}
+    .Tree_A {color:#d9531e;}
+    .Tree_A:hover{color:#d9531e;}
+</style>
+
+<script type="text/javascript">
+    $(function () {
+        $("#tree").treeview(
+        {
+            collapsed: false,
+            animated: "medium",
+            control: "#sidetreecontrol",
+            persist: "location"
+        });
+    })
+
+    function activate(thisbutton) {
+        document.images[thisbutton].src = "{!URLFOR($Resource.AccountHierarchyStylesheet,'./images/portalsavebutton_hover.png')}";
+    }
+
+    function deactivate(thisbutton) {
+        document.images[thisbutton].src = "{!URLFOR($Resource.AccountHierarchyStylesheet,'./images/portalsavebutton.png')}";
+    }
+
+    var accountObjectName = "";
+    var treeViewString = "";
+    var init_data = new Array();
+    var data = Array();
+    var child = Array();
+    var childtop = Array();
+    var parent = Array();
+    var top_level = Array();
+    var plus_end = "";
+    var minus_end = "";
+
+    function QueryDeleteIds(ftDelId) {
+        var delIDs = new Array();
+        var tmpDelIDs = new Array();
+        var tmpDelIDs2 = new Array();
+        var lstbol = true;
+        delIDs[0] = ftDelId;
+        tmpDelIDs[0] = ftDelId;
+        
+        do {
+            for (var i = 0; i < tmpDelIDs.length; i++) {
+                for (var j = 0; j < init_data.length; j++) {
+                    if (getParentId(init_data[j]) == tmpDelIDs[i]) {
+                        delIDs.push(getNodeId(init_data[j]));
+                        tmpDelIDs2.push(getNodeId(init_data[j]));
+                    }
+                }
+            }
+
+            if (tmpDelIDs2.length <= 0) 
+            {
+                lstbol = false;
+            }
+            else 
+             {
+                tmpDelIDs = null;
+                tmpDelIDs = new Array();
+                for (var i = 0; i < tmpDelIDs2.length; i++) 
+                {
+                    tmpDelIDs[i] = tmpDelIDs2[i];
+                }
+                
+                tmpDelIDs2 = null;
+                tmpDelIDs2 = new Array();
+            }
+        } while (lstbol);
+
+        var delidsstr;
+        for (var i = 0; i < delIDs.length; i++) 
+        {
+            if (i != 0) 
+            {
+                delidsstr = delidsstr + delIDs[i] + ";";
+            }
+            else 
+            {
+                delidsstr = delIDs[i] + ";";
+            }
+        }
+
+        $('input[id*="hdDeleteIDList"]').val(delidsstr);
+
+        delete_Item();
+    }
+
+    function CreateTreeView(initStrs) 
+    {
+        var init_data1 = initStrs.split("[[");
+        var init_data2 = init_data1.join("");
+        init_data1 = init_data2.split("]]");
+        init_data2 = init_data1.join("");
+        init_data = init_data2.split("], [");
+        initTree();
+    }
+
+    function initTree() 
+    {
+        for (var i = 0; i < init_data.length; i++) {
+            init_data[i] = i + "|" + init_data[i];
+        }
+
+        var num1 = 0;
+        var num2 = 0;
+        for (var i = 0; i < init_data.length; i++) 
+        {
+            parent[i] = getNodeId(init_data[i]);
+
+            if (getParentId(init_data[i]) == "null") 
+            {
+                top_level[i] = getNodeId(init_data[i]);
+            }
+
+            for (var j = 0; j < init_data.length; j++) 
+            {
+                if (getNodeId(init_data[i]) == getParentId(init_data[j])) 
+                {
+                    childtop[num1] = getNodeId(init_data[i]);
+                    child[num1] = new Array();
+
+                    for (var n = 0; n < init_data.length; n++) 
+                    {
+                        if (childtop[num1] == getParentId(init_data[n])) 
+                        {
+                            child[num1][num2] = getNodeId(init_data[n]);
+                            num2++;
+                        }
+                    }
+                }
+            }
+
+            num1++;
+        }
+
+        getTreeRender();
+    }
+
+    function getTreeRender() 
+    {
+        treeViewString = "<ul id=tree><li><img src=**]!**" + minus_end + "**]!**>&nbsp;<strong><a style=**]!**color:black;**]!** onclick=**]!**updateClientOrg(**]**accountId**]**)**]!** href=**]!**javascript:void(0);**]!**>Account: " + accountObjectName + "</a></strong><ul>";
+
+        for (var i = 0; i < top_level.length; i++) 
+        {
+            treeViewString += "<li>";
+            var tmpTree = sub_tree(top_level[i]);
+
+            for (var j = 0; j < top_level.length; j++) 
+            {
+                if (getNodeId(init_data[j]) == top_level[j]) 
+                {
+                    if (tmpTree != "") 
+                    {
+                        treeViewString += "<img src=**]!**" + minus_end + "**]!**>&nbsp;<strong><a style=**]!**color:black;**]!** onclick=**]!**updateClientOrg(**]**" + getNodeId(init_data[i]) + "**]**)**]!** href=**]!**javascript:void(0);**]!**>" + getNodeName(init_data[i]) + "</a></strong>";
+                    }
+                    else 
+                    {
+                        treeViewString += "<img src=**]!**" + plus_end + "**]!**>&nbsp;<a style=**]!**color:black;**]!** onclick=**]!**updateClientOrg(**]**" + getNodeId(init_data[i]) + "**]**)**]!** href=**]!**javascript:void(0);**]!**>" + getNodeName(init_data[i]) + "</a>";
+                    }
+                    
+                    break;
+                }
+            }
+
+            treeViewString += tmpTree;
+            treeViewString += "</li>";
+        }
+
+        treeViewString += "</ul></li></ul>";
+        
+        var tmpAllTree = treeViewString.split("**]**");
+        var tmpAllTree2 = tmpAllTree.join("'");
+        var tmpAllTree3 = tmpAllTree2.split("**]!**");
+
+        tmpAllTree2 = tmpAllTree3.join("\"");
+        
+        document.getElementById("TreeDiv").innerHTML = tmpAllTree2;
+    }
+
+    function sub_tree(valId) 
+    {
+        var content = "";
+        var bol = false;
+
+        for (var i = 0; i < parent.length; i++) 
+        {
+            if (parent[i] == valId) 
+            {
+                bol = true;
+            }
+        }
+
+        if (!bol) return content;
+
+        for (var i = 0; i < childtop.length; i++) 
+        {
+            if (childtop[i] == valId) 
+            {
+                if (childtop[i] != "" && child[i].constructor == Array) 
+                {
+                    content += "<ul>";
+
+                    for (var j = 0; j < child[i].length; j++) 
+                    {
+                        if (child[i][j] != null) 
+                        {
+                            content += "<li>";
+                            var tmpTree = sub_tree(child[i][j]);
+                            
+                            if (tmpTree != "") 
+                            {
+                                content += "<img src=**]!**" + minus_end + "**]!**>&nbsp;<strong><a style=**]!**color:black;**]!** onclick=**]!**updateClientOrg(**]**" + child[i][j] + "**]**)**]!** href=**]!**javascript:void(0);**]!**>" + getNodeNameByNodeId(child[i][j]) + "</a></strong>";
+                            }
+                            else 
+                            {
+                                content += "<img src=**]!**" + plus_end + "**]!**>&nbsp;<a style=**]!**color:black;**]!** onclick=**]!**updateClientOrg(**]**" + child[i][j] + "**]**)**]!** href=**]!**javascript:void(0);**]!**>" + getNodeNameByNodeId(child[i][j]) + "</a>";
+                            }
+                            
+                            content += tmpTree;
+                            content += "</li>";
+                        }
+                    }
+
+                    content += "</ul>";
+                }
+            }
+        }
+        
+        return content;
+    }
+
+    function getCustomId(val) 
+    {
+        val = val.substring(0, val.indexOf('|'));
+    
+        return val;
+    }
+
+    function getNodeId(val) 
+    {
+        val = val.substring(val.indexOf('|') + 1, val.length);
+        val = val.substring(0, val.indexOf('|'));
+     
+        return val;
+    }
+
+    function getNodeName(val) 
+    {
+        val = val.substring(val.indexOf('|') + 1, val.length);
+        val = val.substring(val.indexOf('|') + 1, val.length);
+        val = val.substring(0, val.indexOf('|'));
+    
+        return val;
+    }
+
+    function getNodeNameByNodeId(cid) 
+    {
+        for (var i = 0; i < init_data.length; i++) 
+        {
+            if (getNodeId(init_data[i]) == cid) 
+            {
+                return getNodeName(init_data[i]);
+            }
+        }
+    }
+
+    function getParentId(val) 
+    {
+        val = val.substring(val.indexOf('|') + 1, val.length);
+        val = val.substring(val.indexOf('|') + 1, val.length);
+        val = val.substring(val.indexOf('|') + 1, val.length);
+    
+        return val;
+    }
+
+    function getParentIdBNodeId(cid) 
+    {
+        for (var i = 0; i < init_data.length; i++) 
+        {
+            if (getNodeId(init_data[i]) == cid) 
+            {
+                return getParentId(init_data[i]);
+            }
+        }
+    }
+</script>
+</head>
+<body>
+
+<div class="bPageTitle" style="margin-left: 20px;">
+    <div class="ptBody secondaryPalette">
+    <div class="content">
+        <img src="/s.gif" alt="Account Hierarchy" class="pageTitleIcon" title="Account Hierarchy"></img>
+        <h1 class="pageType">Account Hierarchy<span class="titleSeparatingColon">:</span></h1>
+        <h2 class="pageDescription"> Home</h2><div class="blank">&nbsp;</div>
+    </div>
+    </div>
+    <div class="ptBreadcrumb"></div>
+</div>
+
+<div class="hotListElement"><div class="bPageBlock secondaryPalette"><div class="pbHeader"></div>
+</div></div><div class="listElementBottomNav"></div>
+
+<div style="position:inherit; float:left; padding-left:35px; padding-right:60px; padding-top:10px; ">
+<span class="OrgSpan_1" >{!accountObjectName}: Account Hierarchy</span>
+    <div id="sidetree">
+        <div class="treeheader">&nbsp;</div>
+            <div id="sidetreecontrol"><a style="color:black;" href="javascript:void(0);">Collapse All</a> | <a style="color:black;" id="Expand_All" href="javascript:void(0);">Expand All</a></div>
+            <div id="TreeDiv"></div>
+    </div>
+</div>
+
+<apex:form id="thisForm">
+    <apex:actionFunction name="groupChange" action="{!groupChange}" reRender="thisForm" status="myStatus3"/>
+    <apex:actionFunction name="ParentOrg_Change" action="{!ParentOrgChange}" reRender="thisForm" status="myStatus4"/>
+    <apex:actionFunction oncomplete="ResponsePage('{!accountId}',{!isValidation})" name="Save_ClientOrg" action="{!SaveClientOrg}" reRender="thisForm" status="myStatus5"/>
+
+    <apex:actionFunction name="Response_EditLevel" action="{!ResponseEditLevel}" reRender="thisForm" status="myStatus6">
+        <apex:param name="ulid" assignTo="{!updateLevelId}" value=""/>
+    </apex:actionFunction>
+
+    <apex:actionFunction name="Response_NewLevel" action="{!ResponseNewLevel}" reRender="thisForm" status="myStatus7"/>
+    <apex:actionFunction oncomplete="ResponsePage('{!accountId}',false)" name="delete_Item" action="{!deleteItem}" reRender="thisForm" status="myStatus8" />
+
+    <apex:actionFunction name="update_ClientOrg" action="{!updateClientOrg}" reRender="thisForm" status="myStatus9" >
+        <apex:param name="updateClientOrgId" assignTo="{!updateClientOrgId}" value=""/>
+    </apex:actionFunction>
+
+    <apex:actionFunction name="AddChild_ClientOrg" action="{!AddChildClientOrg}" reRender="thisForm" status="myStatus10"/>
+    
+    <apex:actionFunction name="AddLocation" action="{!AddLocation}" reRender="thisForm" status="myStatus11"/>
+    
+    <apex:actionFunction name="Close_ModalWindow" action="{!CloseModalWindow}" reRender="thisForm" status="myStatus12"/>
+
+    <apex:outputText rendered="{!ShowModalWindow =='Open'}">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div style="position:inherit; float:left; padding-left:10px; padding-right:10px; padding-top:35px; ">
+    <div class="clientOrg_Topdiv_right" style="margin-top:10px; padding-bottom:10px; padding-top:10px; padding-right:10px;">
+        <table>
+            <apex:outputText rendered="{!updateClientOrgId !='accountId'}">
+
+            </apex:outputText>
+            <tr>
+                <td class="OrgTop_td_right" style="text-align:left;">
+                    <apex:outputText rendered="{!accountHierarchyMemberNewOrEdit !='New'}">
+                        Current Level 
+                    </apex:outputText>
+                    <apex:outputText rendered="{!accountHierarchyMemberNewOrEdit =='New'}">
+                        Parent Level
+                    </apex:outputText>
+                </td>
+                <td colspan="3" class="OrgTop_left_text_align" style="width:525px;">
+                    <apex:outputText rendered="{!accountHierarchyMemberNewOrEdit !='New'}">
+                        <apex:outputText rendered="{!updateClientOrgId !='accountId'}">
+                        <apex:inputText styleClass="clientOrg_text" id="txtLevel" style="width:200px;" value="{!ClientOrgLevelName}" />
+                        </apex:outputText>
+                        <apex:outputText rendered="{!updateClientOrgId =='accountId'}">
+                            Account
+                        </apex:outputText>
+                    </apex:outputText>
+                    <apex:outputText rendered="{!accountHierarchyMemberNewOrEdit =='New'}">
+                    
+                        <apex:outputLabel id="lblLevelAndName" value="{!parentClientOrgLevelName}: {!ClientOrgNameRead}" />
+                        <apex:inputHidden id="txtClientOrgIdRead" value="{!accountHierarchyMemberFilter}"></apex:inputHidden>
+                        <apex:inputHidden id="txtParentClientOrgLevelId" value="{!parentClientOrgLevelId}"></apex:inputHidden>
+                    </apex:outputText>
+                </td>           
+            </tr>
+            <tr>
+                <apex:outputText rendered="{!accountHierarchyMemberNewOrEdit =='New'}">
+                    <td class="OrgTop_td_right" style="text-align:left;">Child Level</td>
+                    <td class="OrgTop_left_text_align">
+                        <apex:inputText id="txtChildLevel" styleClass="clientOrg_text" style="width:200px;" value="{!ClientOrgLevelName}"/>
+                        <br /><span style="color:red;">{!ClientOrgLevelNameMsg}</span>
+                    </td>
+                </apex:outputText>
+                <td class="OrgTop_td_right" style="text-align:right; width:60px;">Name</td>
+                <td class="OrgTop_left_text_align" style="width:260px;">
+                    <apex:outputText rendered="{!updateClientOrgId !='accountId'}">
+                        <apex:inputText id="txtCOName" styleClass="clientOrg_text" style="width:200px;" value="{!accountHierarchyMemberLabelName}" />
+                        <br /><span style="color:red;">{!ClientOrgNameMsg}</span>
+                    </apex:outputText>
+                    <apex:outputText rendered="{!updateClientOrgId =='accountId'}">
+                        {!accountObjectName}
+                    </apex:outputText>
+                    <apex:inputHidden id="txtClientOrgLevelId" value="{!ClientOrgLevelId}"></apex:inputHidden>
+                    <apex:inputHidden id="txtClientOrgLevelName" value="{!ClientOrgLevelNameRead}"></apex:inputHidden>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                <apex:outputText rendered="{!updateClientOrgId !='accountId'}">
+                    <table cellpadding="0" cellspacing="0" style="background-color:#F0F0F0; padding-left:5px; padding-right:5px; padding-bottom:5px;">
+                        <!-- Removed From Existing Grouping - now showing all locations under Account -->
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td class="clientOrg_td_right">Available Location(s)</td>
+                                        <td></td>
+                                        <td class="clientOrg_td_right">Selected Location(s)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <apex:selectList multiselect="true" id="sllocation" styleClass="td_select" size="5">
+                                                <apex:selectoptions value="{!locationSelectOptionList}"></apex:selectoptions>
+                                            </apex:selectList>
+                                        </td>
+                                        <td>
+                                            <div style="padding-top:20px;">
+                                            <apex:outputText rendered="{!updateClientOrgId !='accountId'}">
+                                                <input type="button" value=">" style="width:30px;" onclick="locationToSelect()" class="btn" /><br /><br />
+                                                <input type="button" value="<" style="width:30px;" onclick="selectToLocation()" class="btn" />
+                                            </apex:outputText>
+                                            <apex:outputText rendered="{!updateClientOrgId =='accountId'}">
+                                                <input type="button" value=">" style="width:30px; color:#999;" class="btn" /><br /><br />
+                                                <input type="button" value="<" style="width:30px; color:#999;" class="btn" />
+                                            </apex:outputText>
+                                            <apex:inputhidden id="hiddenSelectedLocationId" value="{!hiddenSelectedLocationId}" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <apex:selectList multiselect="true" id="slSelected" styleClass="td_select" size="5">
+                                                <apex:selectoptions value="{!selectedLocationItemsSelectOptionList}"></apex:selectoptions>
+                                            </apex:selectList>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            
+                            
+                        </tr>
+                    </table>
+                    
+                <table cellpadding="0" cellspacing="0" style="background-color:#F0F0F0; padding-left:5px; padding-right:5px; padding-bottom:5px;">
+                        
+                        <tr>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td class="clientOrg_td_right">Available User(s)</td>
+                                        <td></td>
+                                        <td class="clientOrg_td_right">Selected User(s)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <apex:selectList multiselect="true" id="sluser" styleClass="td_select" size="5">
+                                                <apex:selectoptions value="{!ContactSelectOptionList}"></apex:selectoptions>
+                                            </apex:selectList>
+                                        </td>
+                                        <td>
+                                            <div style="padding-top:20px;">
+                                            <apex:outputText rendered="{!updateClientOrgId !='accountId'}">
+                                                <input type="button" value=">" style="width:30px;" onclick="UsersToSelect()" class="btn" /><br /><br />
+                                                <input type="button" value="<" style="width:30px;" onclick="selectToUsers()" class="btn" />
+                                            </apex:outputText>
+                                            <apex:outputText rendered="{!updateClientOrgId =='accountId'}">
+                                                <input type="button" value=">" style="width:30px; color:#999;" class="btn" /><br /><br />
+                                                <input type="button" value="<" style="width:30px; color:#999;" class="btn" />
+                                            </apex:outputText>
+                                            <apex:inputhidden id="hiddenSelectedContactId" value="{!hiddenSelectedContactId}"/>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <apex:selectList multiselect="true" id="sluserSelected" styleClass="td_select" size="5">
+                                                <apex:selectoptions value="{!selectedContactItemsSelectOptionList}"></apex:selectoptions>
+                                            </apex:selectList>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            
+                            
+                        </tr>
+                    </table>
+                    
+                 </apex:outputText>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div align="center" style="padding-top:10px;">
+       
+        <apex:outputText rendered="{!updateClientOrgId !='accountId'}">
+            <apex:outputText rendered="{!accountHierarchyMemberNewOrEdit =='New'}">
+                <input type="button" value="Save" class="btn" onclick="SaveClientOrg('txtChildLevel')" />
+            </apex:outputText>
+            <apex:outputText rendered="{!accountHierarchyMemberNewOrEdit !='New'}">
+                <input type="button" value="Save" class="btn" onclick="SaveClientOrg('txtLevel')" />
+            </apex:outputText>
+        </apex:outputText>
+        
+        <apex:outputText rendered="{!updateClientOrgId !=''}">
+            <apex:outputText rendered="{!pageParentLabel !='AddLocation'}">
+                <span style="padding-right:20px;"></span>
+                <input type="button" value="Add Child" onclick="AddChildClientOrg();" class="btn"/>     
+            
+                <apex:outputText rendered="{!updateClientOrgId !='accountId'}">
+                    <span style="padding-right:20px;"></span>
+                    <input type="button" onclick="if(confirm('Delete {!accountHierarchyMemberLabelName}' +'?  Click OK to confirm. ')){QueryDeleteIds('{!updateClientOrgId}');}" value="Delete" class="btn"/>
+                    <apex:inputHidden id="hdDeleteIDList" value="{!hdDeleteIDList}" />
+                </apex:outputText>
+                
+            </apex:outputText>
+        </apex:outputText>
+        
+        <span style="padding-right:20px;"></span>
+        <input type="button" value="Cancel" class="btn" onclick="CloseModelWin();" />
+    </div>
+</div>
+    </apex:outputText>
+</apex:form>
+<script>
+    accountObjectName = "{!accountObjectName}";
+    plus_end = "{!URLFOR($Resource.AccountHierarchyStylesheet,'images/plus_end.gif')}"
+    minus_end = "{!URLFOR($Resource.AccountHierarchyStylesheet,'images/minus_end.gif')}"
+    CreateTreeView("{!treeList}");
+</script>
+</body>
+
+<script type="text/javascript">
+    function CloseModelWin() 
+    {
+        Close_ModalWindow();
+    }
+
+    function AddChildClientOrg() 
+    {
+        AddChild_ClientOrg();
+    }
+
+    function updateClientOrg(updateClientOrgId) 
+    {
+        update_ClientOrg(updateClientOrgId);
+    }
+
+    function ResponsePage(accountId, isValidation) 
+    {
+        if (!isValidation)
+            window.location.href = '/apex/AccountHierarchyPage?accountId=' + accountId;
+    }
+
+    function ResponseOrgLevel(ulid) 
+    {
+        if (ulid != "") {
+            Response_EditLevel(ulid);
+        }
+        else {
+            Response_NewLevel();
+        }
+    }
+
+    function groupChange() 
+    {
+        groupChange();
+    }
+
+    function ParentOrgChange() 
+    {
+        ParentOrg_Change();
+    }
+
+    function SaveClientOrg(newlnId) 
+    {
+        var newln = $('input[id*="' + newlnId + '"]').val();
+        var hiddenln = $('input[id*="txtClientOrgLevelName"]').val();
+
+        if (hiddenln != "") 
+        {
+            if (newln != hiddenln) 
+            {
+                if (confirm('Change ' + hiddenln + ' to ' + newln + '? Click OK to confirm. ')) 
+                {
+                    Save_ClientOrg();
+                }
+            }
+            else 
+            {
+                Save_ClientOrg();
+            }
+        }
+        else 
+        {
+            Save_ClientOrg();
+        }
+    }
+
+    function deleteItem() 
+    {
+        delete_Item();
+    }
+
+    function locationToSelect() 
+    {
+        var slocation = $('select[id*="sllocation"]');
+        var sselected = $('select[id*="slSelected"]');
+        var op = slocation.children();
+        var opClone = op.clone();
+        var hiddenValue = $('input[id*="hiddenSelectedLocationId"]').val();
+
+        if (op.lenth == 0) 
+        {
+            return;
+        }
+
+        for (var i = 0; i < opClone.length; i++) 
+        {
+            if (op[i].selected) 
+            {
+                if (hiddenValue.indexOf(op[i].value + ';') == -1) 
+                {
+                    $('input[id*="hiddenSelectedLocationId"]').val($('input[id*="hiddenSelectedLocationId"]').val() + op[i].value + ';');
+                }
+            }
+        }
+
+        groupChange();
+    }
+
+    function selectToLocation() 
+    {
+        var slocation = $('select[id*="sllocation"]');
+        var sselected = $('select[id*="slSelected"]');
+        var op = sselected.children();
+        var opClone = op.clone();
+        var hiddenValue = $('input[id*="hiddenSelectedLocationId"]').val();
+
+        if (op.lenth == 0) 
+        {
+            return;
+        }
+
+        for (var i = 0; i < opClone.length; i++) 
+        {
+            if (op[i].selected) 
+            {
+                if (hiddenValue.indexOf(op[i].value + ';') != -1) 
+                {
+                    $('input[id*="hiddenSelectedLocationId"]').val($('input[id*="hiddenSelectedLocationId"]').val().replace(op[i].value + ';', ''));
+                }
+            }
+        }
+
+        groupChange();
+    }
+
+    
+    //for user
+     function UsersToSelect() 
+    {
+        var susers= $('select[id*="sluser"]');
+        //var sselected = $('select[id*="sluserSelected"]');
+        var op = susers.children();
+        var opClone = op.clone();
+        var hiddenValue = $('input[id*="hiddenSelectedContactId"]').val();
+
+       if (op.lenth == 0) 
+        {
+            return;
+        }
+        //alert('test'+opClone);
+        for (var i = 0; i < opClone.length; i++) 
+        {
+            if (op[i].selected) 
+            {
+                if (hiddenValue.indexOf(op[i].value + ';') == -1) 
+                {
+                    $('input[id*="hiddenSelectedContactId"]').val($('input[id*="hiddenSelectedContactId"]').val() + op[i].value + ';');
+                }
+            }
+        }
+
+        groupChange();
+    }
+
+    function selectToUsers() 
+    {
+        var susers = $('select[id*="sluser"]');
+        var sselected = $('select[id*="sluserSelected"]');
+        var op = sselected.children();
+        var opClone = op.clone();
+        var hiddenValue = $('input[id*="hiddenSelectedContactId"]').val();
+
+        if (op.lenth == 0) 
+        {
+            return;
+        }
+
+        for (var i = 0; i < opClone.length; i++) 
+        {
+            if (op[i].selected) 
+            {
+                if (hiddenValue.indexOf(op[i].value + ';') != -1) 
+                {
+                    $('input[id*="hiddenSelectedContactId"]').val($('input[id*="hiddenSelectedContactId"]').val().replace(op[i].value + ';', ''));
+                }
+            }
+        }
+
+        groupChange();
+    }
+
+
+
+</script>
+</html>
+</apex:page>

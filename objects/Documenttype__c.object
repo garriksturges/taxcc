@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DescriptionText__c</fullName>
+        <description>The description of the document type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The description of the document type</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>DocumentSource__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The source of this document, such as employee, vendor, etc.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The source of this document, such as employee, vendor, etc.</inlineHelpText>
+        <label>Document Source</label>
+        <referenceTo>DocumentSource__c</referenceTo>
+        <relationshipLabel>Document Types</relationshipLabel>
+        <relationshipName>DocumentTypes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DocumentTypeAbbr__c</fullName>
+        <description>The abbreviation of the document type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The abbreviation of the document type</inlineHelpText>
+        <label>Document Type Abbreviation</label>
+        <length>15</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentTypeEID__c</fullName>
+        <description>The Enterprise ID for this Document Type.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Document Type.</inlineHelpText>
+        <label>Document Type EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentationStage__c</fullName>
+        <description>The stage of documentation in which this document type is used.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The stage of documentation in which this document type is used.</inlineHelpText>
+        <label>Documentation Stage</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Prerequisite</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Voucher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Certification</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>EmployeSourceEID__c</fullName>
+        <externalId>false</externalId>
+        <formula>DocumentSource__r.DocumentSourceEID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>EmployeSourceEID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IEDocumentTypeId__c</fullName>
+        <description>The document type id from the IE application</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The document type id from the IE application</inlineHelpText>
+        <label>IE Document Type ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SortOrder__c</fullName>
+        <description>A sorting column for ranking document types</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A sorting column for ranking document types</inlineHelpText>
+        <label>Sort Order</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Usage__c</fullName>
+        <description>How actively this document type is used in our process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How actively this document type is used in our process.</inlineHelpText>
+        <label>Usage</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <label>Document Type</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>DocumentTypeEID__c</columns>
+        <columns>NAME</columns>
+        <columns>DocumentTypeAbbr__c</columns>
+        <columns>DocumentSource__c</columns>
+        <columns>DescriptionText__c</columns>
+        <columns>SortOrder__c</columns>
+        <columns>IEDocumentTypeId__c</columns>
+        <columns>EmployeSourceEID__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Document Type Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Document Types</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>DocumentTypeAbbr__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DescriptionText__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IEDocumentTypeId__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SortOrder__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DocumentTypeEID__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>DocumentTypeAbbr__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DescriptionText__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IEDocumentTypeId__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SortOrder__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DocumentTypeEID__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DocumentTypeAbbr__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DescriptionText__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IEDocumentTypeId__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SortOrder__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DocumentTypeEID__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>DocumentTypeEID__c</searchFilterFields>
+        <searchFilterFields>DocumentTypeAbbr__c</searchFilterFields>
+        <searchFilterFields>DescriptionText__c</searchFilterFields>
+        <searchFilterFields>IEDocumentTypeId__c</searchFilterFields>
+        <searchFilterFields>SortOrder__c</searchFilterFields>
+        <searchResultsAdditionalFields>DocumentTypeAbbr__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DescriptionText__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IEDocumentTypeId__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SortOrder__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DocumentTypeEID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DocumentSource__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

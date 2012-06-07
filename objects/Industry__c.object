@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A list of industries.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DescriptionText__c</fullName>
+        <description>Official description of the industry segment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Official description of the industry segment.</inlineHelpText>
+        <label>Description</label>
+        <length>200</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IndustryCode__c</fullName>
+        <description>The official code for this industry according to its standard.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The official code for this industry according to its standard.</inlineHelpText>
+        <label>Industry Code</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IndustryEID__c</fullName>
+        <description>The Enterprise ID for this Industry.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Industry.</inlineHelpText>
+        <label>Industry EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>IndustryType__c</fullName>
+        <description>The industry classification type, such as NAICS or SIC.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The industry classification type, such as NAICS or SIC.</inlineHelpText>
+        <label>Industry Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>NAICS 02</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NAICS 07</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ISIC 4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <label>Industry</label>
+    <nameField>
+        <label>Industry Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Industries</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

@@ -1,0 +1,458 @@
+<apex:component >
+
+<!--<script type="text/javascript">
+var InterviewRadioGroup=function(a,b){this.radioIds=b;this.radioGroupDivId=a;this.radioGroupDiv=getElementByIdCS(a);this.hideShowUserInputs();addEvent(this.radioGroupDiv,"click",function(c){return function(d){d=getEventTarget(getEvent(d));d.tagName.toLowerCase()=="input"&&d.getAttribute("type").toLowerCase()=="radio"&&c.hideShowUserInputs()}}(this))};
+InterviewRadioGroup.prototype.hideShowUserInputs=function(){var a=0;for(a=0;a<this.radioIds.length;a++){var b=getElementByIdCS(this.radioIds[a]).checked,c=getElementByIdCS(this.radioIds[a]+".userInput");if(!(c===undefined||c===null)){c.className=b?"userInputDivShown":"userInputDivHidden";getElementByIdCS(this.radioIds[a]+".userInputField").disabled=!b}}};
+var InterviewDropdownGroup=function(a,b){this.choiceIds=b;this.dropdownElement=getElementByIdCS(a);this.hideShowUserInputs();addEvent(this.dropdownElement,"change",function(c){return function(d){getEventTarget(getEvent(d)).tagName.toLowerCase()=="select"&&c.hideShowUserInputs()}}(this))};
+InterviewDropdownGroup.prototype.hideShowUserInputs=function(){this.dropdownElement.getAttribute("id");var a=0;for(a=0;a<this.dropdownElement.options.length;a++){var b=this.dropdownElement.options[a];b.getAttribute("id");b=b.selected;var c=getElementByIdCS(this.choiceIds[a]+".userInput");if(!(c===undefined||c===null)){c.className=b?"userInputDivShown":"userInputDivHidden";c=getElementByIdCS(this.choiceIds[a]+".userInputField");if(!(c===undefined||c===null))c.disabled=!b}}};
+var FlowLoadingScreen={loadingSc:null,showLoadingScreen:function(a){a=a.parentNode;if(!this.loadingSc)this.loadingSc=new LoadingScreen(a,LC.getLabel("Global","loading"));this.loadingSc.show();return true},hideLoadingScreen:function(){this.loadingSc&&this.loadingSc.hide();return true}};
+function sparkSubmit(){if(typeof sparkPreSubmit=="function")if(sparkPreSubmit()===false)return;document.getElementById("sparkForm").submit()}function sparkGetElementValue(a){return document.getElementById(a).value}function sparkSetElementValue(a,b){document.getElementById(a).value=b}function sparkSetElementValueAndGo(a,b){sparkSetElementValue(a,b);sparkSubmit()}function sparkNext(){sparkSetElementValueAndGo("navigationType","2")}
+function sparkBack(){sparkSetElementValueAndGo("navigationType","1")}function sparkFinish(){sparkSetElementValueAndGo("navigationType","4")}function sparkSaveAndClose(){sparkSetElementValueAndGo("navigationType","5")}function sparkJumpBack(a,b){sparkSetElementValue("jump_element_id",a);sparkSetElementValue("jump_element_type",b);sparkSetElementValueAndGo("navigationType","jump_back")}function parentRedirectTo(a){window.top.location.href=a};
+function LoadingScreen(c,b,a){this.div=c;this.text=b;this.id=a}
+LoadingScreen.prototype={show:function(){this.transparantElement||this.createElements();if(XBrowser.userAgent.isIE6||XBrowser.userAgent.isIE7){var c=this.div.clientHeight+"px";this.transparantElement.style.height=c;this.opaqueElement.style.height=c}this.transparantElement.style.display="block";this.opaqueElement.style.display="block";this.positionLoadingElement(this.loadingDescrElement,this.opaqueElement)},getOpaqueElement:function(){return this.opaqueElement},getTransparentElement:function(){return this.transparantElement},
+hide:function(){if(this.transparantElement)this.transparantElement.style.display="none";if(this.opaqueElement)this.opaqueElement.style.display="none"},createElements:function(){if(XBrowser.getCurrentStyle(this.div,"position")=="static")this.div.style.position="relative";this.transparantElement=this.createLoadingElement(this.div);this.transparantElement.className="waitingSearchDiv waitingSearchDivOpacity";this.opaqueElement=this.createLoadingElement(this.div);this.opaqueElement.className="waitingSearchDiv";
+if(this.id)this.opaqueElement.id=this.id;this.loadingDescrElement=this.addLoadingDescription(this.text,this.opaqueElement)},createLoadingElement:function(c){var b=document.createElement("div");b.style.width="100%";b.style.height="100%";if(XBrowser.userAgent.isIE6||XBrowser.userAgent.isIE7){b.style.left=0;b.style.height=this.div.clientHeight+"px"}c.appendChild(b);return b},positionLoadingElement:function(c,b){var a=b.offsetHeight/5;if(a>100)a=100;c.style.top=a+"px"},addLoadingDescription:function(c,
+b){var a=document.createElement("div");b.appendChild(a);a.className="waitingHolder";var e=document.createElement("img");a.appendChild(e);e.src=UserContext.getUrl("/img/loading.gif");e.className="waitingImage";var d=LC.getLabel("SquidCacheManager","pleaseWait");e.title=d;d=document.createElement("span");a.appendChild(d);d.innerHTML=c;d.className="waitingDescription";if(XBrowser.userAgent.isIE7){a.style.position="absolute";a.style.width="auto"}else a.style.width=e.offsetWidth+d.offsetWidth+20+"px";
+return a}};
+</script>-->
+
+<style type="text/css">
+
+/** Home Calendar / Date picker **/
+.mCalendar{
+    margin: 5px;
+}
+.datePicker{
+    width: auto;
+    border: 0;
+    padding: 7px 5px 6px;
+    -moz-box-shadow: 0 2px 6px #111;
+    -webkit-box-shadow: 0 2px 6px #111;
+    box-shadow: 0 2px 6px #111;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+.datePicker,
+.mCalendar .body{
+    background-image:url('/img/alohaSkin/cal_sprite.png');
+    background-position:left -109px;
+    background-repeat:repeat-x;
+    background-color: #ededed;
+    border-left: 1px solid #d6d6d6;
+    border-right: 1px solid #d6d6d6;
+}
+.datePicker .calBody{
+    border: 0;
+    padding: 0 10px;
+}
+.mCalendar .header .prevCalArrow,
+.datePicker .dateBar .calLeft,
+.datePicker .dateBar .calLeftOn{
+    background-image:url('/img/alohaSkin/cal_sprite.png');
+    background-position: 0 -61px;
+    width: 18px;
+    height: 16px;
+}
+.datePicker .dateBar .calLeftOn{
+    background-position: -18px -61px;
+}
+.mCalendar .header .nextCalArrow,
+.datePicker .dateBar .calRight,
+.datePicker .dateBar .calRightOn{
+    background-image:url('/img/alohaSkin/cal_sprite.png');
+    background-position: 0 -84px;
+    width: 18px;
+    height: 16px;
+}
+.datePicker .dateBar .calRightOn{
+    background-position: -18px -84px;
+}
+.datePicker .dateBar .calLeft,
+.datePicker .dateBar .calLeftOn{
+    margin: 2px 4px 0 0;
+}
+.datePicker .dateBar .calRight,
+.datePicker .dateBar .calRightOn{
+    margin: 2px 9px 0 4px;
+}
+.mCalendar .header td,
+.datePicker .calDays{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4a4a56;
+    border: 0;
+}
+.datePicker .dateBar{
+    padding: 0 0 4px;
+}
+.mCalendar .calDays,
+.datePicker .calDays .dayOfWeek{
+    color: #4a4a56;
+    font-size: 0.9em;
+    font-weight: normal;
+    padding: 2px;
+}
+.datePicker .calDays .dayOfWeek,
+.datePicker .calDays .weekday,
+.datePicker .calDays .weekend{
+    background: none;
+    border: 0;
+    padding: 2px 0;
+}
+.datePicker .calDays{
+    font-size: 1em;
+}
+.datePicker .calRow{
+    font-size: 0.81em;
+}
+.mCalendar .highlight td,
+.mCalendar .days td{
+    padding: 2px;
+}
+.mCalendar .highlight td a,
+.mCalendar .days td a,
+.datePicker .calDays td{
+    font-size:1.15em;
+}
+.mCalendar td a.calActive,
+.mCalendar .calActive {
+    color: #333;
+}
+.mCalendar .highlight,
+.mCalendar .highlight td,
+.mCalendar .highlight th {
+    background-color: transparent;
+}
+.mCalendar td a.calToday,
+.mCalendar tr td.calToday{
+    background-color: transparent;
+    border: 0;
+}
+.mCalendar tr td.calToday a,
+.datePicker .calDays .todayDate{
+    color: #fff;
+    background-color: #1797c0;
+    font-weight: bold;
+}
+.mCalendar tr td.calToday a{
+    padding:2px 3px;
+}
+.datePicker .calDays .highlight {
+    background-color: #e3f3ff;
+    color: #000;
+    font-weight: bold;
+}
+.datePicker .calDays .selectedDate{
+    background-color: #c6e1ff;
+    border: 1px solid #99ccff;
+    color: #000;
+}
+.mCalendar .topLeft{
+    background-image:url('/img/alohaSkin/cal_sprite.png');
+    background-position: 0 0;
+    border:0;
+    height: 4px;
+}
+.mCalendar .topLeft .topRight{
+    background-image:url('/img/alohaSkin/cal_sprite.png');
+    background-position: 0 -16px;
+    height: 4px;
+    width: 4px;
+}
+.mCalendar .bottomLeft{
+    background-image:url('/img/alohaSkin/cal_sprite.png');
+    background-position: 0 -31px;
+    height:4px;
+}
+.mCalendar .bottomLeft .bottomRight{
+    background-image:url('/img/alohaSkin/cal_sprite.png');
+    background-position: 0 -46px;
+    height: 4px;
+    width: 4px;
+}
+.datePicker .buttonBar{
+    background: none;
+    border: 0;
+    padding: 2px 0 0;
+}
+.datePicker .buttonBar .calToday{
+    font-weight: normal;
+    color:#015ba7;
+    text-decoration: none;
+}
+.homeCalendarEvents,
+#proposedEventDiv{
+    margin: 10px 10px 0;
+}
+.homeCalendarEvents .date{
+    padding-top: 10px;
+    color: #000;
+}
+.homeCalendarEvents li{
+    border-color: #ccc;
+    border-style: solid;
+}
+.homeCalendarEvents li.date {
+    border-width: 0 0 1px;
+    border-bottom-color: #4a4a56;
+}
+.homeCalendarEvents li.event {
+    border-width: 0 0 1px;
+    border-bottom-color: #d4dadc;
+}
+.homeCalendarEvents li.event span.event{
+    margin-right:20px;
+}
+#homePage .bPageBlock .pbBody {
+    padding:0;
+}
+
+/** Calendar **/
+.bCalendar .calendarHeaderBG,
+body.taskTab .calendarHeaderBG,
+body.eventTab .calendarHeaderBG{
+    background: transparent none;
+    margin-top: 10px;
+}
+body.eventTab .calendarHeader > span,
+body.eventTab .bPageTitle,
+body.eventTab .bPageTitle .ptBreadcrumb,
+.bCalendar .calendarHeader > span,
+.bCalendar .bPageTitle,
+.bCalendar .ptBreadcrumb{
+    margin-bottom:0;
+}
+body.eventTab .bPageTitle .content h1,
+.bCalendar .bPageTitle .content h1{
+    margin-bottom:5px;
+}
+body.eventTab .bPageTitle .content a,
+.bCalendar .bPageTitle .content a{
+    margin-left: 2px;
+    margin-right: 5px;
+}
+.calendarHeader label,
+.calendarHeader a{
+    color: #015ba7;
+    text-decoration: none;
+}
+.calendarHeader a:hover{
+    text-decoration: underline;
+}
+.calendarHeader .dateText{
+    font-size: 1.2em;
+    margin: 6px 10px 0;
+}
+.calendarHeader .arrowIcons{
+    margin:5px 20px 0 0;
+}
+.calendarHeader .arrowIcons .prevCalArrow,
+.calendarHeader .arrowIcons .nextCalArrow{
+    width: 22px;
+    height: 19px;
+    margin:0;
+    background: url(/img/alohaSkin/nextPrevBtn_sprite.png) left top no-repeat;
+}
+.calendarHeader .arrowIcons .nextCalArrow{
+    background-position: right top;
+}
+.calendarHeader .arrowIcons a:hover .prevCalArrow{
+    background-position: left -19px;
+}
+.calendarHeader .arrowIcons a:hover .nextCalArrow{
+    background-position: right -19px;
+}
+body .bodyDiv .bMultiuserCalendar .bPageBlock,
+body .bodyDiv .bCalendar .bPageBlock{
+    border-top: 2px solid #1797c0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left:1px solid #d0d0d0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+.calendarHeader .buttons {
+    margin-top: 2px;
+}
+.multiuserCalendar .calendarTable,
+.bMultiuserCalendar .calendarTable,
+.bCalendar .calendarBlock .calendarDayWeekView,
+.bCalendar .calendarMonthView{
+    border: 0;
+}
+.multiuserCalendar .calendarTable,
+.bMultiuserCalendar .calendarTable,
+.bCalendar .calendarBlock .calendarDayWeekView{
+    border-right: 1px solid #d0d0d0;
+}
+.multiuserCalendar .calendarTable .headerRow th,
+.bMultiuserCalendar .calendarTable .headerRow th,
+.bCalendar .calendarDayWeekView #daynamerow th,
+.bCalendar .calendarMonthView .headerRow td.upperLeft,
+.bCalendar .calendarMonthView .headerRow th{
+    border-top: 1px solid #e7e7e7;
+    border-left: 0;
+    border-right: 1px solid #ccc;
+    background: #f0f0f0 url(/img/alohaSkin/calHeader_bg.png) top left repeat-x;
+    padding: 3px;
+}
+.multiuserCalendar .calendarTable .headerRow th,
+.bMultiuserCalendar .calendarTable .headerRow th,
+.bCalendar .calendarDayWeekView #daynamerow th{
+    border-left: 1px solid #ccc;
+    border-right: 0;
+    border-bottom: 1px solid #c3c3c3;
+}
+.bMultiuserCalendar .calendarTable .headerRow .cbCol,
+.bMultiuserCalendar .calendarTable .dateRow .cbCol,
+.bCalendar .calendarDayWeekView #daynamerow .firstWeekCell{
+    border-left: 0;
+    padding: 0;
+}
+.multiuserCalendar .calendarTable .odd .cbCol,
+.multiuserCalendar .calendarTable .even .cbCol{
+    border-left: 1px solid #ccc;
+}
+.bCalendar .bPageBlock .calendarDayWeekView,
+.bCalendar .calendarMonthView .calActive{
+    background-color: #fff;
+}
+.bCalendar .calendarMonthView td > div{
+    padding: 0 5px 10px;
+}
+.bMultiuserCalendar .calendarTable .dateRow th,
+.bMultiuserCalendar .calendarTable .dateRow td,
+.bCalendar .calendarDayWeekView #daynumberrow td,
+.bCalendar .calendarDayWeekView #daynumberrow th,
+.bCalendar .calendarMonthView .date{
+    background-color: #ebebeb;
+    padding: 1px 3px;
+}
+.bMultiuserCalendar .calendarTable .dateRow th,
+.bMultiuserCalendar .calendarTable .dateRow td{
+    border-top:0;
+}
+.bCalendar .calendarMonthView td .date a{
+    color: #000;
+    text-decoration:underline;
+}
+.bCalendar .calendarDayWeekView .hourRowLabel,
+.bCalendar .calendarMonthView .weekLink{
+    background-color: #eaeaea;
+}
+.bCalendar .calendarMonthView .calToday{
+    background-color: #f0faff;
+}
+.bCalendar .calendarMonthView .calToday .date{
+    background-color: #b8e4fb;
+}
+.bCalendar .calendarMonthView .calInactive{
+    background-color: #f4f4f4;
+}
+body.eventTab .recurrenceSectionBackground img,
+body.homeTab .homeCalendarEvents .eventIcon img,
+body.homeTab .bMyTask td.dataCell img,
+.bCalendar .calendarMonthView .calActive img,
+.bCalendar .calendarMonthView .calInactive img,
+.bCalendar .calendarMonthView .calToday img{
+    vertical-align: middle;
+}
+.bCalendar .calendarMonthView td span.event{
+    color: #666;
+    font-size: .8em;
+    font-weight: normal;
+}
+.bCalendar .calendarDayWeekView .multiLineEventBlock{
+    background: #f2f2f2 url(/img/alohaSkin/calEvent_bg.png) top left repeat-x;
+    border:0;
+}
+
+.bCalendar .calendarDayWeekView .multiLineEventBlock a,
+.bCalendar .calendarMonthView td a{
+    color:#015ba7;
+    text-decoration: none;
+}
+.bCalendar .calendarDayWeekView .multiLineEventBlock a:hover,
+.bCalendar .calendarMonthView td a:hover{
+    text-decoration: underline;
+}
+.bCalendar .calendarDayWeekView .eventBlockDivDnD {
+    margin: 0;
+    padding-left:5px;
+    border-width: 0 1px 1px 0;
+}
+.bCalendar .calendarDayWeekView .alldayevent .eventBlockDivDnD{
+    margin-right:4px;
+}
+.bCalendar .calendarDayWeekView tr .alldayevent{
+    background-color: #f7f6f9;
+    border-bottom: 1px solid #d9d9d9;
+}
+.bCalendar .calendarDayWeekView tr .alldayevent.dailyLastRow,
+.bCalendar .calendarDayWeekView tr .alldayevent.weeklyLastRow{
+    border-bottom: 1px solid #d9d9d9;
+}
+.bCalendar .even {
+    border-bottom:1px solid #efefef;
+}
+.bCalendar .evenHour {
+    border-bottom: 1px solid #eaeaea;
+
+}
+.multiuserCalendar .even td,
+.multiuserCalendar .odd td,
+.bCalendar .odd,
+.bCalendar .oddHour {
+    border-bottom: 1px solid #d9d9d9;
+}
+.bCalendar .calendarDayWeekView .fixedTable .hourRowDnD,
+.multiuserCalendar th.nameCol,
+.multiuserCalendar .even td.cbCol,
+.multiuserCalendar .odd td.cbCol {
+    background-color: #ebebeb;
+}
+.multiuserCalendar .even th.nameCol {
+    background-color: #e4e4e4;
+}
+body .bodyDiv .bCalendar .bMyTask .bPageBlock{
+    border-right:1px solid #d0d0d0;
+    border-bottom:1px solid #d0d0d0;
+}
+.legend .outOfOffice,
+.multiuserCalendar .eventOOO,
+.bCalendar .calendarDayWeekView .eventBlockDiv.eventOOO,
+.bCalendar .calendarDayWeekView .eventBlockDivDnD.eventOOO,
+.hoverDetail.eventOOO .hoverOuter {
+    background-color:#b64b32;
+}
+.legend .busy,
+.multiuserCalendar .eventBusy,
+.bCalendar .calendarDayWeekView .eventBlockDiv.eventBusy,
+.bCalendar .calendarDayWeekView .eventBlockDivDnD.eventBusy,
+.hoverDetail.eventBusy .hoverOuter {
+    background-color:#6777cc;
+}
+.legend div {
+    padding-right:2px;
+}
+.multiUserCalendarHeader{
+    margin-top:5px;
+}
+.multiUserCalendarHeader .bNext {
+    margin:-20px 0 10px;
+}
+.multiUserCalendarHeader .bNext .next{
+    float: none;
+}
+#calendar-panel td.calendarBlock .apexp .bPageBlock.apexDefaultPageBlock .pbBody {
+    margin: 0;
+}
+.bCalendar .calendarDayWeekView #alldayrow .multiLineEventBlock {
+    background-image: none;
+    background-color: #FFF;
+    border-top: 1px solid #CCC;
+}
+
+</style>
+</apex:component>

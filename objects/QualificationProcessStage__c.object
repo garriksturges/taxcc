@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The stages that a qualification can be in.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>ExternalName__c</fullName>
+        <description>The client-friendly name for this qualification process stage.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The client-friendly name for this qualification process stage.</inlineHelpText>
+        <label>External Name</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InCertificationProcessBit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Denotes whether this process stage is part of the certification process or not.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes whether this process stage is part of the certification process or not.</inlineHelpText>
+        <label>In Certification Process</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>QualificationProcessStageEID__c</fullName>
+        <description>The Enterprise ID for this qualification process stage.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this qualification process stage.</inlineHelpText>
+        <label>Qualification Process Stage EID</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>RankOrder__c</fullName>
+        <description>The order of importance of this qualification process stage.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The order of importance of this qualification process stage.</inlineHelpText>
+        <label>Rank Order</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Document Process Stage</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>QualificationProcessStageEID__c</columns>
+        <columns>RankOrder__c</columns>
+        <columns>InCertificationProcessBit__c</columns>
+        <columns>NAME</columns>
+        <columns>ExternalName__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Document Process Stage Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Document Process Stages</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>RankOrder__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ExternalName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>QualificationProcessStageEID__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>RankOrder__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ExternalName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>QualificationProcessStageEID__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RankOrder__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ExternalName__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>QualificationProcessStageEID__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ExternalName__c</searchFilterFields>
+        <searchFilterFields>RankOrder__c</searchFilterFields>
+        <searchFilterFields>QualificationProcessStageEID__c</searchFilterFields>
+        <searchResultsAdditionalFields>RankOrder__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ExternalName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>QualificationProcessStageEID__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

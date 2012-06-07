@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>newEmploymentPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AccountEIDFormula__c</fullName>
+        <description>This is used to power the screen employee from employment record button.</description>
+        <externalId>false</externalId>
+        <formula>Employee__r.Account__r.AccountEID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is used to power the screen employee from employment record button.</inlineHelpText>
+        <label>Account EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AccountNameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Employee__r.Account__r.Name</formula>
+        <label>Account Name Formula</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ClientEmployeeIDFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Employee__r.ClientEmployeeID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Client Employee ID</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DeclinedDocumentBit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>The employee declined to provide documents.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employee declined to provide documents.</inlineHelpText>
+        <label>Declined Document</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DeclinedElectronicSignatureBit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>The employee declined to provide an electronic signature.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employee declined to provide an electronic signature.</inlineHelpText>
+        <label>Declined Electronic Signature</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>DepartmentName__c</fullName>
+        <description>The Department in which the Employee works</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Department in which the Employee works</inlineHelpText>
+        <label>Department</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee__c</fullName>
+        <description>The Employee associated with this Employment Period</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Employee associated with this Employment Period</inlineHelpText>
+        <label>Employee</label>
+        <referenceTo>Employee__c</referenceTo>
+        <relationshipName>Employments</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>EmploymentEID__c</fullName>
+        <description>The Enterprise ID for this Employment Period.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Employment Period.</inlineHelpText>
+        <label>Employment EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>EmploymentLabelFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Entity__r.Name 
++ &apos; - Hire Date: &apos; + TEXT(MONTH(StartDate__c)) + &quot;/&quot; + TEXT(DAY(StartDate__c)) + &quot;/&quot; + RIGHT(TEXT(YEAR(StartDate__c)),4) 
++ IF(TEXT(EndDate__c) &lt;&gt; &apos;&apos;, &apos; - Termination Date: &apos; + TEXT(MONTH(EndDate__c)) + &quot;/&quot; + TEXT(DAY(EndDate__c)) + &quot;/&quot; + RIGHT(TEXT(YEAR(EndDate__c)),4) ,&apos;&apos;)
++  IF(SurveyProject__r.Name &lt;&gt; &apos;&apos;, &apos; - &apos; + SurveyProject__r.Name,&apos;&apos;)</formula>
+        <label>Employment Label Formula</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EndDateEstimatedBit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates the Termination Date provided is estimated and may not be the official Termination Date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the Termination Date provided is estimated and may not be the official Termination Date</inlineHelpText>
+        <label>Termination Date Is Estimated</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EndDate__c</fullName>
+        <description>If applicable, the date the Employee ceased working for the Entity</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, the date the Employee ceased working for the Entity</inlineHelpText>
+        <label>Termination Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <description>The Entity associated with this Employment Period</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Entity associated with this Employment Period</inlineHelpText>
+        <label>Entity</label>
+        <referenceTo>Entity__c</referenceTo>
+        <relationshipLabel>Employment Periods</relationshipLabel>
+        <relationshipName>Employments</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>FlowSession__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Flow Session</label>
+        <referenceTo>FlowSession__c</referenceTo>
+        <relationshipLabel>Employment Periods</relationshipLabel>
+        <relationshipName>EmploymentPeriods</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FullNameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Trim(Left(Employee__r.FullNameFormula__c,35)) &amp;&quot;_&quot; &amp; Trim(Left(Entity__r.Name,35)) &amp;&quot;_&quot;&amp; TEXT(MONTH(StartDate__c)) + &quot;/&quot; + TEXT(DAY(StartDate__c)) + &quot;/&quot; + RIGHT(TEXT(YEAR(StartDate__c)),2)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IE2EmploymentID__c</fullName>
+        <description>The EmpHireID from IE2</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The EmpHireID from IE2</inlineHelpText>
+        <label>IE2 Employment ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IE2EmploymentTerminationID__c</fullName>
+        <description>The EmpTermID from IE2</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The EmpTermID from IE2</inlineHelpText>
+        <label>IE2 Employment Termination ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InitialHourlyRateAmount__c</fullName>
+        <description>If applicable, the Initial Hourly Rate of the Employee associated with this Employment Period</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If applicable, the Initial Hourly Rate of the Employee associated with this Employment Period</inlineHelpText>
+        <label>Initial Hourly Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>JobTitleName__c</fullName>
+        <description>The Job Title of the Employee associated with this Employment Period</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Job Title of the Employee associated with this Employment Period</inlineHelpText>
+        <label>Job Title</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The location where this employee was hired, regardless of the locations where the employee worked and was paid.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The location where this employee was hired, regardless of the locations where the employee worked and was paid.</inlineHelpText>
+        <label>Location of Hire</label>
+        <referenceTo>Location__c</referenceTo>
+        <relationshipLabel>Employment Periods</relationshipLabel>
+        <relationshipName>Employment</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PositionExistence__c</fullName>
+        <description>Whether this person filled a newly created position at this entity on this start date, or replaced an existing position.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Whether this person filled a newly created position at this entity on this start date, or replaced an existing position.</inlineHelpText>
+        <label>Position Existence</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Position</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Replaced Existing Position</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ReferenceID__c</fullName>
+        <description>The reference number used to connect survey respondents and their documents with this system&apos;s employment periods.</description>
+        <displayFormat>{0}</displayFormat>
+        <externalId>true</externalId>
+        <inlineHelpText>The reference number used to connect survey respondents and their documents with this system&apos;s employment periods.</inlineHelpText>
+        <label>Reference Number</label>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>SSNFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Employee__r.SSN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SSN</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StartDate__c</fullName>
+        <description>The official start date of the Employee associated with this Employment Period</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The official start date of the Employee associated with this Employment Period</inlineHelpText>
+        <label>Hire Date</label>
+        <required>true</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Status of employment from the application process to hired, leave of absence, or transferred.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of employment from the application process to hired, leave of absence, or transferred.</inlineHelpText>
+        <label>Employment Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hired</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Application Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Leave of Absence</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transferred</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Terminated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SurveyCompletedDateGenerated__c</fullName>
+        <description>The date and time of the latest survey, if one exists. If blank, the employee has not taken a survey.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date and time of the latest survey, if one exists. If blank, the employee has not taken a survey.</inlineHelpText>
+        <label>Date Survey Completed</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SurveyProject__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The survey project that this employee is included in during this particular employment period.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The survey project that this employee is included in during this particular employment period.</inlineHelpText>
+        <label>Survey Project</label>
+        <referenceTo>SurveyProject__c</referenceTo>
+        <relationshipLabel>Employment Periods</relationshipLabel>
+        <relationshipName>EmploymentPeriods</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TerminationReasonName__c</fullName>
+        <description>Indicates the reason the Entity terminated the Employment Period with the Employee</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the reason the Entity terminated the Employment Period with the Employee</inlineHelpText>
+        <label>Termination Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Contract Ended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Death</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fired for Misconduct</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Laid Off</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Leave of Absence</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Probationary Discharge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Resigned Voluntarily</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Seasonal Employment Ended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <label>Employment Period</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Entity__c</columns>
+        <columns>Employee__c</columns>
+        <columns>Location__c</columns>
+        <columns>StartDate__c</columns>
+        <columns>EndDate__c</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Employment Period Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Employment Periods</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ReferenceID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Entity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Employee__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ClientEmployeeIDFormula__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SSNFormula__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>StartDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EndDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SurveyProject__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Employee__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>StartDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ClientEmployeeIDFormula__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ReferenceID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Entity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>JobTitleName__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>AccountEIDFormula__c</searchFilterFields>
+        <searchFilterFields>ClientEmployeeIDFormula__c</searchFilterFields>
+        <searchFilterFields>StartDate__c</searchFilterFields>
+        <searchFilterFields>SSNFormula__c</searchFilterFields>
+        <searchFilterFields>SurveyProject__c</searchFilterFields>
+        <searchFilterFields>Employee__c</searchFilterFields>
+        <searchFilterFields>EmploymentEID__c</searchFilterFields>
+        <searchFilterFields>ReferenceID__c</searchFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>Employee__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StartDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EndDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ReferenceID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EmploymentEID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Entity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Location__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SSNFormula__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Hire_date_Validation</fullName>
+        <active>true</active>
+        <description>The Hire date should be less than or equal to the Termination Date.</description>
+        <errorConditionFormula>EndDate__c  &lt;  StartDate__c</errorConditionFormula>
+        <errorMessage>The Hire date should be less than or equal to the Termination Date.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>ScreenEmployee</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>url</linkType>
+        <masterLabel>Screen Employee</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/CallCenterScreenEmployeeEmbedded?VarAccountEID={!SUBSTITUTE(TEXT(Employment__c.AccountEIDFormula__c),&apos;,&apos;,&apos;&apos;)}&amp;VarEmploymentReferenceNumber={!SUBSTITUTE(Employment__c.ReferenceID__c,&apos;,&apos;,&apos;&apos;)}</url>
+    </webLinks>
+</CustomObject>

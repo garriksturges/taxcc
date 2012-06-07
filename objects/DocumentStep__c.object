@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DocumentRequirement__c</fullName>
+        <description>The document requirement that applies to this document role step.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document requirement that applies to this document role step.</inlineHelpText>
+        <label>Document Requirement</label>
+        <referenceTo>DocumentRequirement__c</referenceTo>
+        <relationshipLabel>Document Steps</relationshipLabel>
+        <relationshipName>DocumentSteps</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>DocumentStepEID__c</fullName>
+        <description>The Enterprise ID of this Document Step.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID of this Document Step.</inlineHelpText>
+        <label>Document Step EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>InternalStatus__c</fullName>
+        <description>The status to be shown internally upon receipt of a good document at this level.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The status to be shown internally upon receipt of a good document at this level.</inlineHelpText>
+        <label>InternalStatus</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Form Received from Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request with EDD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request with VA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Request with XO Search Firm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Docs Fulfilled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Submission</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Submitted to Agency</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Level 1 Rejection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Level 1 Appeal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Level 1 Appeal Rejection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Level 2 Appeal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Level 2 Appeal Rejection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Certified</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>QualificationProcessStage__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The process stage that this document step completes once it&apos;s successfully fulfilled.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The process stage that this document step completes once it&apos;s successfully fulfilled.</inlineHelpText>
+        <label>Qualification Process Stage</label>
+        <referenceTo>QualificationProcessStage__c</referenceTo>
+        <relationshipLabel>Document Steps</relationshipLabel>
+        <relationshipName>DocumentSteps</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StepOrder__c</fullName>
+        <description>The order in which the steps under a Document Requirement should be accomplished. The last step alone fulfills the Document Requirement.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The order in which the steps under a Document Requirement should be accomplished. The last step alone fulfills the Document Requirement.</inlineHelpText>
+        <label>StepOrder</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Document Step</label>
+    <listViews>
+        <fullName>AllFunctions</fullName>
+        <columns>DocumentRequirement__c</columns>
+        <columns>DocumentStepEID__c</columns>
+        <columns>NAME</columns>
+        <columns>QualificationProcessStage__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Functions</label>
+    </listViews>
+    <nameField>
+        <label>Document Step Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Document Steps</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>DocumentRequirement__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DocumentStepEID__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>DocumentRequirement__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DocumentStepEID__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DocumentRequirement__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DocumentStepEID__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>DocumentRequirement__c</searchFilterFields>
+        <searchFilterFields>DocumentStepEID__c</searchFilterFields>
+        <searchResultsAdditionalFields>DocumentRequirement__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DocumentStepEID__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

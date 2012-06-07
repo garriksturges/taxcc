@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>newProgramCategoryQualificationPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>newProgramCategoryQualificationPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>FullNameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Trim(Left(ProgramQualification__r.Employment__r.Employee__r.FullNameFormula__c, 37)) &amp; &apos;_&apos; &amp;Trim(Left(ProgramCategoryPeriod__r.ProgramCategory__r.Name, 36)) &amp; &apos;_&apos; &amp; TEXT(MONTH(ProgramQualification__r.EffectiveDate__c))+&quot;/&quot;+RIGHT(TEXT(YEAR(ProgramQualification__r.EffectiveDate__c)),2)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCQUpdateThroughBATCH__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>PCQ Update Through BATCH</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>PCQualification_Unique_Key__c</fullName>
+        <description>This field is used to prevent duplicate Program Category Qualifications under a  Program Qualification which belongs to the same Program Category.</description>
+        <externalId>false</externalId>
+        <formula>ProgramQualification__r.Id + ProgramCategoryPeriod__r.ProgramCategory__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>PCQualification Unique Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PQAgencyEidFormula__c</fullName>
+        <description>The agency connected with the program qualification.</description>
+        <externalId>false</externalId>
+        <formula>ProgramQualification__r.ProgramPeriod__r.Agency__r.AgencyEID__c</formula>
+        <inlineHelpText>The agency connected with the program qualification.</inlineHelpText>
+        <label>PQAgencyEidFormula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PQDocumentSourceEidGeneratedFormula__c</fullName>
+        <description>Document Source from PQ</description>
+        <externalId>false</externalId>
+        <formula>ProgramQualification__r.PQDocumentSourceEidGenerated__c</formula>
+        <inlineHelpText>Document Source from PQ</inlineHelpText>
+        <label>PQDocumentSourceEidGeneratedFormula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProcessStageDate__c</fullName>
+        <description>The date as of which the current process stage was reached.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date as of which the current process stage was reached.</inlineHelpText>
+        <label>Process Stage Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ProcessStageEIDformula__c</fullName>
+        <description>Retrieves the Qualfication Process Stage EID</description>
+        <externalId>false</externalId>
+        <formula>ProcessStage__r.QualificationProcessStageEID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ProcessStageEIDformula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProcessStageRankOrder__c</fullName>
+        <externalId>false</externalId>
+        <formula>ProgramQualification__r.ProcessStage__r.RankOrder__c</formula>
+        <label>Process Stage Rank Order Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProcessStageRankOrderfromPCQ__c</fullName>
+        <externalId>false</externalId>
+        <formula>ProcessStage__r.RankOrder__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ProcessStageRankOrderfromPCQ</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProcessStage__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The process stage of this program category qualification.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The process stage of this program category qualification.</inlineHelpText>
+        <label>Process Stage</label>
+        <referenceTo>QualificationProcessStage__c</referenceTo>
+        <relationshipLabel>Program Category Qualifications</relationshipLabel>
+        <relationshipName>ProgramCategoryQualifications</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryDisqualifications__c</fullName>
+        <externalId>false</externalId>
+        <label>Program Category Disqualifications</label>
+        <summaryForeignKey>ProgramCategoryDisqualification__c.ProgramCategoryQualification__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryPeriod__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The program category period associated with the program category qualification and program qualification</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program category period associated with the program category qualification and program qualification</inlineHelpText>
+        <label>Program Category Period</label>
+        <referenceTo>ProgramCategoryPeriod__c</referenceTo>
+        <relationshipLabel>Program Category Qualifications</relationshipLabel>
+        <relationshipName>ProgramCategoryQualifications</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryQualificationEID__c</fullName>
+        <description>The Enterprise ID for this Program Category Qualification record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Program Category Qualification record.</inlineHelpText>
+        <label>Program Category Qualification EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramQualification__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Indicates the qualified program for an employee</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the qualified program for an employee</inlineHelpText>
+        <label>Program Qualification</label>
+        <referenceTo>ProgramQualification__c</referenceTo>
+        <relationshipLabel>Program Category Qualifications</relationshipLabel>
+        <relationshipName>ProgramCategoryQualifications</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RankOrderofProgramcategory__c</fullName>
+        <externalId>false</externalId>
+        <formula>ProgramCategoryPeriod__r.ProgramCategory__r.RankOrder__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Rank Order of Program Category Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ReadinessDate__c</fullName>
+        <description>The date the program category qualification reached this state of readiness.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the program category qualification reached this state of readiness.</inlineHelpText>
+        <label>Readiness Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ReadinessEid__c</fullName>
+        <externalId>false</externalId>
+        <formula>Readiness__r.QualificationReadinessEID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Qualification Readiness Eid Formula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Readiness__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The state of readiness of a program category for vouchering or application.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The state of readiness of a program category for vouchering or application.</inlineHelpText>
+        <label>Readiness</label>
+        <referenceTo>QualificationReadiness__c</referenceTo>
+        <relationshipLabel>Program Category Qualifications</relationshipLabel>
+        <relationshipName>ProgramCategoryQualifications</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Survey__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Survey</label>
+        <referenceTo>EmployeeSurvey__c</referenceTo>
+        <relationshipLabel>Program Category Qualifications</relationshipLabel>
+        <relationshipName>ProgramCategoryQualifications</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <label>Program Category Qualification</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>ProgramCategoryPeriod__c</columns>
+        <columns>ProgramQualification__c</columns>
+        <columns>ReadinessDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Program Category Qualification Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Program Category Qualifications</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ProgramCategoryPeriod__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ProgramQualification__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ReadinessDate__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ProgramCategoryPeriod__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ProgramQualification__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ReadinessDate__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProgramCategoryPeriod__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProgramQualification__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ReadinessDate__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ProgramCategoryPeriod__c</searchFilterFields>
+        <searchFilterFields>ProgramQualification__c</searchFilterFields>
+        <searchFilterFields>ReadinessDate__c</searchFilterFields>
+        <searchResultsAdditionalFields>ProgramCategoryPeriod__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ProgramQualification__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ReadinessDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

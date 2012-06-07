@@ -1,0 +1,143 @@
+<apex:page showHeader="true" standardStylesheets="true"  sidebar="true">
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map_canvas { height: 100% }
+</style>
+<link type="text/css" href="{!URLFOR($Resource.SurveyEmbeddedCSS, 'commonSurvey.css')}" rel="stylesheet"/>
+<link type="text/css" href="{!URLFOR($Resource.SurveyEmbeddedCSS, 'extendedSurvey.css')}" rel="stylesheet"/>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function()
+{
+   $("link[href*='common.css']").remove();
+   $("link[href*='extended.css']").remove();
+   
+});
+</script>
+
+<!-- 
+<c:SurveyEmbeddedCSS />-->
+
+</head>
+
+<style text="text/css">
+
+        #dashboardFooters a{
+            color:#828282;
+            font-style: italic;
+        }
+        #dashboardFooters p{
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+            -webkit-border-horizontal-spacing: 0;
+            -webkit-border-vertical-spacing: 0;
+            margin-right: 0;
+            margin-left: 0;
+            border-left: solid 0px;
+            border-right: solid 0px;
+            float: left;
+            text-align: center;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #dashboardFooters{
+            margin-top: 10px;
+            color:grey;
+            float:left;
+            font-style: italic;
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+            width:100%;
+        }
+        
+        td.pbButton{        
+            display: none;
+        }
+        
+        span.errorMsg{
+            padding-left: 10px;
+        }
+        
+        div.pbBottomButtons{
+            padding-left: 410px;
+            padding-top: 15px;
+        }
+        
+        .flowContainer{
+            margin-bottom: 15px;
+        }
+        
+        .col02{
+            padding-left: 30px;
+        }
+        
+        table.detailList{
+            font-size: 12px;
+        }
+        
+        td.labelCol{
+            font-size: 12px;
+            vertical-align: top;
+            width: 50%;
+        }
+        td.dataCol{
+            width: 50%;
+        }
+        
+        .requiredMark{
+            font-weight: bold;
+            color: red;
+        }
+
+    </style>
+ 
+<body onload="initialize(); ">
+    <table style="width: 900px; font-family: Verdana, Geneva, Tahoma, sans-serif;" align="center">
+
+        <!--Begin Dashboard Content-->
+        <tr>
+            <td style="padding-top:22px;">
+                <div style="float: left; text-align: left; font-size: small; font-weight: bold; font-variant: small-caps; color: #000000; margin-top:5px; margin-bottom:5px; height:15px;">
+                    <!--{!$User.Title}&nbsp;{!$User.FirstName}&nbsp;{!$User.LastName}-->
+                </div>
+                <table style="width: 900px; border-collapse: collapse;" cellpadding="0" cellspacing="0" border="0">
+                    <!--Content of Dashboard-->
+                    <tr>
+                        <td colspan="3">
+                            <table style="background-color: #FFFFFF; width: 100%; font-size: x-small; color: #000000;" cellpadding="4">
+                                <tr>
+                                    
+                                    <td style="vertical-align: top; padding-left:40px;">
+                                        <flow:interview name="CallCenterScreenEmployee" buttonStyle="btn"></flow:interview> 
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!--Bottom of Dashboard-->
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <!-- **** START OLD LAYOUT ****  
+    <body style="padding:0px;">   
+    
+    <div style="width:850px; margin-left:auto; margin-right:auto;">  
+
+        
+        <div style="width:830px; margin-left:10px; margin-right:10px;">
+            <flow:interview name="CallCenterScreenEmployee" buttonStyle="btn"></flow:interview>    
+        </div>          
+
+    </div>
+    
+    **** END OLD LAYOUT**** -->       
+</body>
+
+
+
+</apex:page>

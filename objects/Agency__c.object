@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The government agencies to whom tax credit programs report.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AgencyEID__c</fullName>
+        <description>Enterprise ID for Agency table</description>
+        <externalId>true</externalId>
+        <inlineHelpText>Enterprise ID for Agency table</inlineHelpText>
+        <label>Agency EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>AgencyEmail__c</fullName>
+        <description>The agency email address</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The agency email address</inlineHelpText>
+        <label>Agency Email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IE2AgencyId__c</fullName>
+        <externalId>false</externalId>
+        <label>IE2AgencyID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OfficialAgencyName__c</fullName>
+        <description>The official name of the agency, to be used on correspondence and official documentation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The official name of the agency, to be used on correspondence and official documentation.</inlineHelpText>
+        <label>Official Agency Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PayeeName__c</fullName>
+        <description>The agency payee name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The agency payee name</inlineHelpText>
+        <label>Payee Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SignatoryName__c</fullName>
+        <description>The agency signatory&apos;s name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The agency signatory&apos;s name</inlineHelpText>
+        <label>Signatory Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SignatoryTitle__c</fullName>
+        <description>The agency signatory&apos;s title</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The agency signatory&apos;s title</inlineHelpText>
+        <label>Signatory Title</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>VoucherChargeAmount__c</fullName>
+        <description>The agency voucher charge amount</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The agency voucher charge amount</inlineHelpText>
+        <label>Voucher Charge Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>VoucherChargeEffectiveDate__c</fullName>
+        <description>The agency voucher charge effective date</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The agency voucher charge effective date</inlineHelpText>
+        <label>Voucher Charge Effective Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <label>Agency</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>IE2AgencyId__c</columns>
+        <columns>NAME</columns>
+        <columns>OfficialAgencyName__c</columns>
+        <columns>PayeeName__c</columns>
+        <columns>SignatoryName__c</columns>
+        <columns>SignatoryTitle__c</columns>
+        <columns>VoucherChargeAmount__c</columns>
+        <columns>VoucherChargeEffectiveDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Agency Nickname</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Agencies</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>PayeeName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SignatoryName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SignatoryTitle__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>AgencyEmail__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>VoucherChargeAmount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>VoucherChargeEffectiveDate__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>PayeeName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SignatoryName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SignatoryTitle__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>AgencyEmail__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>VoucherChargeAmount__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>VoucherChargeEffectiveDate__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PayeeName__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SignatoryName__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>SignatoryTitle__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AgencyEmail__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>VoucherChargeAmount__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>VoucherChargeEffectiveDate__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>PayeeName__c</searchFilterFields>
+        <searchFilterFields>SignatoryName__c</searchFilterFields>
+        <searchFilterFields>SignatoryTitle__c</searchFilterFields>
+        <searchFilterFields>AgencyEmail__c</searchFilterFields>
+        <searchResultsAdditionalFields>PayeeName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SignatoryName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SignatoryTitle__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>AgencyEmail__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VoucherChargeAmount__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VoucherChargeEffectiveDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A list of zip codes in each area.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AreaZipCodeEID__c</fullName>
+        <description>The Enterprise ID for this Area ZipCode.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Area ZipCode.</inlineHelpText>
+        <label>Area ZipCode EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Area__c</fullName>
+        <description>The area containing this entire zip code.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The area containing this entire zip code.</inlineHelpText>
+        <label>Area</label>
+        <referenceTo>Area__c</referenceTo>
+        <relationshipLabel>Area Zip Codes</relationshipLabel>
+        <relationshipName>AreaZipCodes</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ZipCode__c</fullName>
+        <description>A zip code that is in this area.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A zip code that is in this area.</inlineHelpText>
+        <label>Zip Code</label>
+        <length>5</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Area Zip Code</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Area Zip Code Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Area Zip Codes</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>ZipCode__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ZipCode__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ZipCode__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

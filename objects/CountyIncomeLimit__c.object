@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Income limits by county by number of people in a household.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>CountyIncomeLimitEID__c</fullName>
+        <description>The Enterprise ID for this County Income Limit.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this County Income Limit.</inlineHelpText>
+        <label>County Income Limit EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The county where the income limit applies.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The county where the income limit applies.</inlineHelpText>
+        <label>County</label>
+        <referenceTo>County__c</referenceTo>
+        <relationshipLabel>County Income Limits</relationshipLabel>
+        <relationshipName>CountyIncomeLimits</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EffectiveDate__c</fullName>
+        <description>Date that the income limit is effective.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date that the income limit is effective.</inlineHelpText>
+        <label>Effective Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HouseholdPersonCount__c</fullName>
+        <description>Number of people in the household for this income limit.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of people in the household for this income limit.</inlineHelpText>
+        <label>Number of People in Household</label>
+        <precision>2</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IncomeAmount__c</fullName>
+        <description>The income amount that is a limit for this level.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The income amount that is a limit for this level.</inlineHelpText>
+        <label>Income Amount</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>IncomeLevel__c</fullName>
+        <description>The level of income that applies to this income limit.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The level of income that applies to this income limit.</inlineHelpText>
+        <label>Income Level</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Very Low Income</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <label>County Income Limit</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>County Income Limit Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>County Income Limits</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

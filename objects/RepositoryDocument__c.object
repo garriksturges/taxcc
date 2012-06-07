@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>DocumentStatus__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Identifies the validity of the document.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies the validity of the document.</inlineHelpText>
+        <label>Document Status</label>
+        <referenceTo>DocumentStatus__c</referenceTo>
+        <relationshipLabel>Repository Documents</relationshipLabel>
+        <relationshipName>RepositoryDocuments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DocumentType__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>This documents type</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This documents type</inlineHelpText>
+        <label>Document Type</label>
+        <referenceTo>Documenttype__c</referenceTo>
+        <relationshipLabel>Repository Documents</relationshipLabel>
+        <relationshipName>RepositoryDocuments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Employment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The employment period to which this document belongs. If it is an employee document, it must be related to an employment period. If it applies across multiple hire dates, multiple records should be entered (this should happen only about 5% of the time).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employment period to which this document belongs. If it is an employee document, it must be related to an employment period. If it applies across multiple hire dates, multiple records should be entered (this should happen only about 5% of the time).</inlineHelpText>
+        <label>Employment Period</label>
+        <referenceTo>Employment__c</referenceTo>
+        <relationshipLabel>Repository Documents</relationshipLabel>
+        <relationshipName>RepositoryDocuments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>LaserficheDocumentId__c</fullName>
+        <description>The Laserfiche document id generated in the Laserfiche application</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Laserfiche document id generated in the Laserfiche application</inlineHelpText>
+        <label>Laserfiche Document ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RepositoryDocumentEID__c</fullName>
+        <description>The Enterprise ID for this Repository Document record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Repository Document record.</inlineHelpText>
+        <label>Repository Document EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ScannedDate__c</fullName>
+        <description>The date and time we scanned the document into the repository.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date and time we scanned the document into the repository.</inlineHelpText>
+        <label>Scanned Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>wktDocument8850__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The automatically generated IRS Form 8850.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The automatically generated IRS Form 8850.</inlineHelpText>
+        <label>IRS Form 8850</label>
+        <referenceTo>wktDocument8850__c</referenceTo>
+        <relationshipLabel>Repository Documents</relationshipLabel>
+        <relationshipName>RepositoryDocuments</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <label>Repository Document</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>DocumentType__c</columns>
+        <columns>DocumentStatus__c</columns>
+        <columns>Employment__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Repository Document Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Repository Documents</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>DocumentType__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LaserficheDocumentId__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ScannedDate__c</customTabListAdditionalFields>
+        <listViewButtons>DeleteRepositoryDocuments</listViewButtons>
+        <lookupDialogsAdditionalFields>DocumentType__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>LaserficheDocumentId__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ScannedDate__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DocumentType__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>LaserficheDocumentId__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ScannedDate__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>DocumentType__c</searchFilterFields>
+        <searchFilterFields>LaserficheDocumentId__c</searchFilterFields>
+        <searchFilterFields>ScannedDate__c</searchFilterFields>
+        <searchResultsAdditionalFields>DocumentType__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>LaserficheDocumentId__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ScannedDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>EMp</fullName>
+        <active>true</active>
+        <errorConditionFormula>Employment__c  = null  || Employment__c = &apos; &apos;</errorConditionFormula>
+        <errorDisplayField>Employment__c</errorDisplayField>
+        <errorMessage>There is no Employment Id in the Repository Document</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>DeleteRepositoryDocuments</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Delete Repository Documents</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/10.0/apex.js&quot;)}
+var records = {!GETRECORDIDS($ObjectType.RepositoryDocument__c)};
+if (records[0] == null)
+alert(&quot;Please select at least one RepositoryDocument to Delete.&quot;);
+else
+window.parent.location.href =&quot;/apex/RepositoryMassDelete?RepositoryIds=&quot;+records;</url>
+    </webLinks>
+</CustomObject>

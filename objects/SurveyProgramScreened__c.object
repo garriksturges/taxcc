@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Program__c</fullName>
+        <description>The program screened by the survey</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program screened by the survey</inlineHelpText>
+        <label>Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Surveys</relationshipLabel>
+        <relationshipName>SurveyProgramsScreened</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>SurveyProgramScreenedEID__c</fullName>
+        <description>The Enterprise ID for this Survey Program Screened record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Survey Program Screened record.</inlineHelpText>
+        <label>Survey Program Screened EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Survey__c</fullName>
+        <description>The survey that screened for the program</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The survey that screened for the program</inlineHelpText>
+        <label>Survey</label>
+        <referenceTo>EmployeeSurvey__c</referenceTo>
+        <relationshipLabel>Programs Screened</relationshipLabel>
+        <relationshipName>SurveyProgramsScreened</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Survey Program Screened</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Program__c</columns>
+        <columns>Survey__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Survey Programs Screened Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Survey Programs Screened</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Program__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Survey__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Program__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Survey__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Program__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Survey__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Program__c</searchFilterFields>
+        <searchFilterFields>Survey__c</searchFilterFields>
+        <searchResultsAdditionalFields>Program__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Survey__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

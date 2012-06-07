@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The counties in this area, for areas that are defined by county.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AreaCountyEID__c</fullName>
+        <description>The Enterprise ID for this Area County.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Area County.</inlineHelpText>
+        <label>Area County EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Area__c</fullName>
+        <description>The area containing this entire county.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The area containing this entire county.</inlineHelpText>
+        <label>Area</label>
+        <referenceTo>Area__c</referenceTo>
+        <relationshipLabel>Area Counties</relationshipLabel>
+        <relationshipName>AreaCounties</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>County__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>A county in this area.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A county in this area.</inlineHelpText>
+        <label>County</label>
+        <referenceTo>County__c</referenceTo>
+        <relationshipLabel>Area Counties</relationshipLabel>
+        <relationshipName>AreaCounties</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <label>Area County</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Area County Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Area Counties</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>County__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>County__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>County__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

@@ -1,0 +1,4 @@
+<apex:component controller="PortalSearchBoxController">
+	<apex:inputText value="{!searchVal}" id="theTextInput" size="20"/>
+	<apex:commandButton action="{!goToSearchPage}" value="Search"/>
+</apex:component>

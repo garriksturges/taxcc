@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Industries that a program targets or excludes.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>IncludedBit__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>If checked, this program includes this industry. Otherwise, it excludes it.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, this program includes this industry. Otherwise, it excludes it.</inlineHelpText>
+        <label>Program Includes This Industry</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Industry__c</fullName>
+        <description>The industry that this program includes or excludes.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The industry that this program includes or excludes.</inlineHelpText>
+        <label>Industry</label>
+        <referenceTo>Industry__c</referenceTo>
+        <relationshipLabel>Program Industries</relationshipLabel>
+        <relationshipName>ProgramIndustries</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ProgramIndustryEID__c</fullName>
+        <description>The Enterprise ID for this Program Industry record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Program Industry record.</inlineHelpText>
+        <label>Program Industry EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <description>The program that includes or excludes this industry.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program that includes or excludes this industry.</inlineHelpText>
+        <label>Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Program Industries</relationshipLabel>
+        <relationshipName>ProgramIndustries</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Program Industry</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Program Industry Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Program Industries</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

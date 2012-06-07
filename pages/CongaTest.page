@@ -1,0 +1,6 @@
+<apex:page showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:commandLink value="Create PDF Quote" 
+        action="https://www.ninthwavesolutions.com/CloudPDFRegistration/tabid/204/Default.aspx?orgId={!$Organization.Id}&FaxDocId=01540000000DjpZ&W9DocId=01540000000Djpa&orgName={!$Organization.Name}&firstName={!$User.FirstName}&lastName={!$User.LastName}&phone={!$User.Phone}&companyName={!$Organization.Name}&email={!$User.Email}&Addr1={!$Organization.Street}&postalCode={!$Organization.PostalCode}&country={!$Organization.Country}&state={!$Organization.State}&city={!$Organization.City}"/>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>BenchmarkIncomeCapLevel__c</fullName>
+        <description>The income level to use as a benchmark for the wage cap.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The income level to use as a benchmark for the wage cap.</inlineHelpText>
+        <label>Benchmark Income Cap Level</label>
+        <picklist>
+            <picklistValues>
+                <fullName>High Income</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>High Moderate Income</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Moderate Income</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Low Moderate Income</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Low Income</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Very Low Income</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Average Wages</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CapWagePeriod__c</fullName>
+        <description>The period defining the wage cap amount.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The period defining the wage cap amount.</inlineHelpText>
+        <label>Cap Wage Period</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Annual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hourly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CarryBackYearCount__c</fullName>
+        <description>Taxpayer can amend prior-year returns using current credits.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Taxpayer can amend prior-year returns using current credits.</inlineHelpText>
+        <label>Carry-Back Years</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CarryForwardYearCount__c</fullName>
+        <description>Taxpayer can use current credits for this number of future tax years.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Taxpayer can use current credits for this number of future tax years.</inlineHelpText>
+        <label>Carry-Forward Years</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CreditLifetimeYearCount__c</fullName>
+        <description>The maximum length of time in years that an employee can generate tax credits from this program during the employee&apos;s employment period with a company.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The maximum length of time in years that an employee can generate tax credits from this program during the employee&apos;s employment period with a company.</inlineHelpText>
+        <label>Credit Lifetime in Years</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DescriptionText__c</fullName>
+        <description>A full description of the how the program works.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A full description of the how the program works.</inlineHelpText>
+        <label>Description</label>
+        <length>4000</length>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>MaximumLifetimeBenefitAmount__c</fullName>
+        <description>The maximum amount an employee can be worth in tax credits from this program over the employee&apos;s entire employment period with a company.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The maximum amount an employee can be worth in tax credits from this program over the employee&apos;s entire employment period with a company.</inlineHelpText>
+        <label>Maximum Lifetime Benefit</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MinimumDayCount__c</fullName>
+        <description>Days of employment required before the employee qualifies for the tax credit. Blank implies the employee is immediately eligible.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Days of employment required before the employee qualifies for the tax credit. Blank implies the employee is immediately eligible.</inlineHelpText>
+        <label>Minimum Days Employed</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MinimumWeeklyHourCount__c</fullName>
+        <description>The minimum number of hours in a week that an employee must work in order for the employer to claim the credit.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The minimum number of hours in a week that an employee must work in order for the employer to claim the credit.</inlineHelpText>
+        <label>Minimum Weekly Hours</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OfficialTextUrl__c</fullName>
+        <description>A link to the official text that describes this program&apos;s rules and regulations.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A link to the official text that describes this program&apos;s rules and regulations.</inlineHelpText>
+        <label>URL of Official Legal Text</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>OffsetTaxType__c</fullName>
+        <description>The types of tax that this program&apos;s credit offsets.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The types of tax that this program&apos;s credit offsets.</inlineHelpText>
+        <label>Tax Type Offset by Credit</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Business License Tax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Income Tax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Excise/Utilities Tax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Franchise Tax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance Premium Tax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payroll Tax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Property Tax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales Tax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Use Tax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProgramEID__c</fullName>
+        <description>The Enterprise ID for this Program.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Program.</inlineHelpText>
+        <label>Program EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramEndSummary__c</fullName>
+        <description>The overall end date of the program, calculated as the latest end date of the program&apos;s periods.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The overall end date of the program, calculated as the latest end date of the program&apos;s periods.</inlineHelpText>
+        <label>Program Expiration</label>
+        <summarizedField>ProgramPeriod__c.EndDate__c</summarizedField>
+        <summaryForeignKey>ProgramPeriod__c.Program__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ProgramStartSummary__c</fullName>
+        <description>The overall start date of the program, calculated as the earliest start date of the program&apos;s periods.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The overall start date of the program, calculated as the earliest start date of the program&apos;s periods.</inlineHelpText>
+        <label>Program Inception</label>
+        <summarizedField>ProgramPeriod__c.StartDate__c</summarizedField>
+        <summaryForeignKey>ProgramPeriod__c.Program__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>ProgramType__c</fullName>
+        <description>The type of program, affecting the way the program is administered, how locations and employees qualify, and how the credit is calculated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of program, affecting the way the program is administered, how locations and employees qualify, and how the credit is calculated.</inlineHelpText>
+        <label>Program Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Geographic Zone-Based</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Criminal History</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Industry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government Assistance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Headquarters</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Investment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Job Growth</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Negotiated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Geographic Tier-Based</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Facility</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Entity Preapproval Required</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ancestry/Ethnicity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Military Background</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unemployment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Residency</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Income Level</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>RefundableBit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Whether the taxpayer can get a tax refund without tax liability.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Whether the taxpayer can get a tax refund without tax liability.</inlineHelpText>
+        <label>Refundable</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RequiredWageAboveBenchmarkAmount__c</fullName>
+        <description>The required wage amount as a percentage above an official benchmark, such as federal or state minimum wage, or county average.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The required wage amount as a percentage above an official benchmark, such as federal or state minimum wage, or county average.</inlineHelpText>
+        <label>Required Wage above Benchmark (%)</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>RetroactiveYearCount__c</fullName>
+        <description>The number of years that a company can retroactively take credits.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of years that a company can retroactively take credits.</inlineHelpText>
+        <label>Retroactive Years</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ShortName__c</fullName>
+        <description>The program short name</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program short name</inlineHelpText>
+        <label>Short Name</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TransferableBit__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Whether this tax credit can be sold on the open market to another taxpaying employer.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Whether this tax credit can be sold on the open market to another taxpaying employer.</inlineHelpText>
+        <label>Transferable</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TypicalLifetimeBenefitAmount__c</fullName>
+        <description>A typical amount an employee can be worth in tax credits from this program over the employee&apos;s entire employment period with a company.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A typical amount an employee can be worth in tax credits from this program over the employee&apos;s entire employment period with a company.</inlineHelpText>
+        <label>Typical Lifetime Benefit</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>WageBenchmark__c</fullName>
+        <description>The type of minimum or average wages used as a benchmark for this program.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of minimum or average wages used as a benchmark for this program.</inlineHelpText>
+        <label>Wage Benchmark</label>
+        <picklist>
+            <picklistValues>
+                <fullName>County</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>State</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Federal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>WageCapAboveBenchmark__c</fullName>
+        <description>The wages cap as a percentage above an official benchmark, such as federal or state minimum wage, or county average.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The wages cap as a percentage above an official benchmark, such as federal or state minimum wage, or county average.</inlineHelpText>
+        <label>Wage Cap above Benchmark (%)</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Percent</type>
+    </fields>
+    <label>Program</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>ProgramEID__c</columns>
+        <columns>NAME</columns>
+        <columns>DescriptionText__c</columns>
+        <columns>ShortName__c</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Program Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Programs</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ShortName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>DescriptionText__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ShortName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>DescriptionText__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ShortName__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>DescriptionText__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ShortName__c</searchFilterFields>
+        <searchFilterFields>DescriptionText__c</searchFilterFields>
+        <searchResultsAdditionalFields>ShortName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>DescriptionText__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

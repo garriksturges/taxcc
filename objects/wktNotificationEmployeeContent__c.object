@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The employee-related content for the portal&apos;s notification emails.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Documents__c</fullName>
+        <description>The document status of the employee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document status of the employee.</inlineHelpText>
+        <label>Documents</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Needed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Submitted to Agency</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Certified</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>N/A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>EmployeeNameFormula__c</fullName>
+        <description>The full name of the employee whose statuses and dates are shown.</description>
+        <externalId>false</externalId>
+        <formula>Employment__r.Employee__r.FullNameFormula__c</formula>
+        <inlineHelpText>The full name of the employee whose statuses and dates are shown.</inlineHelpText>
+        <label>Employee Name Formula</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EmployeeSurvey__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The latest survey that this employee took in order to cause the statuses shown.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The latest survey that this employee took in order to cause the statuses shown.</inlineHelpText>
+        <label>Employee Survey</label>
+        <referenceTo>EmployeeSurvey__c</referenceTo>
+        <relationshipLabel>wkt Notification Employee Content</relationshipLabel>
+        <relationshipName>wktNotificationEmployeeContent</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>EmploymentStartDateFormula__c</fullName>
+        <description>The hire date of this employee.</description>
+        <externalId>false</externalId>
+        <formula>Employment__r.StartDate__c</formula>
+        <inlineHelpText>The hire date of this employee.</inlineHelpText>
+        <label>Employment Start Date Formula</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Employment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The employment period for the employee in this line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employment period for the employee in this line item.</inlineHelpText>
+        <label>Employment Period</label>
+        <referenceTo>Employment__c</referenceTo>
+        <relationshipLabel>wkt Notification Employee Content</relationshipLabel>
+        <relationshipName>wktNotificationEmployeeContent</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PortalNotification__c</fullName>
+        <description>The portal email notification that this employee content is for.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The portal email notification that this employee content is for.</inlineHelpText>
+        <label>Portal Notification</label>
+        <referenceTo>PortalNotification__c</referenceTo>
+        <relationshipLabel>wkt Notification Employee Content</relationshipLabel>
+        <relationshipName>wktNotificationEmployeeContent</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ProgramEmployeeCount__c</fullName>
+        <description>The number of employees in this program at all locations under this portal user&apos;s purview.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of employees in this program at all locations under this portal user&apos;s purview.</inlineHelpText>
+        <label>ProgramEmployeeCount</label>
+        <precision>6</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramShortNameFormula__c</fullName>
+        <description>The short name of the program, for easy consumption.</description>
+        <externalId>false</externalId>
+        <formula>Program__r.ShortName__c</formula>
+        <inlineHelpText>The short name of the program, for easy consumption.</inlineHelpText>
+        <label>Program Short Name Formula</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The program that these employee statistics are for.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program that these employee statistics are for.</inlineHelpText>
+        <label>Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>wkt Notification Employee Content</relationshipLabel>
+        <relationshipName>wktNotificationEmployeeContent</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Qualified__c</fullName>
+        <description>Whether this employee qualified. &quot;N/A&quot; means the person didn&apos;t screen.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Whether this employee qualified. &quot;N/A&quot; means the person didn&apos;t screen.</inlineHelpText>
+        <label>Qualified</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>N/A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ScreenDateFormula__c</fullName>
+        <description>The date and time the survey was taken.</description>
+        <externalId>false</externalId>
+        <formula>EmployeeSurvey__r.SurveyDate__c</formula>
+        <inlineHelpText>EmployeeSurvey__r.SurveyDate__c</inlineHelpText>
+        <label>Screen Date Formula</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ScreeningStatus__c</fullName>
+        <description>The screening status of this employee.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>EmployeeSurvey__r.SurveyDate__c</inlineHelpText>
+        <label>Screening Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Correct</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incorrect</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Hired</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transferred In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transferred Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unscreened</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <label>wkt Notification Employee Content</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>wkt Notification Employee Conent Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>wkt Notification Employee Content</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

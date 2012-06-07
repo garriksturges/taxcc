@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>newEntityFiscalYearPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>newEntityFiscalYearPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>EntityFiscalYearEID__c</fullName>
+        <description>The Enterprise ID for this Entity Fiscal Year.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Entity Fiscal Year.</inlineHelpText>
+        <label>Entity Fiscal Year EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The entity whose fiscal year end date is being entered.</inlineHelpText>
+        <label>Entity</label>
+        <referenceTo>Entity__c</referenceTo>
+        <relationshipLabel>Fiscal Years</relationshipLabel>
+        <relationshipName>EntityEntityFiscalyears</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>FiscalYearEndDate__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Full fiscal year end date for this entity. Enter all relevant fiscal year end dates in separate records.</inlineHelpText>
+        <label>Fiscal Year End Date</label>
+        <required>true</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>FullNameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Trim(LEFT(Entity__r.Name,74)) &amp; &apos;_&apos;&amp; TEXT(MONTH(FiscalYearEndDate__c)) + &quot;/&quot; + RIGHT(TEXT(YEAR(FiscalYearEndDate__c)),2)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Entity Fiscal Year</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Entity__c</columns>
+        <columns>FiscalYearEndDate__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Entity Fiscal Year Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Entity Fiscal Years</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Entity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>FiscalYearEndDate__c</customTabListAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>FiscalYearEndDate__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

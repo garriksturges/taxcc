@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>newProgramQualificationPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>newProgramQualificationPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>EffectiveDate__c</fullName>
+        <description>The date we determined this qualification</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date we determined this qualification</inlineHelpText>
+        <label>Qualification Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Employment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The employment period that this program qualification is under.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The employment period that this program qualification is under.</inlineHelpText>
+        <label>Employment Period</label>
+        <referenceTo>Employment__c</referenceTo>
+        <relationshipLabel>Program Qualifications</relationshipLabel>
+        <relationshipName>ProgramQualifications</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FullNameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Trim(Left(Employment__r.Employee__r.FullNameFormula__c, 37)) &amp; &apos;_&apos; &amp;Trim(Left(ProgramPeriod__r.Program__r.Name, 36)) &amp; &apos;_&apos; &amp; TEXT(MONTH(EffectiveDate__c))+&quot;/&quot;+RIGHT(TEXT(YEAR(EffectiveDate__c)),2)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IE2ProgramQualificationID__c</fullName>
+        <description>The Incentive Engine voucher ID.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Incentive Engine voucher ID.</inlineHelpText>
+        <label>IE2 Program Qualification ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PQDocumentSourceEidGenerated__c</fullName>
+        <externalId>false</externalId>
+        <label>PQDocumentSourceEidGenerated</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProcessStageDate__c</fullName>
+        <description>The date as of which the current process stage was reached.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date as of which the current process stage was reached.</inlineHelpText>
+        <label>Process Stage Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ProcessStageEIDformula__c</fullName>
+        <externalId>false</externalId>
+        <formula>ProcessStage__r.QualificationProcessStageEID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ProcessStageEIDformula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProcessStage__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Tracks the workflow from qualification to certification.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Tracks the workflow from qualification to certification.</inlineHelpText>
+        <label>Process Stage</label>
+        <referenceTo>QualificationProcessStage__c</referenceTo>
+        <relationshipLabel>Program Qualifications</relationshipLabel>
+        <relationshipName>ProgramQualifications</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ProgramPeriod__c</fullName>
+        <description>The program period that the employee qualifies under</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The program period that the employee qualifies under</inlineHelpText>
+        <label>Program Period</label>
+        <referenceTo>ProgramPeriod__c</referenceTo>
+        <relationshipLabel>Program Qualifications</relationshipLabel>
+        <relationshipName>ProgramQualifications</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>ProgramQualificationEID__c</fullName>
+        <description>The Enterprise ID for this Program Qualification record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Program Qualification record.</inlineHelpText>
+        <label>Program Qualification EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>ReadyPQSortOrderFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>ProcessStage__r.RankOrder__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ReadyPQSortOrderFormula</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Survey__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The survey qualified for this program</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The survey qualified for this program</inlineHelpText>
+        <label>Survey</label>
+        <referenceTo>EmployeeSurvey__c</referenceTo>
+        <relationshipLabel>Program Qualifications</relationshipLabel>
+        <relationshipName>ProgramQualifications</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Unique_Key_Qualification__c</fullName>
+        <description>This field is used to prevent duplicate Program Qualifications under a  Employment which belongs to the same Program</description>
+        <externalId>false</externalId>
+        <formula>Employment__r.Id  +   ProgramPeriod__r.Program__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Unique Key Qualification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Program Qualification</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Employment__c</columns>
+        <columns>Survey__c</columns>
+        <columns>ProgramPeriod__c</columns>
+        <columns>EffectiveDate__c</columns>
+        <columns>ProcessStage__c</columns>
+        <columns>ProcessStageDate__c</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Program Qualification Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Program Qualifications</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>ProgramPeriod__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>ProgramPeriod__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ProgramPeriod__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ProgramPeriod__c</searchFilterFields>
+        <searchResultsAdditionalFields>ProgramPeriod__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Test_Conga</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>false</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Test Conga</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://www.appextremes.com/apps/Conga/PointMerge.aspx
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_80}
+&amp;id={!ProgramQualification__c.Id}
+&amp;QueryId=a1EV00000004JHL
+&amp;TemplateId=a1DV0000000DUdX</url>
+        <width>700</width>
+    </webLinks>
+</CustomObject>

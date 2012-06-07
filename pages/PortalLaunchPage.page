@@ -1,0 +1,4 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" >
+    <body onload="window.location.href = '{!$Site.Prefix}/apex/PortalHomePage?id={!$User.ContactId}';">
+    </body>
+</apex:page>

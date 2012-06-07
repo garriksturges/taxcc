@@ -1,0 +1,132 @@
+<apex:component >
+<style>
+        
+        
+        dt{
+            font-weight: bold;
+        }
+        dd{
+            margin-left:3px;
+        }
+        #nodeList{
+            width:20%;
+        }
+        #locationList{
+            height: 100%;
+        } 
+        #locationList table{
+            vertical-align: top;
+        } 
+        #locationList table tr td, th{
+            margin-left:auto;
+            margin-right:auto;
+            vertical-align: middle;
+            text-align: left;
+        }
+        div[id$="nodeRepeat"]{
+            width:100%;
+        }
+        div[id$="nodeRepeat"] table{
+            width:100%;
+        }
+        #dashbooardTabs{
+            display: table;
+            -webkit-margin-before: 0;
+            -webkit-margin-after: 0;
+            -webkit-border-horizontal-spacing: 0px;
+            -webkit-border-vertical-spacing: 0px;
+            width: 100%; 
+            display: inline-block;   
+          }
+          #dashbooardTabs p:hover{
+             background-color: #A9A9A9;
+             cursor:pointer;
+             color:white;
+             border-bottom: #A9A9A9;
+          }
+          #dashbooardTabs p{
+              height:20px;
+
+              -webkit-margin-before: 0;
+              -webkit-margin-after: 0;
+              -webkit-border-horizontal-spacing: 0;
+              -webkit-border-vertical-spacing: 0;
+              margin-right: 0;
+              margin-left: 0;
+              border-left: solid 1px black;
+              border-right: solid 1px black;
+              border-top: solid 1px black;
+              width: 100px;
+              float: left;
+              text-align: center;
+              font-family:Verdana, Geneva, Tahoma, sans-serif;
+              font-weight: bold;
+              margin-top:0px;
+              margin-bottom:0px;
+          }
+          #dashbooardTabs .selectedDashboardTab{
+              background-color: black;
+              color:white;
+              -webkit-border-horizontal-spacing: 0px;
+              -webkit-border-vertical-spacing: 0px;
+              border-left:solid black 1px;
+              border-right:solid black 1px;
+          }
+                #screensLabel{
+            border-bottom : solid black 1px;
+            display: block;
+                    -webkit-margin-before: 0em;
+                    -webkit-margin-after: 0em;
+                    -webkit-margin-start: 0px;
+                    -webkit-margin-end: 0px;
+                    margin-left: 213px;
+                    width: 164px;
+         }
+         #ratioLabel{
+            border-bottom : solid black 1px;
+            display: block;
+                    -webkit-margin-before: 0em;
+                    -webkit-margin-after: 0em;
+                    -webkit-margin-start: 0px;
+                    -webkit-margin-end: 0px;
+                    width: 130px;
+                    margin-left: 160px;
+         }
+         
+          
+         #dashboardStats{
+            height: 145px;
+            width: 100%;
+            border-top: solid 2px;
+            margin-top:7px;
+         }
+         .statsHeader{
+             text-align:center;
+             font-size: 140%;
+          }
+         .statsImage{
+             height:100px;
+         }
+         #locationTable{
+             background-color:#D3D3D3;
+             border-color:#828282;
+             border-collapse: collapse
+         }
+        #locationList #locationTable tr td,th{
+            text-align:center;
+        }
+         .locTable  {
+             height: 15px;
+             border: 1px solid #828282;
+             text-align:center;
+         }
+         .leftAlign{
+             text-align:left !important;
+          }
+         
+        #CSV_Link{
+         	float: right;
+					color: grey;
+				}
+</style>
+</apex:component>

@@ -1,0 +1,9 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" contentType="text#locationStats.csv" controller="PortalExecutiveDashboardController" >
+Start Date, {!startDateFilter}, End Date, {!endDateFilter}
+Screening Compliance, Qualification Rate, Document Compliance
+{!screenRatioExcel}, {!qualRatioExcel}, {!docRatioExcel}
+Location, City, Valid, Trans. Out, Incorrect, Not Hired, Unscr., Trans.In, Screening, Qual., Doc
+<apex:repeat value="{!locationList}" var="ll" >
+ {!ll.lp.location__r.Name}, {!ll.lp.location__r.CityName__c} {!ll.lp.location__r.State__r.StateAbbr__c}, {!ll.ValidScreens}, {!ll.ScreenTransfersOut}, {!ll.InvalidScreens}, {!ll.NotHiredScreens}, {!ll.Unscreened}, {!ll.ScreenTransfersIn}, {!ll.PortalScreeningComplianceNum}/{!ll.PortalScreeningComplianceDenom}, {!ll.PortalQualificationNum}/{!ll.PortalScreeningComplianceNum}, {!ll.documentNum}/{!ll.documentDenom}
+</apex:repeat>
+</apex:page>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Instructions on how to prepare or handle a document.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Audience__c</fullName>
+        <description>The audience for whom the instructions are meant.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The audience for whom the instructions are meant.</inlineHelpText>
+        <label>Audience</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>DocumentInstructionEID__c</fullName>
+        <description>The Enterprise ID for this document instruction record.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this document instruction record.</inlineHelpText>
+        <label>Document Instruction EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DocumentRequirement__c</fullName>
+        <description>The document requirement that the instructions are for.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The document requirement that the instructions are for.</inlineHelpText>
+        <label>Document Requirement</label>
+        <referenceTo>DocumentRequirement__c</referenceTo>
+        <relationshipLabel>Document Instructions</relationshipLabel>
+        <relationshipName>DocumentInstructions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>InstructionSummaryText__c</fullName>
+        <description>A quick summary of the document instructions, for use in reports.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A quick summary of the document instructions, for use in reports.</inlineHelpText>
+        <label>Instruction Summary</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>InstructionText__c</fullName>
+        <description>The text of the instructions regarding this document in this language for this audience.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The text of the instructions regarding this document in this language for this audience.</inlineHelpText>
+        <label>Instruction Text</label>
+        <length>2000</length>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Language__c</fullName>
+        <description>The language that the instructions are in.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The language that the instructions are in.</inlineHelpText>
+        <label>Language</label>
+        <picklist>
+            <picklistValues>
+                <fullName>English</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ProgramCategoryFormula__c</fullName>
+        <description>The program category that this document instruction falls under.</description>
+        <externalId>false</externalId>
+        <formula>DocumentRequirement__r.ProgramCategory__r.Name</formula>
+        <inlineHelpText>The program category that this document instruction falls under.</inlineHelpText>
+        <label>Program Category</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramFormula__c</fullName>
+        <description>The program associated with this document instruction.</description>
+        <externalId>false</externalId>
+        <formula>if (  ISBLANK( DocumentRequirement__r.Program__r.Name ),  DocumentRequirement__r.ProgramCategory__r.Program__r.Name , DocumentRequirement__r.Program__r.Name)</formula>
+        <inlineHelpText>The program associated with this document instruction.</inlineHelpText>
+        <label>Program</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Document Instruction</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>DocumentRequirement__c</columns>
+        <columns>InstructionSummaryText__c</columns>
+        <columns>Audience__c</columns>
+        <columns>Language__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Document Instruction Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Document Instructions</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

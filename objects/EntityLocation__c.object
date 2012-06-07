@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>newEntityLocationPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>newEntityLocationPage</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AccountEID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Location__r.Account__r.AccountEID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ClientLocationIDFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Location__r.ClientLocationID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Client Location ID</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EntityLocationEID__c</fullName>
+        <description>The Enterprise ID for this Entity Location.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Entity Location.</inlineHelpText>
+        <label>Entity Location EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Entity__c</fullName>
+        <description>Entity that has this location.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Entity that has this location.</inlineHelpText>
+        <label>Entity</label>
+        <referenceTo>Entity__c</referenceTo>
+        <relationshipLabel>Locations</relationshipLabel>
+        <relationshipName>Locations</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>FullNameFormula__c</fullName>
+        <externalId>false</externalId>
+        <formula>Trim(Left(Location__r.Name, 40)) &amp; &apos;_&apos; &amp; Trim(Left(Entity__r.Name, 39))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Full Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <description>Location that hires under this entity.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Location that hires under this entity.</inlineHelpText>
+        <label>Location</label>
+        <referenceTo>Location__c</referenceTo>
+        <relationshipLabel>Entities</relationshipLabel>
+        <relationshipName>Entities</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Entity Location</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Entity Location Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Entity Locations</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>AccountEID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Entity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Location__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ClientLocationIDFormula__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EntityLocationEID__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>AccountEID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ClientLocationIDFormula__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Entity__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EntityLocationEID__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Location__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>AccountEID__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ClientLocationIDFormula__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Entity__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EntityLocationEID__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Location__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>AccountEID__c</searchFilterFields>
+        <searchFilterFields>ClientLocationIDFormula__c</searchFilterFields>
+        <searchFilterFields>Entity__c</searchFilterFields>
+        <searchFilterFields>EntityLocationEID__c</searchFilterFields>
+        <searchFilterFields>Location__c</searchFilterFields>
+        <searchResultsAdditionalFields>AccountEID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ClientLocationIDFormula__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Entity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EntityLocationEID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Location__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>ScreenEmployee</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>url</linkType>
+        <masterLabel>Screen Employee</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/CallCenterScreenEmployeeEmbedded?VarAccountEID={!SUBSTITUTE(TEXT(EntityLocation__c.AccountEID__c), &apos;,&apos;, &apos;&apos;) }&amp;VarEntityLocationEID={!SUBSTITUTE(TEXT(EntityLocation__c.EntityLocationEID__c), &apos;,&apos;, &apos;&apos;)}</url>
+    </webLinks>
+</CustomObject>

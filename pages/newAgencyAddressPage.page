@@ -1,0 +1,23 @@
+<apex:page standardController="AgencyAddress__c" >
+  <apex:form >
+    <apex:pageBlock title="Agency Address" mode="edit">
+      
+<apex:pageMessages />
+      <apex:pageBlockButtons >
+        <apex:commandButton action="{!save}" value="Save"/>
+        <apex:commandButton action="{!cancel}" value="Cancel"/>
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="" columns="1">
+        <apex:inputField value="{!AgencyAddress__c.Agency__c}" required="true"/>
+        <apex:inputField value="{!AgencyAddress__c.StreetAddressText__c}" required="true"/>
+        <apex:inputField value="{!AgencyAddress__c.CityName__c}" required="true"/>
+        <apex:inputField value="{!AgencyAddress__c.State__c}" required="false"/>
+        <apex:inputField value="{!AgencyAddress__c.ZipCode__c}" required="true"/>
+        <apex:inputField value="{!AgencyAddress__c.County__c}" />
+        <apex:inputField value="{!AgencyAddress__c.Latitude__c}" />
+        <apex:inputField value="{!AgencyAddress__c.Longitude__c}" />
+        <apex:inputField value="{!AgencyAddress__c.AgencyAddressEID__c}" />
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

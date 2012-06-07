@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>A mapping of NAICS industries to account hierarchy members. This has the effect of attaching any organizational level of a client, and all locations at that level and below, to an industry.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>AccountHierarchyMemberIndustryEID__c</fullName>
+        <description>The Enterprise ID for this Account Hierarchy Member Industry.</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The Enterprise ID for this Account Hierarchy Member Industry.</inlineHelpText>
+        <label>Account Hierarchy Member Industry EID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>AccountHierarchyMember__c</fullName>
+        <description>The account hierarchy member, or organizational level.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The account hierarchy member, or organizational level.</inlineHelpText>
+        <label>Account Hierarchy Member</label>
+        <referenceTo>AccountHierarchyMember__c</referenceTo>
+        <relationshipLabel>Account Hierarchy Member Industries</relationshipLabel>
+        <relationshipName>AccountHierarchyMemberIndustries</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Account Hierarchy Member Industry</label>
+    <nameField>
+        <displayFormat>{0}</displayFormat>
+        <label>Account Hierarchy Member Industry Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Account Hierarchy Member Industries</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>
